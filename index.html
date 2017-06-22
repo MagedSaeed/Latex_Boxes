@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Boxes to preview LaTeX</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<script type="text/javascript" src="JS/javascript.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id="">
+		MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+				displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+				processEscapes: true
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		});
+
+	</script>
+
+</head>
+<body>
+	<!-- hidden form for preview.php-->
+	<form id="myForm" action="preview.php" method="post" target="_blank">
+		<input type="hidden" name="q" id="in_form">
+	</form>
+
+	<!-- we may need this useless hidden text area-->
+	<textarea id = "hidden-text-area" style="display: none"></textarea>
+
+	<!-- the main navigator -->
+	<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #333!important">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" id="reload" onclick="window.location.reload(true);" href="#">LaTeX BOXES</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a  class="functions" href ="#" onclick = "add()">Add New Box</a></li>
+					<li><a class="functions" href ="#" onclick = "preview_all()">Preview All</a></li>
+					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
+					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "download_text();">Download</a></li>
+					<!-- non-display input file clicked by the upload button -->
+					<li><input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)"></li>
+					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
+				</ul> 
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-lg-8 col-lg-offset-2'>
+				<hr>
+			</div>
+		</div>
+		<div class ="panel panel-default" id="lsymbols" >
+			<button type="button" class="btn btn-xm btn-default symbols" title = "integrate" onclick="insert_txt('int')">$$\int^a_b$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "summation" onclick="insert_txt('sum')">$$\sum_{n=1}^\infty$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\prod_{n=1}^\infty$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\alpha$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\beta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Gamma$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\gamma$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Delta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\delta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\epsilon$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varepsilon$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\zeta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\eta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Theta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\theta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\vartheta$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\iota$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\kappa$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varkappa$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Lambda$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\lambda$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\mu$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Xi$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\xi$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\omicron$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Pi$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\pi$$</button>
+			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varpi$$</button>
+		</div>
+	</nav>
+
+
+
+	<!-- The main container elements -->
+	<!-- can we make a dynamic margin container ?-->
+	<div class="container" id = "mainContainer" style="margin-top: 200px">
+		<div class="form-group" id = "id0" >
+			<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" style=" border-color: #9fa8da; margin-bottom: 3px" onfocusout="on_focus_out(this);"></textarea>
+			<div class="btn-group pull-right" style="border-color:black !important;">
+				<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
+				<button type="button" class="btn glyphicon glyphicon-arrow-down" title ="Move Down" onclick = "moveDown(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
+				<button type="button" class="btn glyphicon glyphicon-play text-primary" title ="Preview" onclick="compile(this.parentElement.parentElement.id)"    style="background-color:transparent;"></button>
+				<button type="button" class="btn glyphicon glyphicon-eye-close" title ="Live Preview" onclick="live(this,this.parentElement.parentElement.id)"style="background-color:transparent;"></button>
+				<button type="button" class="btn glyphicon glyphicon-trash text-danger" onclick="remove(this.parentElement.parentElement.id)" title ="Remove" style="background-color:transparent;"></button>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" style="min-height:35px"></div>
+				<div class="panel-body"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- Hello, I just changed the content a little bit -->
+<!-- blah-->
+</html>
