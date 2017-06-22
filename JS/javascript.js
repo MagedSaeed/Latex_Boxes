@@ -135,7 +135,7 @@ function insert_txt(symbol){
 	curr_text.value = text_str.substring(0, curr_pos)+" "+symbols[symbol]+" "+text_str.substring(curr_pos, text_str.length);
 }
 
-function add(){
+function add(text){
 	var el = document.getElementById('mainContainer');
 	el = el.firstChild;
 
@@ -152,7 +152,7 @@ function add(){
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
 		if (child.nodeName == "TEXTAREA"){
-			child.value = "";
+			child.value = text;
 			var tex_area = child
 		}
 		if (child.className == "panel panel-default")
@@ -418,6 +418,42 @@ function download_text() {
 	document.body.removeChild(element);
 }
 
+//download code as xml file
+//might not work for all browsers 
+function download_xml() {
+	filename ="code.xml"
+	var all_text = "<?xml version='1.0' encoding='UTF-8'?>";
+	all_text = all_text.concat("\n<body>\n");
+	var divNode = mainContainer.firstChild;
+	while (divNode && divNode.nodeType !== 1)
+		divNode = divNode.nextSibling;
+	do{
+		for(var i = 0; i<divNode.children.length; i++){
+			child = divNode.children[i];
+			if (child.nodeName == "TEXTAREA"){
+				all_text = all_text.concat("\n<box>\n");
+				all_text = all_text.concat(child.value);
+				all_text = all_text.concat("\n</box>\n");
+				break;
+			}
+		}
+		divNode = divNode.nextElementSibling;
+	}while(divNode != null);
+	all_text = all_text.concat("\n</body>\n");
+	text = all_text;
+	var element = document.createElement('a');
+	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	element.setAttribute('download', filename);
+
+	element.style.display = 'none';
+	document.body.appendChild(element);
+
+	element.click();
+
+	document.body.removeChild(element);
+}
+
+
 				//upload file 
 				//will it work on all browsers ?!
 function upload(object){
@@ -432,12 +468,31 @@ function upload(object){
 				//initialize a file reader to read the of the file as text
 				var fr = new FileReader();
 				fr.onload = function(e) {
-					alert(e.target.result);
+					txt = e.target.result;
+					if(txt)
+					{
+						parser = new DOMParser();
+						try
+						{
+							xmlDoc = parser.parseFromString(txt,"text/xml");
+							for (i = 0; i < xmlDoc.getElementsByTagName("box").length ; i++) { 
+								value = xmlDoc.getElementsByTagName("box")[i].firstChild.nodeValue;
+								//What happens to the previously added elements or the first element ?!
+								add(value);
+							}
+							//alert(value);
+						}catch(e)
+						{
+							alert('This format is not allowed !');
+						}
+					}
 				};
 				fr.readAsText(file);
 			}
 		}
 	}
+
+	
 }
 
 // a function to show the symobls panel on a button click

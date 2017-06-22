@@ -46,14 +46,20 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a  class="functions" href ="#" onclick = "add()">Add New Box</a></li>
+					<li><a  class="functions" href ="#" onclick = "add('')">Add New Box</a></li>
 					<li><a class="functions" href ="#" onclick = "preview_all()">Preview All</a></li>
 					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
-					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "download_text();">Download</a></li>
 					<!-- non-display input file clicked by the upload button -->
 					<li><input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)"></li>
 					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
 					<li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li>
+					<li class="dropdown" >
+                <a href="#" class="dropdown-toggle functions" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" onclick = "download_text();">Text file</a></li>
+                  <li><a href="#" onclick ="download_xml()">Xml file</a></li>
+                </ul>
+              </li>
 				</ul> 
 			</div>
 		</div>
