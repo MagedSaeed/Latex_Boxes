@@ -1,73 +1,89 @@
-		.functions{
-			color: white !important;
-			font-weight: 200;
-		}
-		/* unvisited link */
-		/*.functions:link {
-		    color: red !important;
-		}*/
+	body{
+		background-color: #eceff1;
+	}
+	.functions{
+		color: white !important;
+		padding:0.27cm !important;
+	}
 
-		/* visited link */
-		/*.functions:visited {
-		    color: black !important;
-		}*/
+	/* in need resources */
 
-		/* mouse over link */
-		/*.functions:hover {
-		    color: blue !important;
-		}*/
+	/* unvisited link */
+	/*.functions:link {
+	    color: red !important;
+	}*/
 
-		/* selected link */
-		/*.functions:active {
-		    color: hotpink !important;
-		}*/
-		.navbar-light .navbar-nav > li > a:visited{
-			background-color: #262626!important
-		}
-		.navbar-light .navbar-nav > li > a:hover{
-			background-color: black!important;
-		}
-		.navbar-light .navbar-nav > li > a:active{
-			color: #f2f2f2!important;
-		}
-		.navbar-light .navbar-toggle .icon-bar {
-   			background-color: #d9d9d9;
-		}
-		.navbar-light .navbar-toggle:hover .icon-bar {
-   			background-color: #ffffff;
-		}
+	/* visited link */
+	/*.functions:visited {
+	    color: black !important;
+	}*/
 
-		#reload:hover{
-			background-color: #990033 !important;
-		}
-		#reload:active{
-			background-color: #80002a !important;
-			color:#d9d9d9 !important;
-		}
-		#reload {
-			color:white !important; font-family: Georgia;background-color: #cc0000 !important; border-color: white;
-		}
-        .navbar-light .panel-default .symbols {
-            background-color:transparent ; 
+	/* mouse over link */
+	/*.functions:hover {
+	    color: blue !important;
+	}*/
+
+	/* selected link */
+	/*.functions:active {
+	    color: hotpink !important;
+	}*/
+
+	.navbar-light .navbar-nav > li > a:visited{
+		background-color: #262626!important
+	}
+	.navbar-light .navbar-nav > li > a:hover{
+		background-color: black!important;
+	}
+	.navbar-light .navbar-nav > li > a:active{
+		color: #f2f2f2!important;
+	}
+	.navbar-light .navbar-toggle .icon-bar {
+			background-color: #d9d9d9;
+	}
+	.navbar-light .navbar-toggle:hover .icon-bar {
+			background-color: #ffffff;
+	}
+
+	#reload:hover{
+		background-color: #990033 !important;
+	}
+	#reload:active{
+		background-color: #80002a !important;
+		color:#d9d9d9 !important;
+	}
+	#reload {
+		color:white !important; font-family: Georgia;background-color: #cc0000 !important; border-color: white;
+	}
+
+    #mainContainer{
+    	margin-top: 75px;
+    	-webkit-transition: margin-top 75px, 2s;
+    	transition: margin-top 75px, 2s;
+
+    }
+    .navbar-light .panel-default .symbols:hover {
+    	color: white;
+         background-color: #cc0000;
+         border-color: black!important;
+
+    }
+    .navbar-light .panel-default .symbols:active {
+         color: #660033;
+         background-color: #b30000;
+
+
+    }
+    .navbar-light .panel-default .symbols{
+		background-color:transparent ; 
             color: white;
-            border-color: #333;
-            padding-left: 0.3cm;
+            border-color: transparent;
+            padding-left: 0.2cm;
+		
+    }
 
-        }
-        .navbar-light .panel-default .symbols:hover {
-             color: #999999
-  
-        }
-        .navbar-light .panel-default .symbols:active {
-             color: #737373
-  
-        }
-        .navbar-light .panel-default {
-          background-color:#333; 
-          border-color: #333;
-          //display:none;
-        }
-        .navbar-light .btn-default{
-          margin-top:5px;
-        }
-        
+    #symbols_table{
+    	background-color:#333;
+    	border-color:#333;
+    	border-top-color: white!important;
+    	transition: height 2s;
+    }

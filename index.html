@@ -53,16 +53,12 @@
 					<!-- non-display input file clicked by the upload button -->
 					<li><input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)"></li>
 					<li><a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
+					<li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li>
 				</ul> 
 			</div>
 		</div>
-		<div class='row'>
-			<div class='col-lg-8 col-lg-offset-2'>
-				<hr>
-			</div>
-		</div>
-		<div class ="panel panel-default" id="lsymbols" >
-			<button type="button" class="btn btn-xm btn-default symbols" title = "integrate" onclick="insert_txt('int')">$$\int^a_b$$</button>
+	<div class ="panel panel-default collapse" id="symbols_table" >
+			<button type="button" class="btn btn-lg btn-default symbols" title = "integrate" onclick="insert_txt('int')">$\int^a_b$</button>
 			<button type="button" class="btn btn-xs btn-default symbols" title = "summation" onclick="insert_txt('sum')">$$\sum_{n=1}^\infty$$</button>
 			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\prod_{n=1}^\infty$$</button>
 			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\alpha$$</button>
@@ -90,16 +86,16 @@
 			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Pi$$</button>
 			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\pi$$</button>
 			<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varpi$$</button>
-		</div>
+		</div>	
 	</nav>
-
+	
 
 
 	<!-- The main container elements -->
 	<!-- can we make a dynamic margin container ?-->
-	<div class="container" id = "mainContainer" style="margin-top: 200px">
+	<div class="container" id = "mainContainer">
 		<div class="form-group" id = "id0" >
-			<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" style=" border-color: #9fa8da; margin-bottom: 3px" onfocusout="on_focus_out(this);"></textarea>
+			<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);"></textarea>
 			<div class="btn-group pull-right" style="border-color:black !important;">
 				<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
 				<button type="button" class="btn glyphicon glyphicon-arrow-down" title ="Move Down" onclick = "moveDown(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
@@ -114,6 +110,4 @@
 		</div>
 	</div>
 </body>
-<!-- Hello, I just changed the content a little bit -->
-<!-- blah-->
 </html>
