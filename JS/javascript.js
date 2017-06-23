@@ -431,9 +431,13 @@ function download_xml() {
 		for(var i = 0; i<divNode.children.length; i++){
 			child = divNode.children[i];
 			if (child.nodeName == "TEXTAREA"){
-				all_text = all_text.concat("\n<box>\n");
+				all_text = all_text.concat("\n<box>");
 				all_text = all_text.concat(child.value);
-				all_text = all_text.concat("\n</box>\n");
+				var match = /\r|\n/.exec(child.value);
+				if (match) {
+				    alert('found new line');
+				}
+				all_text = all_text.concat("</box>\n");
 				break;
 			}
 		}
@@ -475,12 +479,17 @@ function upload(object){
 						try
 						{
 							xmlDoc = parser.parseFromString(txt,"text/xml");
+
+							//copy the current list of containers to remove them after upload is done
+							rmList = idList.slice(0);
 							for (i = 0; i < xmlDoc.getElementsByTagName("box").length ; i++) { 
 								value = xmlDoc.getElementsByTagName("box")[i].firstChild.nodeValue;
-								//What happens to the previously added elements or the first element ?!
 								add(value);
 							}
-							//alert(value);
+							//once it is done remove all the current elements 
+							//should we remove the current boxes ?!
+							//for(i=0 ; i< rmList.length ; i++)
+							//	remove(rmList[i]);
 						}catch(e)
 						{
 							alert('This format is not allowed !');
