@@ -1,0 +1,94 @@
+<div id="menu">
+<ul>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>    
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>    
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>    
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>        
+</ul>
+</div>
+<div id="content">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt nunc sed tortor consequat sit amet laoreet justo pretium. In hac habitasse platea dictumst. Aenean rhoncus, arcu quis egestas auctor, eros quam fermentum urna, non auctor purus est facilisis elit. Suspendisse potenti. Quisque id mi eu diam aliquam dignissim. Suspendisse elementum dolor eget velit vulputate aliquam luctus nulla luctus. Donec et purus sem. In lorem neque, accumsan eu varius eu, faucibus ut nisi. Duis mauris dolor, mattis sit amet ultricies id, tristique non neque. Phasellus ornare libero at arcu porttitor id condimentum sapien ornare. Pellentesque et tellus a dolor commodo accumsan sed eu enim.
+</p>
+<p>
+Nulla a ipsum quis turpis aliquam pellentesque. Mauris facilisis eros a ipsum fermentum auctor fringilla est mattis. Suspendisse nibh lacus, mattis id dictum eu, pharetra quis tellus. Maecenas sed diam felis. Nulla metus lorem, varius malesuada sagittis porta, eleifend in nisi. Vestibulum nulla turpis, pulvinar ullamcorper aliquam in, posuere in justo. Aliquam luctus, sem ac posuere dapibus, mauris odio elementum tellus, ut cursus enim mi eu lectus. Aenean eu sem et sem porttitor fermentum at vitae diam. Curabitur sit amet turpis quam, id pellentesque quam. Integer ac turpis lacus, vel luctus mi. Morbi pulvinar libero sit amet odio adipiscing vitae facilisis velit porta. Praesent sed elit ante, in ullamcorper nibh. Nullam ipsum velit, volutpat pellentesque interdum nec, eleifend in nunc. Nunc a tempus velit. Suspendisse sed enim sit amet felis sollicitudin semper ut ut dui. Donec posuere nibh dapibus magna placerat sed tristique quam mattis.
+</p>
+<p>
+In hac habitasse platea dictumst. Aliquam est nulla, bibendum a rhoncus ac, sagittis at ante. Suspendisse id dui tellus, vitae suscipit augue. Integer nec velit non elit ultricies faucibus sit amet id massa. Maecenas et sem ac odio fringilla congue id non magna. Morbi hendrerit viverra luctus. Nullam quis risus dui. Cras vestibulum, libero in tempus hendrerit, neque velit venenatis purus, a vehicula metus dui eget leo. Phasellus ac elit enim. Vestibulum tincidunt vulputate nisl, eu vulputate nibh egestas ut. Proin viverra tellus sit amet nisi viverra accumsan. Nulla eu massa diam, vel semper est. Etiam pharetra cursus quam, nec elementum purus elementum sit amet. Sed ac nisl sed augue pellentesque dapibus.
+</p>
+<p>
+Morbi eget lectus nibh. Vestibulum ut arcu turpis, at pretium lectus. Phasellus varius tempus tortor, quis tristique augue fermentum posuere. Curabitur varius vestibulum rutrum. Duis id nibh in massa dapibus tristique. Nullam lorem tellus, tristique suscipit sodales id, consectetur congue mi. Mauris a ligula nunc, ut luctus dui. Ut urna nunc, rutrum nec tempus tincidunt, iaculis vitae ligula. Fusce a lacus elit, sit amet facilisis lacus. Vivamus vehicula molestie iaculis. Praesent varius sapien in felis venenatis viverra. Cras elementum commodo imperdiet. Maecenas eget lectus sapien.
+</p>
+<p>
+Integer ac lacus ac massa bibendum aliquet. Nam blandit vulputate lectus, sit amet iaculis leo gravida sit amet. In leo nisl, molestie in ullamcorper at, tempor quis nunc. Maecenas sagittis feugiat purus, non gravida nisl egestas ac. Maecenas commodo tortor id diam consectetur ut tincidunt velit mattis. Donec tellus sapien, eleifend at tempor in, egestas non tellus. Curabitur nec leo eros, ornare mattis sem. Duis varius gravida orci, ut ornare lacus hendrerit ultricies. Proin quis lectus ut nunc euismod mattis. Donec ut dolor diam. Nullam nec luctus ipsum. Mauris nec tempor risus. Duis ipsum turpis, aliquet non consequat nec, condimentum sed nulla. Duis massa dui, venenatis eget condimentum id, condimentum porttitor enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+</p>
+</div>
+<style type="text/css">
+#menu{
+    position:absolute;
+    width:175px;
+    padding-right:25px;
+    top:0;
+    bottom:0;
+    margin-left:-175px;
+    float:left;
+    background:#d00;
+    -webkit-transition:margin-left .5s ease-in-out;
+    z-index:1;
+    box-shadow:1px 0 3px rgba(0,0,0,.75);
+}
+#menu:after{
+    content:'|||';
+    -webkit-transform:rotate(-90deg);
+    position:absolute;
+    top:0;
+    right:4px;
+    font-size:20px;
+    display:block;
+    height:25px;
+    line-height:25px;
+    color:#f33;
+    font-family:Helvetica, Century Gothic, Arial, sans-serif;
+    letter-spacing:1px;
+    text-shadow:-1px 0px 2px #800;
+}
+#menu ul{
+    height:100%;
+    background:#900;
+    border-right:solid 1px #f22;
+    overflow:hidden;
+}
+#menu li{
+    background:#b00;
+    border-top:solid 1px #c00;
+    border-bottom:solid 1px #a00;
+
+    padding:1em;
+    color:#fff;
+}
+#menu li:last-child{
+    border-bottom:solid 1px #a00;
+    box-shadow:0 2px 1px #700;
+}
+#menu:hover{
+    margin-left:0;
+}
+#content{
+    padding:1em;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:25px;
+    overflow:auto;
+
+}
+</style>

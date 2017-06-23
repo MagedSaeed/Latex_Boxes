@@ -511,3 +511,16 @@ function panel_transition() {
 	curr_text.focus();
 	scrollToElement(curr_text);
 }
+
+// to shrink the width of all elements when
+// hovering over the side bar
+function shrink_width(){
+	main = document.getElementById('main');
+	main.style.marginLeft='20px';
+	//main.style.width='95%';
+}
+function reset_width(){
+	main = document.getElementById('main');
+	main.style.marginLeft='0px'
+	main.style.width='100%';
+}
