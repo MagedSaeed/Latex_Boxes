@@ -1,14 +1,5 @@
-	body{
-		background-color: #eceff1;
-	}
-/*	.functions{
-		color: white !important;
-		padding:0.27cm !important;
-	}*/
 
-
-
-	/* in need resources */
+/*resources may be needed*/
 
 	/* unvisited link */
 	/*.functions:link {
@@ -30,134 +21,152 @@
 	    color: hotpink !important;
 	}*/
 
-	.navbar-light .navbar-nav > li > a:visited{
-		background-color: #262626!important
-	}
-/*	.navbar-light .navbar-nav > li > a:hover{
+
+/*	
+	/*previous work*/
+
+	/*
+	.navbar-light .navbar-nav > li > a:hover{
 		background-color: black!important;
 		transition: all 0.3s ease;
 	}
 	.navbar-light .navbar-nav > li > a:active{
 		color: #f2f2f2!important;
 	}*/
-	.navbar-light .navbar-toggle .icon-bar {
-			background-color: #d9d9d9;
-	}
-	.navbar-light .navbar-toggle:hover .icon-bar {
-			background-color: #ffffff;
-			transition: all 0.3s ease;
-	}
-
-	#reload:hover{
-		background-color: #990033 !important;
-		transition: all 0.6s ease;
-	}
-	#reload:active{
-		background-color: #80002a !important;
-		color:#d9d9d9 !important;
-	}
-	#reload {
-		color:white !important;
-		font-family: Georgia;
-		background-color: #cc0000 !important;
-		border-color: white;
-	}
-
-    #mainContainer{
-    	margin-top: 75px;
-
-    }
-    .navbar-light .panel-default .symbols:hover {
-    	color: white;
-         background-color: #cc0000;
-         border-color: black!important;
-
-    }
-    .navbar-light .panel-default .symbols:active {
-         color: #660033;
-         background-color: #b30000;
 
 
-    }
-    .navbar-light .panel-default .symbols{
-		background-color:transparent ; 
-            color: white;
-            border-color: transparent;
-            padding-left: 0.2cm;
-		
-    }
-
-    #symbols_table{
-    	background-color:#333;
-    	border-color:#333;
-    	border-top-color: white!important;
-    	transition: height 2s;
-    }
-
-
-    #menu{
-    position:fixed;
-    width:150px;
-    //padding-right:35px;
-    top:0;
-    bottom:0;
-    margin-left:-110px;
-    float:left;
-    background:#d00;
-    -webkit-transition:margin-left 0.75s ease-in-out;
-    z-index:1;
-    box-shadow:1px 0 3px rgba(0,0,0,.75);
-    margin-top:50px;
+body{
+	background-color: #eceff1;
+	transition: .3s
 }
 
-#menu:after{
-    content:'|||';
-    -webkit-transform:rotate(-90deg);
-    position:absolute;
-    top:0px;
-    right:10px;
-    font-size:20px;
-    display:block;
-    height:25px;
-    line-height:25px;
-    color:#700000;
-    font-family:Helvetica, Century Gothic, Arial, sans-serif;
-    letter-spacing:1px;
-    text-shadow:-1px 0px 2px #800;
+#mySidenav .functions{
+	color: white !important;
+	padding:0.27cm !important;
 }
-#menu ul{
-    height:100%;
-    background:#900;
-    border-right:solid 1px #f22;
-    overflow:hidden;
-    list-style: none;
-    //margin-top:50px;
+
+#mySidenav .functions:hover{
+	background-color: #333!important;
+	transition: 0.7s;
 }
-#menu li{
-    background-color:#b00;
-    border-top:solid 1px #c00;
-    border-bottom:solid 1px #a00;
-    padding:1em;
-    color:#fff;
-    border-right: solid 3px #b00;
-    margin-left: -30px;
+
+#mySidenav .functions:active{
+	background-color: #666!important;
 }
-#menu li:last-child{
-    border-bottom:solid 1px #a00;
-    box-shadow:0 2px 1px #700;
+.navbar-light .navbar-nav > li > a:visited{
+	background-color: #262626!important;
 }
-#menu:hover {
-    margin-left:0;
+
+.navbar-light .navbar-toggle .icon-bar {
+		background-color: #d9d9d9;
+}
+
+.navbar-light .navbar-toggle:hover .icon-bar {
+		background-color: #ffffff;
+		transition: all 0.3s ease;
+}
+
+#reload:hover{
+	background-color: #990033 !important;
+	transition: all 0.6s ease;
+}
+
+#reload:active{
+	background-color: #80002a !important;
+	color:#d9d9d9 !important;
+}
+
+#reload {
+	color:white !important;
+	font-family: Georgia;
+	background-color: #cc0000 !important;
+	border-color: white;
+	//margin-left: 0px !important;
+	float:left;
+	box-shadow: 0.5px 0.5px 4px 3px #f72727 inset;
+}
+
+#mainContainer{
+	margin-top: 75px;
+}
+#mainContainer .form-group{
+	transition: opacity 1s;
+	color: black;
+}
+
+.navbar-light .panel-default .symbols:hover {
+	color: white;
+     background-color: #cc0000;
+     border-color: black!important;
+
+}
+
+.navbar-light .panel-default .symbols:active {
+     color: #660033;
+     background-color: #b30000;
+
+
+}
+
+.navbar-light .panel-default .symbols{
+	background-color:transparent ; 
+        color: white;
+        border-color: transparent;
+        padding-left: 0.2cm;
+	
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+#main .navbar-light{
+	background-color: #333!important;
+}
+
+#main .navbar-light .icon_bars {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-left: -10px;
+    margin-right: 20px;
+    float:right;
+  }
+
+#main .navbar-light .bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 5px;
+    background-color: #ff0000;
+    margin: 5px;
+    transition: 0.4s;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px white inset;
     
+}
 
+/* Rotate first bar */
+#main .navbar-light .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
 }
-.functions{
-	color:white!important;
+
+/* Fade out the second bar */
+#main .navbar-light .change .bar2 {
+    opacity: 0;
 }
-#main{
-	transition: margin-left 2s;
-    padding-left: 30px;
-    position: relative;
+
+/* Rotate last bar */
+#main .navbar-light .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+#symbols_table{
+	background-color:#333;
+	border-color:#333;
+	border-top-color: white!important;
+	transition: height 2s;
 }
 
 
@@ -167,73 +176,31 @@
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0;
-    left: 0;
+    right: 0;
     background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 1s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
+.sidenav ul > li> a {
+    padding: 5px 20px 3px 2px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 17px;
     color: #818181;
+    display: flex;
+    overflow: hidden;
     display: block;
-    transition: 0.3s
+    white-space:nowrap;
+    margin:0 15px 0px -25px;
+}
+.sidenav ul {
+	list-style: none;
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav ul > a:hover, .offcanvas ul > a:focus{
     color: #f1f1f1;
 }
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-.icon_bar {
-    display: inline-block;
-    cursor: pointer;
-    margin-top:170px;
-    margin-left:60px;
-}
-.bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    margin: 6px;
-    transition: 0.4s;
-    
-}
-
-/* Rotate first bar */
-.change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
-    transform: rotate(-45deg) translate(-9px, 6px) ;
-}
-
-/* Fade out the second bar */
-.change .bar2 {
-    opacity: 0;
-}
-
-/* Rotate last bar */
-.change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
-    transform: rotate(45deg) translate(-8px, -8px) ;
-}
-
 

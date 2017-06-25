@@ -5,9 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<script type="text/javascript" src="JS/javascript.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id="">
 		MathJax.Hub.Config({
@@ -25,27 +25,22 @@
 
 </head>
 <body>
+	<div id="mySidenav" class="sidenav">
+		<ul>  
+			<li><a type="button" href="#" class="functions" onclick = "add('')">Add New Box</a></li>
+			<li><a type="button" class="functions" href ="#" onclick = "preview_all()">Preview All</a></li>
+			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
+				<!-- non-display input file clicked by the upload button -->
+				<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
 
-
-<div class="icon_bar" onclick="myFunction(this)">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
-	<div id="mySidenav" class="sidenav">  
-		<a class="functions" onclick = "add('')">Add New Box</a>
-		<a class="functions" href ="#" onclick = "preview_all()">Preview All</a>
-		<a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "copyToClipboard()">Copy To Clipboard</a>
-			<!-- non-display input file clicked by the upload button -->
-			<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
-
-		<a class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a>
-		<a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a>
-		<a class="functions" href="#" class=" dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
-		<ul class="dropdown-menu">
-		<li><a href="#" onclick = "download_text();">Text file</a></li>
-		<li><a href="#" onclick ="download_xml()">Xml file</a></li>
-      	</ul>
+			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
+			<li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li>
+			<li><a type="button"  class="functions" href="#" class=" dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="#" onclick = "download_text();">Text file</a></li>
+			<li><a href="#" onclick ="download_xml()">Xml file</a></li>
+	      	</ul></li>
+	      </ul>
 	</div>
 
 	<!-- hidden form for preview.php-->
@@ -58,14 +53,15 @@
 
 	<div id="main">
 		<!-- the main navigator -->
-		<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #333!important">
+		<nav class="navbar navbar-light navbar-fixed-top">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>                        
-					</button>
+				<div class="navbar-header" style="float:right">
+					<div class="icon_bars" onclick="iconBarFunctions(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+</div>
 					<a class="navbar-brand" id="reload" onclick="window.location.reload(true);" href="#">LaTeX BOXES</a>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
@@ -112,11 +108,11 @@
 		<div class="container" id = "mainContainer">
 			<div class="form-group" id = "id0" >
 				<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);"></textarea>
-				<div class="btn-group pull-right" style="border-color:black !important;">
+				<div class="btn-group pull-right">
 					<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
 					<button type="button" class="btn glyphicon glyphicon-arrow-down" title ="Move Down" onclick = "moveDown(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
 					<button type="button" class="btn glyphicon glyphicon-play text-primary" title ="Preview" onclick="compile(this.parentElement.parentElement.id)"    style="background-color:transparent;"></button>
-					<button type="button" class="btn glyphicon glyphicon-eye-close" title ="Live Preview" onclick="live(this,this.parentElement.parentElement.id)"style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon-eye-close" title ="Live Preview" onclick="live(this,this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
 					<button type="button" class="btn glyphicon glyphicon-trash text-danger" onclick="remove(this.parentElement.parentElement.id)" title ="Remove" style="background-color:transparent;"></button>
 				</div>
 				<div class="panel panel-default">

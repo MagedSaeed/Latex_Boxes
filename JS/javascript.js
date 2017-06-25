@@ -181,16 +181,18 @@ function add(text){
 		if (child.className == "btn glyphicon glyphicon-eye-open")
 			child.className = "btn glyphicon glyphicon-eye-close";
 	}
-
+	cln.style.opacity=0;
 	mainContainer.appendChild(cln);
+	window.getComputedStyle(cln).opacity;
+	cln.style.opacity=1;
 	tex_area.focus(); // move the caret to the newly latex text area
-	scrollToElement(newId);
+	scrollToElement(document.getElementById(newId));
 
 }
 
 // function to scroll down to the newly created form group
 function scrollToElement(element) {
-  var el = document.getElementById(element);
+  var el = element;
   var yPos = el.getClientRects()[0].top;
   var yScroll = window.scrollY;
   var interval = setInterval(function() {
@@ -222,6 +224,8 @@ function moveUp(id){
 	var previousElement = currentElement.previousElementSibling;
 	//swap the current element with the previous one to move it up
 	currentElement.parentNode.insertBefore(currentElement , previousElement);	
+	currentElement.getElementsByClassName("form-control")[0].focus();
+	scrollToElement(currentElement);
 }
 
 function moveDown(id){
@@ -231,8 +235,11 @@ function moveDown(id){
 	//swap the current element with the later one to move it down 
 	//stragenly we have to put the condition to check if the later element is not null
 	// we don't have to do this in the moveup method !!!
-	if (laterElement)
+	if (laterElement){
 		currentElement.parentNode.insertBefore(laterElement , currentElement);
+		currentElement.getElementsByClassName("form-control")[0].focus();
+		scrollToElement(currentElement);
+	}
 }
 
 function get_all_text(){
@@ -521,34 +528,54 @@ function panel_transition() {
 	scrollToElement(curr_text);
 }
 
-// to shrink the width of all elements when
-// hovering over the side bar
-// function shrink_width(){
-// 	main = document.getElementById('main');
-// 	main.style.marginLeft='20px';
-// 	//main.style.width='95%';
-// }
-// function reset_width(){
-// 	main = document.getElementById('main');
-// 	main.style.marginLeft='0px'
-// 	main.style.width='100%';
-// }
-
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidenav").style.width = "200px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+   latex_textareas = document.getElementsByClassName("form-control");
+   panels = document.getElementsByClassName("panel-body");
+   headings = document.getElementsByClassName("panel-heading");
+    for (var i = 0 ; i<latex_textareas.length; i++){
+    	latex_textareas[i].style.backgroundColor = "#d8d6d6";
+       	panels[i].style.backgroundColor = "#d8d6d6"
+      	headings[i].style.backgroundColor = "#d8d6d6"
+     }
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "#eceff1";
+    latex_textareas = document.getElementsByClassName("form-control");
+   	panels = document.getElementsByClassName("panel-body");
+   	headings = document.getElementsByClassName("panel-heading");
+    for (var i = 0 ; i<latex_textareas.length; i++){
+    	latex_textareas[i].style.backgroundColor = "white";
+       	panels[i].style.backgroundColor = "white"
+      	headings[i].style.backgroundColor = "white"
+     }
 }
-function myFunction(x) {
-    x.classList.toggle("change");
-    openNav();
+function iconBarFunctions(icon_bar) {
+    icon_bar.classList.toggle("change");
+    if(firstClick==1){
+    	openNav();
+    	firstClick=0;
+    }
+    else{
+    	closeNav();
+    	firstClick = 1;
+    }
 }
+
+// uncompleted code to hide the sidebar\
+// automaticlly when clicking any place\
+//on the page.
+
+// $(window).click(function() {
+// 	$("#mySidenav").hide();
+// });
+
+// $('#menucontainer').click(function(event){
+//     event.stopPropagation();
+// });
