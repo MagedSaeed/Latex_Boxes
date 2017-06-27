@@ -22,24 +22,35 @@
 		});
 
 	</script>
+	<!-- this code is to include the w3schools libriry.
+	it is needed in importing HTML from another file.
+	we may need it in case we put the symbol table in another file
+	and import that file.
+	we may use:
+	<div w3-include-html="thePath/thePage.html"></div> -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
 
 </head>
 <body>
-	<div id="mySidenav" class="sidenav">
+	<div id="mySidenav" class="sidenav sidenav-dropdown">
 		<ul>  
 			<li><a type="button" href="#" class="functions" onclick = "add('')">Add New Box</a></li>
-			<li><a type="button" class="functions" href ="#" onclick = "preview_all()">Preview All</a></li>
+			<li><a type="button" class=" functions" href ="#" onclick = "preview_all()">Preview All</a></li>
 			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
 				<!-- non-display input file clicked by the upload button -->
 				<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
 
 			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
 			<li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li>
-			<li><a type="button"  class="functions" href="#" class=" dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-			<li><a href="#" onclick = "download_text();">Text file</a></li>
-			<li><a href="#" onclick ="download_xml()">Xml file</a></li>
-	      	</ul></li>
+
+			<li><div class="dropdown">
+  <a type="button" href="#" class="dropdown-toggle functions"  data-toggle="dropdown">Download
+  <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a id="submenu-items" type="button" href="#" onclick = "download_text()">Text file</a></li>
+	<li><a type="button" id="submenu-items" href="#" onclick ="download_xml()">Xml file</a></li>
+  </ul>
+</div></li>
 	      </ul>
 	</div>
 
@@ -55,50 +66,35 @@
 		<!-- the main navigator -->
 		<nav class="navbar navbar-light navbar-fixed-top">
 			<div class="container-fluid">
-				<div class="navbar-header" style="float:right">
-					<div class="icon_bars" onclick="iconBarFunctions(this)">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
-</div>
-					<a class="navbar-brand" id="reload" onclick="window.location.reload(true);" href="#">LaTeX BOXES</a>
+				<div class="navbar-header" >
+				<a class="navbar-brand" id="reload" onclick="window.location.reload(true);" href="#">LaTeX BOXES</a>
 				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					
-				</div>
-			</div>
+				<div class="icon_bars" onclick="iconBarFunctions(this)">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+					<div class="nav navbar-nav">
 
-	<div class ="panel panel-default collapse" id="symbols_table" >
-				<button type="button" class="btn btn-lg btn-default symbols" title = "integrate" onclick="insert_txt('int')">$\int^a_b$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "summation" onclick="insert_txt('sum')">$$\sum_{n=1}^\infty$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\prod_{n=1}^\infty$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\alpha$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\beta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Gamma$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\gamma$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Delta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\delta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\epsilon$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varepsilon$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\zeta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\eta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Theta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\theta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\vartheta$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\iota$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\kappa$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varkappa$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Lambda$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\lambda$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\mu$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Xi$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\xi$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\omicron$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\Pi$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\pi$$</button>
-				<button type="button" class="btn btn-xs btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$$\varpi$$</button>
-			</div>	
+					<div id="symbols_table" style="display: inline;">
+						<div class="symbols-table-dropdown">
+						  <button onclick="drop_down_control()" class="symb-tab-dropbtn">choose class <span class="caret"></span></button>
+						  <div id="myDropdown" class="symbols-table-dropdown-content">
+						    <a href="#" onclick="show_symbol_tables('Greek Letters')">Greek Letters </a>
+						    <a href="#">Link 2</a>
+						    <a href="#">Link 3</a>
+						  </div>
+						</div>
+						<div id="LaTeX" style="display: inline;">
+						<button type="button" class="btn btn-default symbols" title = "integrate" onclick="insert_txt('int')">$\LaTeX$</button>
+						</div>
+						<div id="Greek Letters" style="display: none;">
+						<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sum_{n=1}^\infty$</button>
+						<button type="button" class="btn btn-default symbols" title = "produciton" onclick="insert_txt('prod')">$\prod_{n=1}^\infty$</button>
+						</div>
+						</div>
+						</div>
+						</div>
 		</nav>
 		
 

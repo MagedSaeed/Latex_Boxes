@@ -40,20 +40,9 @@ body{
 	transition: .3s
 }
 
-#mySidenav .functions{
-	color: white !important;
-	padding:0.27cm !important;
-}
+/*previous work */
 
-#mySidenav .functions:hover{
-	background-color: #333!important;
-	transition: 0.7s;
-}
-
-#mySidenav .functions:active{
-	background-color: #666!important;
-}
-.navbar-light .navbar-nav > li > a:visited{
+/*.navbar-light .navbar-nav > li > a:visited{
 	background-color: #262626!important;
 }
 
@@ -64,7 +53,11 @@ body{
 .navbar-light .navbar-toggle:hover .icon-bar {
 		background-color: #ffffff;
 		transition: all 0.3s ease;
-}
+}*/
+
+
+
+/*design the brand icon*/
 
 #reload:hover{
 	background-color: #990033 !important;
@@ -84,17 +77,13 @@ body{
 	//margin-left: 0px !important;
 	float:left;
 	box-shadow: 0.5px 0.5px 4px 3px #f72727 inset;
+	float: left;
 }
 
-#mainContainer{
-	margin-top: 75px;
-}
-#mainContainer .form-group{
-	transition: opacity 1s;
-	color: black;
-}
 
-.navbar-light .panel-default .symbols:hover {
+/*previous work */
+
+/*.navbar-light .panel-default .symbols:hover {
 	color: white;
      background-color: #cc0000;
      border-color: black!important;
@@ -106,15 +95,26 @@ body{
      background-color: #b30000;
 
 
-}
+}*/
 
-.navbar-light .panel-default .symbols{
+/*desing the symbols of the latex tables*/
+
+#symbols_table .symbols{
 	background-color:transparent ; 
         color: white;
         border-color: transparent;
         padding-left: 0.2cm;
 	
 }
+
+/*style the table of the latex symbols*/ 
+
+#symbols_table{
+	background-color:#333 !important;
+	margin: 7px 10px 10px 20px !important;
+	
+}
+
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
@@ -162,11 +162,13 @@ body{
     transform: rotate(45deg) translate(-8px, -8px) ;
 }
 
-#symbols_table{
-	background-color:#333;
-	border-color:#333;
-	border-top-color: white!important;
-	transition: height 2s;
+#mainContainer{
+	margin-top: 10px;
+}
+#id0 {
+	margin-top: 100px;
+	transition: opacity 1s;
+	color: black;
 }
 
 
@@ -180,27 +182,87 @@ body{
     background-color: #111; /* Black*/
     overflow: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 1s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.7s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
-.sidenav ul > li> a {
-    padding: 5px 20px 3px 2px;
+
+#mySidenav .functions{
+	padding: 10px 25px 10px 10px;
     text-decoration: none;
     font-size: 17px;
-    color: #818181;
-    display: flex;
+    color: white;
+    display: block;
     overflow: hidden;
     display: block;
     white-space:nowrap;
-    margin:0 15px 0px -25px;
+    margin: 5px 5px 0px -30px;
+}
+
+#mySidenav .functions:hover{
+	background-color: #333!important;
+	//transition: 0.7s;
+	border-left:5px solid#888;
+}
+
+#mySidenav .functions:active{
+	background-color: #666!important;
+}
+
+#submenu-items:hover{
+	background-color: #c9c9c9 !important;
+}
+
+#mySidenav .sidenav-dropdown .dropdown-menu{
+	margin-left:-15px !important;
+
 }
 .sidenav ul {
 	list-style: none;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav ul > a:hover, .offcanvas ul > a:focus{
-    color: #f1f1f1;
+
+
+/* Dropdown Button */
+.symb-tab-dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
+
+/* Dropdown button on hover & focus */
+.symb-tab-dropbtn:hover, .symb-tab-dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.symbols-table-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.symbols-table-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.symbols-table-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.symbols-table-dropdown-content a:hover {background-color: #f1f1f1}
+
 

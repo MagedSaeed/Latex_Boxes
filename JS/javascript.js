@@ -139,8 +139,8 @@ function add(text){
 	var el = document.getElementById('mainContainer');
 	el = el.firstChild;
 
-	while (el && el.nodeType !== 1)
-		el = el.nextSibling;
+	// This line is edited to get the form group more efficiently!!
+	el = document.getElementsByClassName("form-group")[0];
 
 	var cln = el.cloneNode(true);
 	var newId = "id".concat(idcnt);
@@ -568,6 +568,11 @@ function iconBarFunctions(icon_bar) {
     }
 }
 
+setTimeout(function(){ 
+       $("#symbols_table").fadeIn(400); // as an example the fade should take .4 second
+     }); // this would show the div after 5 seconds
+
+
 // uncompleted code to hide the sidebar\
 // automaticlly when clicking any place\
 //on the page.
@@ -579,3 +584,42 @@ function iconBarFunctions(icon_bar) {
 // $('#menucontainer').click(function(event){
 //     event.stopPropagation();
 // });
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function drop_down_control() {
+	style = document.getElementById('myDropdown').style.display;
+	if(style=='none' || style =='')
+		document.getElementById('myDropdown').style.display = 'block'
+	else
+		document.getElementById('myDropdown').style.display='none';
+
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+var current_element = 'LaTeX';
+function show_symbol_tables(new_element){
+	current_showed_element_id = document.getElementById(current_element);
+	current_showed_element_id.style.display='none';
+	new_showed_element = document.getElementById(new_element);
+	new_showed_element.style.display='inline';
+	current_showed_element_id = new_element;
+	document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_element.concat("<span class=\"caret\"></span>");
+	document.getElementById('myDropdown').style.display="none";
+}
+
+
