@@ -63,7 +63,7 @@ function compile(id) {
 	var children = div.children;
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.className == "panel-body")
+		if (child.className == "preview-latex panel-body")
 			div = child;
 	}
 	div.innerHTML  = textArea.value;
@@ -88,7 +88,7 @@ function live(object, id){
 	var div_preview = null;
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.className == "panel-body")
+		if (child.className == "preview-latex panel-body")
 			div_preview = child;
 	}
 
@@ -657,24 +657,42 @@ window.onclick = function(event) {
     document.getElementById('myDropdown').style.display='none';
   }
 }
-var current_element = 'LaTeX';
-function show_symbol_tables(new_element){
-	current_showed_element = document.getElementById(current_element);
-	new_element_style = document.getElementById(new_element).style.display;
-	if(new_element_style =='none' || new_element_style==''){
-		current_showed_element.style.display='none';
-		new_showed_element = document.getElementById(new_element);
-		new_showed_element.style.display='inline-flex';
-		new_showed_element.style.marginTop="5px"
-		document.getElementById("mainContainer").style.marginTop='105px';
-		current_showed_element = new_element;
-		document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_element.concat("<span class=\"caret\"></span>");
+
+var current_table = 'LaTeX';
+function show_symbol_tables(new_table){
+	current_showed_table = document.getElementById(current_table);
+	new_table_style = document.getElementById(new_table).style.display;
+	if(new_table_style =='none' || new_table_style==''){
+		current_showed_table.style.display='none';
+		new_showed_table = document.getElementById(new_table);
+		new_showed_table.style.display='flex';
+		new_showed_table.style.marginTop="5px"
+		//document.getElementById("mainContainer").style.marginTop = '105px';
+		//current_table = new_table;
+		marginTopInc(document.getElementById('mainContainer'), 42);
+		document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_table.concat("<span class=\"caret\"></span>");
 		document.getElementById('myDropdown').style.display="none";
 	}
 	else{
-		document.getElementById(new_element).style.display="none";
-		document.getElementById("mainContainer").style.marginTop='80px';
+		document.getElementById(new_table).style.display="none";
+		marginTopDec(document.getElementById("mainContainer"), 35);
 	}
+}
+
+function marginTopInc(elem, inc_mar) {
+
+  var marginTop=0;
+  marginTop += parseInt(window.getComputedStyle(elem).marginTop) + inc_mar;
+  elem.style.marginTop = marginTop + 'px';
+  
+}
+
+function marginTopDec(elem,dec_mar){
+
+var marginTop=0;
+marginTop += parseInt(window.getComputedStyle(elem).marginTop) - dec_mar;
+elem.style.marginTop = marginTop + 'px';
+
 }
 
 
