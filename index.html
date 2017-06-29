@@ -65,7 +65,7 @@
 	<div id="main">
 		<!-- the main navigator -->
 		<nav class="navbar navbar-light navbar-fixed-top" style="z-index: auto!important;">
-			<div id="icon_bars" onclick="iconBarFunctions(this)">
+			<div id="icon_bars" onclick="iconBarFunctions('icon_bars')">
 								<div class="bar1"></div>
 								<div class="bar2"></div>
 								<div class="bar3"></div>
@@ -281,7 +281,7 @@
 
 		<!-- The main container elements -->
 		<!-- can we make a dynamic margin container ?-->
-		<div class="container" id = "mainContainer">
+		<div class="container" id = "mainContainer" onclick="iconBarFunctions('icon_bars')">
 			<div class="form-group" id = "id0" >
 				<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);"></textarea>
 				<div class="btn-group pull-right">
