@@ -632,6 +632,15 @@ function iconBarFunctions(icon_bar) {
     }
 }
 
+function onClickToggle(icon_bar)
+{
+    if(firstClick==0){
+    	closeNav();
+    	document.getElementById(icon_bar).classList.toggle("change");
+    	firstClick = 1;
+    }
+}
+
 
 // uncompleted code to hide the sidebar\
 // automaticlly when clicking any place\
