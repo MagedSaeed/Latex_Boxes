@@ -11,9 +11,43 @@ var curr_pos = 0;
 
 //latex symobls array the key is the name and the value is the latex code 
 var symbols = [];
-symbols["int"] = "\\int^{}_{}";
-symbols["sum"] = "\\sum^{}_{}";
-symbols["prod"] = "\\prod^{}_{}";
+symbols["1"] = ["\\alpha",5];
+symbols["2"] = ["\\beta",4];
+symbols["3"] = ["\\Gamma",5];
+symbols["4"] = ["\\gamma",5];
+symbols["5"] = ["\\Delta",5];
+symbols["6"] = ["\\delta",5];
+symbols["7"] = ["\\epsilon",7];
+symbols["8"] = ["\\zeta",4];
+symbols["9"] = ["\\eta",3];
+symbols["10"] = ["\\Theta",5];
+symbols["11"] = ["\\theta",5];
+symbols["12"] = ["\\vartheta",8];
+symbols["13"] = ["\\kappa",5];
+symbols["14"] = ["\\Lambda",6];
+symbols["15"] = ["\\lambda",6];
+symbols["16"] = ["\\mu",2];
+symbols["17"] = ["\\nu",2];
+symbols["18"] = ["\\Xi",2];
+symbols["19"] = ["\\xi",2];
+symbols["20"] = ["\\omicron",7];
+symbols["21"] = ["\\Pi",2];
+symbols["22"] = ["\\pi",2];
+symbols["23"] = ["\\rho",3];
+symbols["24"] = ["\\Sigma",5];
+symbols["25"] = ["\\sigma",5];
+symbols["26"] = ["\\tau",3];
+symbols["27"] = ["\\Upsilon",7];
+symbols["28"] = ["\\upsilon",7];
+symbols["29"] = ["\\Phi",3];
+symbols["30"] = ["\\phi",3];
+symbols["31"] = ["\\chi",3];
+symbols["32"] = ["\\Psi",3];
+symbols["33"] = ["\\Psi",3];
+symbols["34"] = ["\\Omega",5];
+symbols["35"] = ["\\omega",5];
+
+
 
 function compile(id) {
 	var divParent = document.getElementById(id);
@@ -132,8 +166,30 @@ function insert_txt(symbol){
 		var text_str = curr_text.value;
 	else
 		var text_str ="";
-	curr_text.value = text_str.substring(0, curr_pos)+" "+symbols[symbol]+" "+text_str.substring(curr_pos, text_str.length);
+	curr_text.value = text_str.substring(0, curr_pos)+symbols[symbol][0]+" "+text_str.substring(curr_pos, text_str.length);
+	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]+1)
 }
+
+function setCaretPosition(elem, caretPos) {
+
+    if(elem != null) {
+        if(elem.createTextRange) {
+        	console.log('yes')
+            var range = elem.createTextRange();
+            range.move('character', caretPos);
+            range.select();
+        }
+        else {
+            if(elem.selectionStart) {
+                elem.focus();
+                elem.setSelectionRange(caretPos, caretPos);
+            }
+            else
+                elem.focus();
+        }
+    }
+}
+
 
 function add(text){
 	var el = document.getElementById('mainContainer');
@@ -213,7 +269,10 @@ function remove(id){
 				index = i;
 			if(index>-1)
 				idList.splice(index,1);
-		document.getElementById(id).remove();
+		//this code is to add transition effect to the removed elemnet.
+		window.getComputedStyle(currentElement).opacity;
+		currentElement.style.opacity=0;
+		setTimeout(function(){document.getElementById(id).remove();}, 600);
 		idcnt = idcnt -1 ;
 	}	
 }
@@ -534,26 +593,27 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "200px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
    latex_textareas = document.getElementsByClassName("form-control");
-   panels = document.getElementsByClassName("panel-body");
+   panels = document.getElementsByClassName('preview-latex');
    headings = document.getElementsByClassName("panel-heading");
     for (var i = 0 ; i<latex_textareas.length; i++){
-    	latex_textareas[i].style.backgroundColor = "#d8d6d6";
-       	panels[i].style.backgroundColor = "#d8d6d6"
-      	headings[i].style.backgroundColor = "#d8d6d6"
+    	latex_textareas[i].style.backgroundColor = "#999999";
+       	panels[i].style.backgroundColor = "#999999";
+      	headings[i].style.backgroundColor = "#999999";
      }
 }
+
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.body.style.backgroundColor = "#eceff1";
     latex_textareas = document.getElementsByClassName("form-control");
-   	panels = document.getElementsByClassName("panel-body");
+   	panels = document.getElementsByClassName("preview-latex");
    	headings = document.getElementsByClassName("panel-heading");
     for (var i = 0 ; i<latex_textareas.length; i++){
     	latex_textareas[i].style.backgroundColor = "white";
        	panels[i].style.backgroundColor = "white"
-      	headings[i].style.backgroundColor = "white"
+      	headings[i].style.backgroundColor = "#F5F5F5"
      }
 }
 function iconBarFunctions(icon_bar) {
@@ -567,10 +627,6 @@ function iconBarFunctions(icon_bar) {
     	firstClick = 1;
     }
 }
-
-setTimeout(function(){ 
-       $("#symbols_table").fadeIn(400); // as an example the fade should take .4 second
-     }); // this would show the div after 5 seconds
 
 
 // uncompleted code to hide the sidebar\
@@ -593,33 +649,32 @@ function drop_down_control() {
 		document.getElementById('myDropdown').style.display = 'block'
 	else
 		document.getElementById('myDropdown').style.display='none';
-
 }
 
-// Close the dropdown menu if the user clicks outside of it
+	// Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
+  if (!event.target.matches('.symb-tab-dropbtn')) {
+    document.getElementById('myDropdown').style.display='none';
   }
 }
-
 var current_element = 'LaTeX';
 function show_symbol_tables(new_element){
-	current_showed_element_id = document.getElementById(current_element);
-	current_showed_element_id.style.display='none';
-	new_showed_element = document.getElementById(new_element);
-	new_showed_element.style.display='inline';
-	current_showed_element_id = new_element;
-	document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_element.concat("<span class=\"caret\"></span>");
-	document.getElementById('myDropdown').style.display="none";
+	current_showed_element = document.getElementById(current_element);
+	new_element_style = document.getElementById(new_element).style.display;
+	if(new_element_style =='none' || new_element_style==''){
+		current_showed_element.style.display='none';
+		new_showed_element = document.getElementById(new_element);
+		new_showed_element.style.display='inline-flex';
+		new_showed_element.style.marginTop="5px"
+		document.getElementById("mainContainer").style.marginTop='105px';
+		current_showed_element = new_element;
+		document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_element.concat("<span class=\"caret\"></span>");
+		document.getElementById('myDropdown').style.display="none";
+	}
+	else{
+		document.getElementById(new_element).style.display="none";
+		document.getElementById("mainContainer").style.marginTop='80px';
+	}
 }
 
 
