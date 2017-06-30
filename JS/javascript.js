@@ -592,38 +592,51 @@ function panel_transition() {
 function openNav() {
     document.getElementById("mySidenav").style.width = "200px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-   latex_textareas = document.getElementsByClassName("form-control");
-   panels = document.getElementsByClassName('preview-latex');
-   headings = document.getElementsByClassName("panel-heading");
-    for (var i = 0 ; i<latex_textareas.length; i++){
-    	latex_textareas[i].style.backgroundColor = "#999999";
-       	panels[i].style.backgroundColor = "#999999";
-      	headings[i].style.backgroundColor = "#999999";
-     }
+    //document.getElementById("mainContainer").style.backgroundColor = "rgba(0,0,0,0.4)";
+    document.getElementById("mainContainer").style.opacity = 0.1;
+   //latex_textareas = document.getElementsByClassName("form-control");
+   //panels = document.getElementsByClassName('preview-latex');
+   //headings = document.getElementsByClassName("panel-heading");
+    // for (var i = 0 ; i<latex_textareas.length; i++){
+    // 	latex_textareas[i].style.backgroundColor = "rgba(0,0,0,0.4)";
+    //    	panels[i].style.backgroundColor = "rgba(0,0,0,0.4)";
+    //   	headings[i].style.backgroundColor = "rgba(0,0,0,0.4)";
+    //  }
 }
 
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mainContainer").style.opacity = 1;
     document.body.style.backgroundColor = "#eceff1";
-    latex_textareas = document.getElementsByClassName("form-control");
-   	panels = document.getElementsByClassName("preview-latex");
-   	headings = document.getElementsByClassName("panel-heading");
-    for (var i = 0 ; i<latex_textareas.length; i++){
-    	latex_textareas[i].style.backgroundColor = "white";
-       	panels[i].style.backgroundColor = "white"
-      	headings[i].style.backgroundColor = "#F5F5F5"
-     }
+    // document.body.style.backgroundColor = "#eceff1";
+    // latex_textareas = document.getElementsByClassName("form-control");
+   	// panels = document.getElementsByClassName("preview-latex");
+   	// headings = document.getElementsByClassName("panel-heading");
+    // for (var i = 0 ; i<latex_textareas.length; i++){
+    // 	latex_textareas[i].style.backgroundColor = "white";
+    //    	panels[i].style.backgroundColor = "white"
+    //   	headings[i].style.backgroundColor = "#F5F5F5"
+    //  }
 }
 function iconBarFunctions(icon_bar) {
-    icon_bar.classList.toggle("change");
+    document.getElementById(icon_bar).classList.toggle("change");
     if(firstClick==1){
     	openNav();
     	firstClick=0;
     }
     else{
     	closeNav();
+    	firstClick = 1;
+    }
+}
+
+function onClickToggle(icon_bar)
+{
+    if(firstClick==0){
+    	closeNav();
+    	document.getElementById(icon_bar).classList.toggle("change");
     	firstClick = 1;
     }
 }
@@ -653,11 +666,21 @@ function drop_down_control() {
 }
 
 	// Close the dropdown menu if the user clicks outside of it
+<<<<<<< HEAD
 // window.onclick = function(event) {
 //   if (!event.target.matches('.symb-tab-dropbtn')) {
 //     document.getElementById('myDropdown').style.display='none';
 //   }
 // }
+=======
+document.getElementById.onclick = function(event) {
+  if (!event.target.matches('.symb-tab-dropbtn')) {
+    //document.getElementById('myDropdown').style.display='none';
+    //closeNav();
+  }
+
+}
+>>>>>>> 9ebd44e6aa4151ed022b137466d82ff90e8ea217
 
 var current_table = 'LaTeX';
 function show_symbol_tables(new_table){
@@ -676,7 +699,7 @@ function show_symbol_tables(new_table){
 	}
 	else{
 		document.getElementById(new_table).style.display="none";
-		marginTopDec(document.getElementById("mainContainer"), 35);
+		marginTopDec(document.getElementById("mainContainer"), 42);
 	}
 }
 
