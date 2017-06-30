@@ -1,36 +1,72 @@
 <div id="menu">
-<ul>
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>    
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>    
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>    
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>        
-</ul>
+
 </div>
-<div id="content">
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt nunc sed tortor consequat sit amet laoreet justo pretium. In hac habitasse platea dictumst. Aenean rhoncus, arcu quis egestas auctor, eros quam fermentum urna, non auctor purus est facilisis elit. Suspendisse potenti. Quisque id mi eu diam aliquam dignissim. Suspendisse elementum dolor eget velit vulputate aliquam luctus nulla luctus. Donec et purus sem. In lorem neque, accumsan eu varius eu, faucibus ut nisi. Duis mauris dolor, mattis sit amet ultricies id, tristique non neque. Phasellus ornare libero at arcu porttitor id condimentum sapien ornare. Pellentesque et tellus a dolor commodo accumsan sed eu enim.
-</p>
-<p>
-Nulla a ipsum quis turpis aliquam pellentesque. Mauris facilisis eros a ipsum fermentum auctor fringilla est mattis. Suspendisse nibh lacus, mattis id dictum eu, pharetra quis tellus. Maecenas sed diam felis. Nulla metus lorem, varius malesuada sagittis porta, eleifend in nisi. Vestibulum nulla turpis, pulvinar ullamcorper aliquam in, posuere in justo. Aliquam luctus, sem ac posuere dapibus, mauris odio elementum tellus, ut cursus enim mi eu lectus. Aenean eu sem et sem porttitor fermentum at vitae diam. Curabitur sit amet turpis quam, id pellentesque quam. Integer ac turpis lacus, vel luctus mi. Morbi pulvinar libero sit amet odio adipiscing vitae facilisis velit porta. Praesent sed elit ante, in ullamcorper nibh. Nullam ipsum velit, volutpat pellentesque interdum nec, eleifend in nunc. Nunc a tempus velit. Suspendisse sed enim sit amet felis sollicitudin semper ut ut dui. Donec posuere nibh dapibus magna placerat sed tristique quam mattis.
-</p>
-<p>
-In hac habitasse platea dictumst. Aliquam est nulla, bibendum a rhoncus ac, sagittis at ante. Suspendisse id dui tellus, vitae suscipit augue. Integer nec velit non elit ultricies faucibus sit amet id massa. Maecenas et sem ac odio fringilla congue id non magna. Morbi hendrerit viverra luctus. Nullam quis risus dui. Cras vestibulum, libero in tempus hendrerit, neque velit venenatis purus, a vehicula metus dui eget leo. Phasellus ac elit enim. Vestibulum tincidunt vulputate nisl, eu vulputate nibh egestas ut. Proin viverra tellus sit amet nisi viverra accumsan. Nulla eu massa diam, vel semper est. Etiam pharetra cursus quam, nec elementum purus elementum sit amet. Sed ac nisl sed augue pellentesque dapibus.
-</p>
-<p>
-Morbi eget lectus nibh. Vestibulum ut arcu turpis, at pretium lectus. Phasellus varius tempus tortor, quis tristique augue fermentum posuere. Curabitur varius vestibulum rutrum. Duis id nibh in massa dapibus tristique. Nullam lorem tellus, tristique suscipit sodales id, consectetur congue mi. Mauris a ligula nunc, ut luctus dui. Ut urna nunc, rutrum nec tempus tincidunt, iaculis vitae ligula. Fusce a lacus elit, sit amet facilisis lacus. Vivamus vehicula molestie iaculis. Praesent varius sapien in felis venenatis viverra. Cras elementum commodo imperdiet. Maecenas eget lectus sapien.
-</p>
-<p>
-Integer ac lacus ac massa bibendum aliquet. Nam blandit vulputate lectus, sit amet iaculis leo gravida sit amet. In leo nisl, molestie in ullamcorper at, tempor quis nunc. Maecenas sagittis feugiat purus, non gravida nisl egestas ac. Maecenas commodo tortor id diam consectetur ut tincidunt velit mattis. Donec tellus sapien, eleifend at tempor in, egestas non tellus. Curabitur nec leo eros, ornare mattis sem. Duis varius gravida orci, ut ornare lacus hendrerit ultricies. Proin quis lectus ut nunc euismod mattis. Donec ut dolor diam. Nullam nec luctus ipsum. Mauris nec tempor risus. Duis ipsum turpis, aliquet non consequat nec, condimentum sed nulla. Duis massa dui, venenatis eget condimentum id, condimentum porttitor enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-</p>
+<div class="container">
+    <h3 class="text-center">Material Design Switch</h3>
+    <hr>
+    <div class="col-xs-12">
+        <p class="lead">I have been using an Android Device for the last few days and am falling in love with the switchs they use in Android. I loved them so much I wanted to port them over to Bootstrap so I could use them in future projects. I did some research and all of the ones I could find used custom colors which prevented them from working with Bootswatch or required you to edit the css files to make them match your theme. I wanted to work around that.</p>
+        <p class="lead">Please use the theme picker above to see how this snippet works with bootswatch themes. I hope you enjoy this snippet.</p>    
+    </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Material Design Switch Demos</div>
+            
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Bootstrap Switch Default
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionDefault" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Bootstrap Switch Primary
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionPrimary" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Bootstrap Switch Success
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionSuccess" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionSuccess" class="label-success"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Bootstrap Switch Info
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionInfo" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionInfo" class="label-info"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Bootstrap Switch Warning
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionWarning" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionWarning" class="label-warning"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Bootstrap Switch Danger
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionDanger" class="label-danger"></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>            
+        </div>
+    </div>
+</div>
+
 <style type="text/css">
 #menu{
     position:absolute;
@@ -90,5 +126,53 @@ Integer ac lacus ac massa bibendum aliquet. Nam blandit vulputate lectus, sit am
     left:25px;
     overflow:auto;
 
+}
+
+
+
+
+.material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
 }
 </style>
