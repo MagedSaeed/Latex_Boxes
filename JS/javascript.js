@@ -647,19 +647,17 @@ function drop_down_control() {
 	style = document.getElementById('myDropdown').style.display;
 	if(style=='none' || style =='')
 		document.getElementById('myDropdown').style.display = 'block'
-	else
-		document.getElementById('myDropdown').style.display='none';
 	else{
 		document.getElementById('myDropdown').style.display='none'
 	}
 }
 
 	// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.symb-tab-dropbtn')) {
-    document.getElementById('myDropdown').style.display='none';
-  }
-}
+// window.onclick = function(event) {
+//   if (!event.target.matches('.symb-tab-dropbtn')) {
+//     document.getElementById('myDropdown').style.display='none';
+//   }
+// }
 
 var current_table = 'LaTeX';
 function show_symbol_tables(new_table){
