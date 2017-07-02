@@ -11,42 +11,178 @@ var curr_pos = 0;
 
 //latex symobls array the key is the name and the value is the latex code 
 var symbols = [];
-symbols["1"] = ["\\alpha",5];
-symbols["2"] = ["\\beta",4];
-symbols["3"] = ["\\Gamma",5];
-symbols["4"] = ["\\gamma",5];
-symbols["5"] = ["\\Delta",5];
-symbols["6"] = ["\\delta",5];
-symbols["7"] = ["\\epsilon",7];
-symbols["8"] = ["\\zeta",4];
-symbols["9"] = ["\\eta",3];
-symbols["10"] = ["\\Theta",5];
-symbols["11"] = ["\\theta",5];
-symbols["12"] = ["\\vartheta",8];
-symbols["13"] = ["\\kappa",5];
-symbols["14"] = ["\\Lambda",6];
-symbols["15"] = ["\\lambda",6];
-symbols["16"] = ["\\mu",2];
-symbols["17"] = ["\\nu",2];
-symbols["18"] = ["\\Xi",2];
-symbols["19"] = ["\\xi",2];
-symbols["20"] = ["\\omicron",7];
-symbols["21"] = ["\\Pi",2];
-symbols["22"] = ["\\pi",2];
-symbols["23"] = ["\\rho",3];
-symbols["24"] = ["\\Sigma",5];
-symbols["25"] = ["\\sigma",5];
-symbols["26"] = ["\\tau",3];
-symbols["27"] = ["\\Upsilon",7];
-symbols["28"] = ["\\upsilon",7];
-symbols["29"] = ["\\Phi",3];
-symbols["30"] = ["\\phi",3];
-symbols["31"] = ["\\chi",3];
-symbols["32"] = ["\\Psi",3];
-symbols["33"] = ["\\Psi",3];
-symbols["34"] = ["\\Omega",5];
-symbols["35"] = ["\\omega",5];
-
+symbols["1"] = ["\\alpha",6];
+symbols["2"] = ["\\beta",5];
+symbols["3"] = ["\\Gamma",6];
+symbols["4"] = ["\\gamma",6];
+symbols["5"] = ["\\Delta",6];
+symbols["6"] = ["\\delta",6];
+symbols["7"] = ["\\epsilon",8];
+symbols["8"] = ["\\zeta",5];
+symbols["9"] = ["\\eta",4];
+symbols["10"] = ["\\Theta",6];
+symbols["11"] = ["\\theta",6];
+symbols["12"] = ["\\vartheta",9];
+symbols["13"] = ["\\kappa",6];
+symbols["14"] = ["\\Lambda",7];
+symbols["15"] = ["\\lambda",7];
+symbols["16"] = ["\\mu",3];
+symbols["17"] = ["\\nu",3];
+symbols["18"] = ["\\Xi",3];
+symbols["19"] = ["\\xi",3];
+symbols["20"] = ["\\omicron",8];
+symbols["21"] = ["\\Pi",3];
+symbols["22"] = ["\\pi",3];
+symbols["23"] = ["\\rho",4];
+symbols["24"] = ["\\Sigma",6];
+symbols["25"] = ["\\sigma",6];
+symbols["26"] = ["\\tau",4];
+symbols["27"] = ["\\Upsilon",8];
+symbols["28"] = ["\\upsilon",8];
+symbols["29"] = ["\\Phi",4];
+symbols["30"] = ["\\phi",4];
+symbols["31"] = ["\\chi",4];
+symbols["32"] = ["\\Psi",4];
+symbols["33"] = ["\\psi",4];
+symbols["34"] = ["\\Omega",6];
+symbols["35"] = ["\\omega",6];
+symbols["101"] = ["\\sum_{}^{}",6];
+symbols["102"] = ["\\int_{}^{}",6];
+symbols["103"] = ["\\oint_{}^{}",7];
+symbols["104"] = ["\\prod_{}^{}",7];
+symbols["105"] = ["\\coprod_{}^{}",9];
+symbols["201"] = ["\\infty",6];
+symbols["202"] = ["\\aleph",6];
+symbols["203"] = ["\\jmath",6];
+symbols["204"] = ["\\imath",6];
+symbols["205"] = ["\\Re",3];
+symbols["206"] = ["\\prime",6];
+symbols["207"] = ["\\surd",5];
+symbols["208"] = ["\\S",2];
+symbols["209"] = ["\\hbar",5];
+symbols["210"] = ["\\ell",4];
+symbols["211"] = ["\\partial",8];
+symbols["212"] = ["\\angle",6];
+symbols["213"] = ["\\$",2];
+symbols["214"] = ["\\&",2];
+symbols["215"] = ["\\%",2];
+symbols["216"] = ["\\#",2];
+symbols["217"] = ["\\_",2];
+symbols["218"] = ["\\{",2];
+symbols["219"] = ["\\}",2];
+symbols["220"] = ["\\backslash",10];
+symbols["301"] = ["\\nless",6]; // there was an error while numbering. and that is the easiest solution
+symbols["302"] = ["\\ngtr",5];
+symbols["303"] = ["\\leq",4];
+symbols["304"] = ["\\geq",4];
+symbols["305"] = ["\\leqslant",9];
+symbols["306"] = ["\\geqslant",9];
+symbols["307"] = ["\\nleq",5];
+symbols["308"] = ["\\ngeq",5];
+symbols["309"] = ["\\nleqslant",10];
+symbols["310"] = ["\\ngeqslant",10];
+symbols["311"] = ["\\lneq",5];
+symbols["312"] = ["\\gneq",5];
+symbols["313"] = ["\\lneqq",6];
+symbols["314"] = ["\\gneqq",6];
+symbols["315"] = ["\\prec",5];
+symbols["316"] = ["\\succ",5];
+symbols["317"] = ["\\nprec",6];
+symbols["318"] = ["\\nsucc",6];
+symbols["319"] = ["\\preceq",7];
+symbols["320"] = ["\\succeq",7];
+symbols["321"] = ["\\npreceq",8];
+symbols["322"] = ["\\nsucceq",8];
+symbols["323"] = ["\\ll",3];
+symbols["324"] = ["\\gg",3];
+symbols["325"] = ["\\lll",4];
+symbols["326"] = ["\\ggg",4];
+symbols["327"] = ["\\emptyset",9];
+symbols["328"] = ["\\subset",7];
+symbols["329"] = ["\\supset",7];
+//symbols["330"] = ["\\not\\subset",12];
+symbols["331"] = ["\\not\\supset",12];
+symbols["332"] = ["\\nsubseteq",10];
+symbols["333"] = ["\\nsupseteq",10];
+symbols["334"] = ["\\sqsubset",9];
+symbols["335"] = ["\\sqsupset",8];
+symbols["336"] = ["\\sqsubseteq",11];
+symbols["337"] = ["\\sqsupseteq",11];
+symbols["338"] = ["\\cap",4];
+symbols["339"] = ["\\cub",4];
+symbols["340"] = ["\\uplus",6];
+symbols["341"] = ["\\vee",4];
+symbols["342"] = ["\\wedge",6];
+symbols["343"] = ["\\equiv",6];
+symbols["344"] = ["\\not\\equiv",11];
+symbols["345"] = ["\\doteq",6];
+symbols["346"] = ["\\approx",7];
+symbols["347"] = ["\\not\\approx",12];
+symbols["348"] = ["\\cong",5];
+symbols["349"] = ["\\not\\cong",10];
+symbols["350"] = ["\\simeq",6];
+symbols["351"] = ["\\bumpeq",7];
+symbols["352"] = ["\\sim",4];
+symbols["353"] = ["\\nsim",5];
+symbols["354"] = ["\\not\\sim",9];
+symbols["355"] = ["\\nlsim",6];
+symbols["356"] = ["\\propto",7];
+symbols["357"] = ["\\bowtie",7];
+symbols["358"] = ["\\neq",4];
+symbols["359"] = ["\\perp",5];
+symbols["360"] = ["\\not\\perp",10];
+symbols["361"] = ["\\parallel",9];
+symbols["362"] = ["\\nparallel",10];
+symbols["363"] = ["\\models",7];
+symbols["364"] = ["\\dashv",6];
+symbols["365"] = ["\\vdash",6];
+symbols["366"] = ["\\rhd",4];
+symbols["367"] = ["\\lhd",4];
+symbols["368"] = ["\\unlhd",6];
+symbols["369"] = ["\\unrhd",6];
+symbols["370"] = ["\\asymp",6];
+symbols["371"] = ["\\in",3];
+symbols["372"] = ["\\forall",7];
+symbols["373"] = ["\\exists",7];
+symbols["374"] = ["\\smile",6];
+symbols["375"] = ["\\frown",6];
+symbols["376"] = ["\\amalg",6];
+symbols["377"] = ["\\oslash",7];
+symbols["378"] = ["\\mid",4];
+symbols["379"] = ["\\nmid",5];
+symbols["401"] = ["\\uparrow",8];
+symbols["402"] = ["\\Uparrow",8];
+symbols["403"] = ["\\donwarrow",10];
+symbols["404"] = ["\\Donwarrow",10];
+symbols["405"] = ["\\updownarrow",12];
+symbols["406"] = ["\\Updownarrow",12];
+symbols["407"] = ["\\nearrow",8];
+symbols["408"] = ["\\searrow",8];
+symbols["409"] = ["\\swarrow",8];
+symbols["410"] = ["\\nwarrow",8];
+symbols["411"] = ["\\leftarrow",10];
+symbols["412"] = ["\\Leftarrow",10];
+symbols["413"] = ["\\rightarrow",11];
+symbols["414"] = ["\\Rightarrow",11];
+symbols["415"] = ["\\leftrightarrow",15];
+symbols["416"] = ["\\Leftrightarrow",15];
+symbols["417"] = ["\\mapsto",7];
+symbols["418"] = ["\\hookleftarrow",14];
+symbols["419"] = ["\\hookrightarrow",15];
+symbols["420"] = ["\\leftharpoonup",14];
+symbols["421"] = ["\\leftharpoondonw",16];
+symbols["422"] = ["\\rightleftharpoon",17];
+symbols["423"] = ["\\rightharpoonup",15];
+symbols["424"] = ["\\rightharpoondonw",17];
+symbols["425"] = ["\\leadsto",8];
+symbols["426"] = ["\\longrightarrow",15];
+symbols["427"] = ["\\longleftarrow",14];
+symbols["428"] = ["\\Longleftarrow",14];
+symbols["429"] = ["\\Longrightarrow",15];
+symbols["430"] = ["\\longleftrightarrow",19];
+symbols["431"] = ["\\Longleftrightarrow",19];
+symbols["432"] = ["\\ ",5];
+symbols["433"] = ["\\ ",5];
 
 
 function compile(id) {
@@ -167,7 +303,8 @@ function insert_txt(symbol){
 	else
 		var text_str ="";
 	curr_text.value = text_str.substring(0, curr_pos)+symbols[symbol][0]+" "+text_str.substring(curr_pos, text_str.length);
-	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]+1)
+	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
 function setCaretPosition(elem, caretPos) {
@@ -593,7 +730,7 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "200px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     //document.getElementById("mainContainer").style.backgroundColor = "rgba(0,0,0,0.4)";
-    document.getElementById("mainContainer").style.opacity = 0.1;
+    document.getElementById("mainContainer").style.opacity = 0.15;
    //latex_textareas = document.getElementsByClassName("form-control");
    //panels = document.getElementsByClassName('preview-latex');
    //headings = document.getElementsByClassName("panel-heading");
@@ -666,13 +803,13 @@ function drop_down_control() {
 }
 
 	// Close the dropdown menu if the user clicks outside of it
-<<<<<<< HEAD
+
 // window.onclick = function(event) {
 //   if (!event.target.matches('.symb-tab-dropbtn')) {
 //     document.getElementById('myDropdown').style.display='none';
 //   }
 // }
-=======
+
 document.getElementById.onclick = function(event) {
   if (!event.target.matches('.symb-tab-dropbtn')) {
     //document.getElementById('myDropdown').style.display='none';
@@ -680,33 +817,35 @@ document.getElementById.onclick = function(event) {
   }
 
 }
->>>>>>> 9ebd44e6aa4151ed022b137466d82ff90e8ea217
+
 
 var current_table = 'LaTeX';
 function show_symbol_tables(new_table){
-	current_showed_table = document.getElementById(current_table);
-	new_table_style = document.getElementById(new_table).style.display;
-	if(new_table_style =='none' || new_table_style==''){
-		current_showed_table.style.display='none';
-		new_showed_table = document.getElementById(new_table);
-		new_showed_table.style.display='flex';
-		new_showed_table.style.marginTop="5px"
-		//document.getElementById("mainContainer").style.marginTop = '105px';
-		//current_table = new_table;
-		marginTopInc(document.getElementById('mainContainer'), 42);
-		document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_table.concat("<span class=\"caret\"></span>");
-		document.getElementById('myDropdown').style.display="none";
-	}
-	else{
-		document.getElementById(new_table).style.display="none";
-		marginTopDec(document.getElementById("mainContainer"), 42);
-	}
+	// current_showed_table = document.getElementById(current_table);
+	// new_table_style = document.getElementById(new_table).style.display;
+	// if(new_table_style =='none' || new_table_style==''){
+	// 	current_showed_table.style.display='none';
+	// 	new_showed_table = document.getElementById(new_table);
+	// 	new_showed_table.style.display='flex';
+	// 	new_showed_table.style.marginTop="5px";
+	// 	//document.getElementById("mainContainer").style.marginTop = '105px';
+	// 	//current_table = new_table;
+	// 	//marginTopInc(document.getElementById('mainContainer'), 10);
+	// 	document.getElementsByClassName('symb-tab-dropbtn')[0].innerHTML = new_table.concat("<span class=\"caret\"></span>");
+	// 	document.getElementById('myDropdown').style.display="none";
+	// }
+	// else{
+	// 	document.getElementById(new_table).style.display="none";
+	// 	//marginTopDec(document.getElementById("mainContainer"), 10);
+	// }
+	document.getElementById(new_table).style.display="flex";
+
 }
 
 function marginTopInc(elem, inc_mar) {
 
-  var marginTop=0;
-  marginTop += parseInt(window.getComputedStyle(elem).marginTop) + inc_mar;
+  var marginTop=inc_mar;
+  marginTop += parseInt(window.getComputedStyle(elem).marginTop);
   elem.style.marginTop = marginTop + 'px';
   
 }

@@ -64,7 +64,7 @@
 	<textarea id = "hidden-text-area" style="display: none"></textarea>
 	<div id="main">
 		<!-- the main navigator -->
-		<nav class="navbar navbar-light navbar-fixed-top" style="z-index: auto!important;">
+		<nav class="navbar navbar-light navbar-fixed-top">
 			<div id="icon_bars" onclick="iconBarFunctions('icon_bars')">
 								<div class="bar1"></div>
 								<div class="bar2"></div>
@@ -74,215 +74,6 @@
 			<div class="container-fluid" >
 				<div class="navbar-header" >
 					<a class="navbar-brand" id="reload" onclick="window.location.reload(true);" href="#">LaTeX BOXES</a>
-					<div class="symbols-table-dropdown">
-						<a href="#" onclick="drop_down_control()" class="symb-tab-dropbtn">Choose Class<span class="caret"></span></a>
-					  <div id="myDropdown" class="symbols-table-dropdown-content checkbox">
-						  <div class="checkbox">
-						  	<label><input type="checkbox" href="#" onclick="show_symbol_tables('Greek Letters')" data-toggle="collapse" data-target="#Greek Letters">Greek Letters</label>
-						</div>
-					    <div class="checkbox">
-						  	<label><input type="checkbox" href="#" onclick="show_symbol_tables('Big Symbols')" data-toggle="collapse" data-target="#Big Symbols">Big Symbols</label>
-						</div>
-					    <div class="checkbox">
-						  	<label><input type="checkbox" href="#" onclick="show_symbol_tables('Others')" data-toggle="collapse" data-target="#Others">Others</label>
-						</div>
-					     <div class="checkbox">
-						  	<label><input type="checkbox" href="#" onclick="show_symbol_tables('Relations')" data-toggle="collapse" data-target="#Relations">Relations</label>
-						</div>
-					     <div class="checkbox">
-						  	<label><input type="checkbox" href="#" onclick="show_symbol_tables('Arrows')" data-toggle="collapse" data-target="#Arrows">Arrows</label>
-						</div>
-					  </div>
-					</div>
-				</div>
-				<div id="LaTeX" class=" panel-body symbols-panel" >
-					<button type="button" class="btn btn-default symbols" title = "LaTeX" onclick="insert_txt('0')">$\LaTeX$</button>
-				</div>
-				<div id="Greek Letters" class="panel-body symbols-panel" >
-					<button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('1')">$\alpha$</button>
-					<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('2')">$\beta$</button>
-					<button type="button" class="btn btn-default symbols" title = "Gamma" onclick="insert_txt('3')">$\Gamma$</button>
-					<button type="button" class="btn btn-default symbols" title = "gamma" onclick="insert_txt('4')">$\gamma$</button>
-					<button type="button" class="btn btn-default symbols" title = "Delta" onclick="insert_txt('5')">$\Delta$</button>
-					<button type="button" class="btn btn-default symbols" title = "delta" onclick="insert_txt('6')">$\delta$</button>
-					<button type="button" class="btn btn-default symbols" title = "elpsilon" onclick="insert_txt('7')">$\epsilon$</button>
-					<button type="button" class="btn btn-default symbols" title = "zeta" onclick="insert_txt('8')">$\zeta$</button>
-					<button type="button" class="btn btn-default symbols" title = "eta" onclick="insert_txt('9')">$\eta$</button>
-					<button type="button" class="btn btn-default symbols" title = "Theta" onclick="insert_txt('10')">$\Theta$</button>
-					<button type="button" class="btn btn-default symbols" title = "theta" onclick="insert_txt('11')">$\theta$</button>
-					<button type="button" class="btn btn-default symbols" title = "vartheta" onclick="insert_txt('12')">$\vartheta$</button>
-					<button type="button" class="btn btn-default symbols" title = "kappa" onclick="insert_txt('13')">$\kappa$</button>
-					<button type="button" class="btn btn-default symbols" title = "Lambda" onclick="insert_txt('14')">$\Lambda$</button>
-					<button type="button" class="btn btn-default symbols" title = "lambda" onclick="insert_txt('15')">$\lambda$</button>
-					<button type="button" class="btn btn-default symbols" title = "mu" onclick="insert_txt('16')">$\mu$</button>
-					<button type="button" class="btn btn-default symbols" title = "nu" onclick="insert_txt('17')">$\nu$</button>
-					<button type="button" class="btn btn-default symbols" title = "Xi" onclick="insert_txt('18')">$\Xi$</button>
-					<button type="button" class="btn btn-default symbols" title = "xi" onclick="insert_txt('19')">$\xi$</button>
-					<button type="button" class="btn btn-default symbols" title = "omicron" onclick="insert_txt('20')">$\omicron$</button>
-					<button type="button" class="btn btn-default symbols" title = "Pi" onclick="insert_txt('21')">$\Pi$</button>
-					<button type="button" class="btn btn-default symbols" title = "pi" onclick="insert_txt('22')">$\pi$</button>
-					<button type="button" class="btn btn-default symbols" title = "rho" onclick="insert_txt('23')">$\rho$</button>
-					<button type="button" class="btn btn-default symbols" title = "Sigma" onclick="insert_txt('24')">$\Sigma$</button>
-					<button type="button" class="btn btn-default symbols" title = "sigma" onclick="insert_txt('25')">$\sigma$</button>
-					<button type="button" class="btn btn-default symbols" title = "tau" onclick="insert_txt('26')">$\tau$</button>
-					<button type="button" class="btn btn-default symbols" title = "Upsilon" onclick="insert_txt('27')">$\Upsilon$</button>
-					<button type="button" class="btn btn-default symbols" title = "upsilon" onclick="insert_txt('28')">$\upsilon$</button>
-					<button type="button" class="btn btn-default symbols" title = "Phi" onclick="insert_txt('29')">$\Phi$</button>
-					<button type="button" class="btn btn-default symbols" title = "phi" onclick="insert_txt('30')">$\phi$</button>
-					<button type="button" class="btn btn-default symbols" title = "chi" onclick="insert_txt('31')">$\chi$</button>
-					<button type="button" class="btn btn-default symbols" title = "Psi" onclick="insert_txt('32')">$\Psi$</button>
-					<button type="button" class="btn btn-default symbols" title = "psi" onclick="insert_txt('33')">$\psi$</button>
-					<button type="button" class="btn btn-default symbols" title = "Omega" onclick="insert_txt('34')">$\Omega$</button>
-					<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('35')">$\omega$</button>
-				</div>
-
-				<div id="Big Symbols" class="panel panel-body symbols-panel">
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sum_{a}^{b}$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\int_{a}^{b}$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\oint_{a}^{b}$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\prod$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\coprod$</button>
-				</div>
-				
-				<div id="Others" class="panel panel-body symbols-panel">
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\infty$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\aleph$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\jmath$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\imath$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Re$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\prime$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\surd$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\S$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\hbar$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\ell$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\infty$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\partial$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\angle$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\$$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\&$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\%$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\#$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\_$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\{$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\}$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\backslash$</button>
-				</div>
-				<div id="Relations" class="panel panel-body symbols-panel">
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nless$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\ngtr$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\geq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leqslant$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\geqslant$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nleq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\ngeq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nleqslant$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\ngeqslant$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\lneq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\gneq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\lneqq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\gneqq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\prec$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\succ$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nprec$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nsucc$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\preceq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\succeq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\npreceq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nsucceq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\ll$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\gg$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\lll$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\ggg$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\emptyset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\subset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\supset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\subset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\supset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nsubseteq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nsupseteq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sqsubset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sqsupset$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sqsubseteq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sqsupseteq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\cap$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\cup$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\uplus$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\vee$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\wedge$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\equiv$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\equiv$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\doteq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\approx$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\approx$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\cong$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\cong$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\simeq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\bumpeq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\sim$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nsim$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\sim$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\lnsim$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\propto$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\bowtie$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\neq$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\perp$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\not\perp$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\parallel$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nparallel$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\models$</button>		
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\dashv$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\vdash$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\rhd$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\lhd$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\unlhd$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\unrhd$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\asymp$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\in$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\forall$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\exists$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\smile$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\frown$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\amalg$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\oslash$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\mid$</button>
-					<!-- we should add padding to the last element so that it would not slide out. I, really, do not know the exact reason for that -->
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')" style="padding-right:3cm">$\nmid$</button>
-				</div>
-
-				<!-- arrows -->
-				<div id="Arrows" class="panel panel-body symbols-panel">
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\uparrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Uparrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\downarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Downarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\updownarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Updownarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nearrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\searrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\swarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\nwarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leftarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Leftarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\rightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Rightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leftrightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Leftrightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\mapsto$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\hookleftarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\hookrightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leftharpoonup$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leftharpoondown$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\rightleftharpoons$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\rightharpoonup$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\rightharpoondown$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\leadsto$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\longrightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\longleftarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Longleftarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\Longrightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')">$\longleftrightarrow$</button>
-					<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('sum')" style="padding-right:3cm">$\Longleftrightarrow$</button>
 				</div>
 			</div>
 		</nav>
@@ -292,7 +83,222 @@
 		<!-- The main container elements -->
 		<!-- can we make a dynamic margin container ?-->
 		<div class="container" id = "mainContainer" onclick="onClickToggle('icon_bars')">
-			<div class="form-group" id = "id0" >
+			<div class="panel panel-default choose_buttons_panel navbar-fixed-top">
+				<div class="checkbox">
+				  	<label class="choose_buttons"><input type="checkbox"  href="#" data-toggle="collapse" data-target="#Greek_Letters" onchange="show_symbol_tables('Greek_Letters')">Greek Letters</label>
+
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Big_Symbols" onchange="show_symbol_tables('Big_Symbols')">Big Symbols</label>
+
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Others" onchange="show_symbol_tables('Others')">Others</label>
+
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Relations" onchange="show_symbol_tables('Relations')">Relations</label>
+
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Arrows"onchange="show_symbol_tables('Arrows')">Arrows</label>
+				</div>
+			</div>
+
+		<div class="panel-group navbar-fixed-top" style="margin-top:100px; margin-bottom: 5px; overflow:auto;">
+			<div id="LaTeX" class=" panel panel-body symbols-panel" >
+				<button type="button" class="btn btn-default symbols" title = "LaTeX" onclick="insert_txt('0')">$\LaTeX$</button>
+			</div>
+			<div id="Greek_Letters" class="panel panel-body collapse symbols-panel d-inline-block" >
+				<button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('1')">$\alpha$</button>
+				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('2')">$\beta$</button>
+				<button type="button" class="btn btn-default symbols" title = "Gamma" onclick="insert_txt('3')">$\Gamma$</button>
+				<button type="button" class="btn btn-default symbols" title = "gamma" onclick="insert_txt('4')">$\gamma$</button>
+				<button type="button" class="btn btn-default symbols" title = "Delta" onclick="insert_txt('5')">$\Delta$</button>
+				<button type="button" class="btn btn-default symbols" title = "delta" onclick="insert_txt('6')">$\delta$</button>
+				<button type="button" class="btn btn-default symbols" title = "elpsilon" onclick="insert_txt('7')">$\epsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "zeta" onclick="insert_txt('8')">$\zeta$</button>
+				<button type="button" class="btn btn-default symbols" title = "eta" onclick="insert_txt('9')">$\eta$</button>
+				<button type="button" class="btn btn-default symbols" title = "Theta" onclick="insert_txt('10')">$\Theta$</button>
+				<button type="button" class="btn btn-default symbols" title = "theta" onclick="insert_txt('11')">$\theta$</button>
+				<button type="button" class="btn btn-default symbols" title = "vartheta" onclick="insert_txt('12')">$\vartheta$</button>
+				<button type="button" class="btn btn-default symbols" title = "kappa" onclick="insert_txt('13')">$\kappa$</button>
+				<button type="button" class="btn btn-default symbols" title = "Lambda" onclick="insert_txt('14')">$\Lambda$</button>
+				<button type="button" class="btn btn-default symbols" title = "lambda" onclick="insert_txt('15')">$\lambda$</button>
+				<button type="button" class="btn btn-default symbols" title = "mu" onclick="insert_txt('16')">$\mu$</button>
+				<button type="button" class="btn btn-default symbols" title = "nu" onclick="insert_txt('17')">$\nu$</button>
+				<button type="button" class="btn btn-default symbols" title = "Xi" onclick="insert_txt('18')">$\Xi$</button>
+				<button type="button" class="btn btn-default symbols" title = "xi" onclick="insert_txt('19')">$\xi$</button>
+				<button type="button" class="btn btn-default symbols" title = "omicron" onclick="insert_txt('20')">$\omicron$</button>
+				<button type="button" class="btn btn-default symbols" title = "Pi" onclick="insert_txt('21')">$\Pi$</button>
+				<button type="button" class="btn btn-default symbols" title = "pi" onclick="insert_txt('22')">$\pi$</button>
+				<button type="button" class="btn btn-default symbols" title = "rho" onclick="insert_txt('23')">$\rho$</button>
+				<button type="button" class="btn btn-default symbols" title = "Sigma" onclick="insert_txt('24')">$\Sigma$</button>
+				<button type="button" class="btn btn-default symbols" title = "sigma" onclick="insert_txt('25')">$\sigma$</button>
+				<button type="button" class="btn btn-default symbols" title = "tau" onclick="insert_txt('26')">$\tau$</button>
+				<button type="button" class="btn btn-default symbols" title = "Upsilon" onclick="insert_txt('27')">$\Upsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "upsilon" onclick="insert_txt('28')">$\upsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "Phi" onclick="insert_txt('29')">$\Phi$</button>
+				<button type="button" class="btn btn-default symbols" title = "phi" onclick="insert_txt('30')">$\phi$</button>
+				<button type="button" class="btn btn-default symbols" title = "chi" onclick="insert_txt('31')">$\chi$</button>
+				<button type="button" class="btn btn-default symbols" title = "Psi" onclick="insert_txt('32')">$\Psi$</button>
+				<button type="button" class="btn btn-default symbols" title = "psi" onclick="insert_txt('33')">$\psi$</button>
+				<button type="button" class="btn btn-default symbols" title = "Omega" onclick="insert_txt('34')">$\Omega$</button>
+				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('35')">$\omega$</button>
+			</div>
+
+			<!-- big symbols panel
+				 numbering from 101 -->
+
+			<div id="Big_Symbols" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('101')">$\sum_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('102')">$\int_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('103')">$\oint_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('104')">$\prod$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('105')">$\coprod$</button>
+			</div>
+					
+			<!-- Other symbols
+				 Numbering from 201-->
+			<div id="Others" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('201')">$\infty$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('202')">$\aleph$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('203')">$\jmath$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('204')">$\imath$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('205')">$\Re$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('206')">$\prime$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('207')">$\surd$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('208')">$\S$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('209')">$\hbar$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('210')">$\ell$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('211')">$\partial$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('212')">$\angle$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('213')">$\$$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('214')">$\&$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('215')">$\%$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('216')">$\#$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('217')">$\_$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('218')">$\{$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('219')">$\}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('220')">$\backslash$</button>
+			</div>
+
+			<!-- Relation panel
+				 Numbering from 301-->
+
+			<div id="Relations" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('301')">$\nless$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('302')">$\ngtr$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('303')">$\leq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('304')">$\geq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('305')">$\leqslant$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('306')">$\geqslant$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('307')">$\nleq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('308')">$\ngeq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('309')">$\nleqslant$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('310')">$\ngeqslant$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('311')">$\lneq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('312')">$\gneq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('313')">$\lneqq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('314')">$\gneqq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('315')">$\prec$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('316')">$\succ$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('317')">$\nprec$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('318')">$\nsucc$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('319')">$\preceq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('320')">$\succeq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('321')">$\npreceq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('322')">$\nsucceq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('323')">$\ll$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('324')">$\gg$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('325')">$\lll$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('326')">$\ggg$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('327')">$\emptyset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('328')">$\subset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('329')">$\supset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('330')">$\not\subset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('331')">$\not\supset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('332')">$\nsubseteq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('333')">$\nsupseteq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('334')">$\sqsubset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('335')">$\sqsupset$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('336')">$\sqsubseteq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('337')">$\sqsupseteq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('338')">$\cap$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('339')">$\cup$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('340')">$\uplus$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('341')">$\vee$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('342')">$\wedge$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('343')">$\equiv$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('344')">$\not\equiv$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('345')">$\doteq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('346')">$\approx$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('347')">$\not\approx$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('348')">$\cong$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('349')">$\not\cong$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('350')">$\simeq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('351')">$\bumpeq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('352')">$\sim$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('353')">$\nsim$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('354')">$\not\sim$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('355')">$\lnsim$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('356')">$\propto$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('357')">$\bowtie$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('358')">$\neq$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('359')">$\perp$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('360')">$\not\perp$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('361')">$\parallel$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('362')">$\nparallel$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('363')">$\models$</button>		
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('364')">$\dashv$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('365')">$\vdash$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('366')">$\rhd$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('367')">$\lhd$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('368')">$\unlhd$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('369')">$\unrhd$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('370')">$\asymp$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('371')">$\in$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('372')">$\forall$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('373')">$\exists$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('374')">$\smile$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('375')">$\frown$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('376')">$\amalg$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('377')">$\oslash$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('378')">$\mid$</button>
+				<!-- we should add padding to the last element so that it would not slide out. I, really, do not know the exact reason for that -->
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('379')">$\nmid$</button>
+			</div>
+
+			<!-- Arrows panel
+				Numbering from 401 -->
+			<div id="Arrows" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('401')">$\uparrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('402')">$\Uparrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('403')">$\downarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('404')">$\Downarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('405')">$\updownarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('406')">$\Updownarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('407')">$\nearrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('408')">$\searrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('409')">$\swarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('410')">$\nwarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('411')">$\leftarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('412')">$\Leftarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('413')">$\rightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('414')">$\Rightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('415')">$\leftrightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('416')">$\Leftrightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('417')">$\mapsto$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('418')">$\hookleftarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('419')">$\hookrightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('420')">$\leftharpoonup$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('421')">$\leftharpoondown$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('422')">$\rightleftharpoons$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('423')">$\rightharpoonup$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('424')">$\rightharpoondown$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('425')">$\leadsto$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('426')">$\longrightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('427')">$\longleftarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('428')">$\Longleftarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('429')">$\Longrightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('430')">$\longleftrightarrow$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('431')">$\Longleftrightarrow$</button>
+			</div>
+		</div>
+
+			<div class="form-group" id = "id0" style="z-index: 0 !important;">
 				<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);"></textarea>
 				<div class="btn-group pull-right">
 					<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
