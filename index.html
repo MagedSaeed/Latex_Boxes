@@ -23,16 +23,10 @@
 		});
 
 	</script>
-	<!-- this code is to include the w3schools libriry.
-	it is needed in importing HTML from another file.
-	we may need it in case we put the symbol table in another file
-	and import that file.
-	we may use:
-	<div w3-include-html="thePath/thePage.html"></div> -->
-	<script src="https://www.w3schools.com/lib/w3.js"></script>
+
 
 </head>
-<body>
+<body >
 	<div id="mySidenav" class="sidenav sidenav-dropdown">
 		<ul>  
 			<li><a type="button" href="#" class="functions" onclick = "add('')">Add New Box</a></li>
@@ -42,7 +36,6 @@
 				<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
 
 			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
-			<li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li>
 
 			<li><div class="dropdown">
   <a type="button" href="#" class="dropdown-toggle functions"  data-toggle="dropdown">Download
@@ -62,6 +55,7 @@
 	</form>
 	<!-- we may need this useless hidden text area-->
 	<textarea id = "hidden-text-area" style="display: none"></textarea>
+
 	<div id="main">
 		<!-- the main navigator -->
 		<nav class="navbar navbar-light navbar-fixed-top">
@@ -83,18 +77,17 @@
 		<!-- The main container elements -->
 		<!-- can we make a dynamic margin container ?-->
 		<div class="container" id = "mainContainer" onclick="onClickToggle('icon_bars')">
-			<div class="panel panel-default choose_buttons_panel navbar-fixed-top">
-				<div class="checkbox">
-				  	<label class="choose_buttons"><input type="checkbox"  href="#" data-toggle="collapse" data-target="#Greek_Letters" onchange="show_symbol_tables('Greek_Letters')">Greek Letters</label>
+			<div class="panel panel-body d-inline-block navbar-fixed-top" id="choose_buttons_panel">
+					<label class="choose_buttons"> Latex Symbols:</label>
+				  	<label class="choose_buttons"><input type="checkbox"  href="#" data-toggle="collapse" data-target="#Greek_Letters" onchange="show_symbol_tables(this,'Greek_Letters')">Greek Letters</label>
 
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Big_Symbols" onchange="show_symbol_tables('Big_Symbols')">Big Symbols</label>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Big_Symbols" onchange="show_symbol_tables(this,'Big_Symbols')">Big Symbols</label>
 
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Others" onchange="show_symbol_tables('Others')">Others</label>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Others" onchange="show_symbol_tables(this,'Others')">Others</label>
 
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Relations" onchange="show_symbol_tables('Relations')">Relations</label>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Relations" onchange="show_symbol_tables(this, 'Relations')">Relations</label>
 
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Arrows"onchange="show_symbol_tables('Arrows')">Arrows</label>
-				</div>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Arrows"onchange="show_symbol_tables(this, 'Arrows')">Arrows</label>
 			</div>
 
 		<div class="panel-group navbar-fixed-top" style="margin-top:100px; margin-bottom: 5px; overflow:auto;">

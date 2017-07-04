@@ -374,8 +374,10 @@ function add(text){
 		if (child.className == "btn glyphicon glyphicon-eye-open")
 			child.className = "btn glyphicon glyphicon-eye-close";
 	}
-	cln.style.opacity=0;
 	mainContainer.appendChild(cln);
+	cln.style.opacity=0;
+	cln.style.transition = "opacity 0.5s";
+	cln.style.marginTop='20px';
 	window.getComputedStyle(cln).opacity;
 	cln.style.opacity=1;
 	tex_area.focus(); // move the caret to the newly latex text area
@@ -502,23 +504,8 @@ function post(path, params, method) {
 function copyToClipboard() {
 
 	/*
-	This part "part #1 " could work only when textareas and inputs are visible!!
+	This part "part #1" working fine.
 	*/
-
-	//part #1
-
-	// var hidden_text_area = document.getElementById("hidden-text-area");
-	// hidden_text_area.value = all_text;
-	// var range = document.createRange();
-	// range.selectNode(hidden_text_area);
-	// window.getSelection().addRange(range);
-	// document.execCommand('copy');
-
-	/*
-	This part "part #2 " works fine. However, it is a little bit inefficient because it create a new div and immediately delete it. the reason for this creation is to make the selection for the window object possible!!
-	*/
-
-	//part #2 
 
 	var tempInput = document.createElement("TEXTAREA");
 	tempInput.style = "position: absolute; left: -1000px; top: -1000px";
@@ -535,6 +522,19 @@ function copyToClipboard() {
 		alret("Fatal error happend."+ err.message);
 	}
 	document.body.removeChild(tempInput);
+
+	//part #2 could work only when textareas and inputs are visible!!
+
+	// var hidden_text_area = document.getElementById("hidden-text-area");
+	// hidden_text_area.value = all_text;
+	// var range = document.createRange();
+	// range.selectNode(hidden_text_area);
+	// window.getSelection().addRange(range);
+	// document.execCommand('copy');
+
+	/*
+	This part "part #2 " works fine. However, it is a little bit inefficient because it create a new div and immediately delete it. the reason for this creation is to make the selection for the window object possible!!
+	*/
 
 
 
@@ -661,8 +661,9 @@ function download_xml() {
 }
 
 
-				//upload file 
-				//will it work on all browsers ?!
+//upload file 
+//will it work on all browsers ?!
+
 function upload(object){
 	var txt = "";
 	if ('files' in object) {
@@ -708,21 +709,24 @@ function upload(object){
 }
 
 // a function to show the symobls panel on a button click
-function panel_transition() {
-    var main_cont = document.getElementById('mainContainer');
-    var sym_tab = document.getElementById('symbols_table');
-    if (firstClick == 1) {
-    	firstClick = 0;
-    	main_cont.style.transition = "margin-top 2s"
-    	main_cont.style.marginTop = '165px';
-    } else {
-  		firstClick = 1;
-        main_cont.style.marginTop = '75px';
-        main_cont.style.transition = "margin-top 2s"
-	}
-	curr_text.focus();
-	scrollToElement(curr_text);
-}
+
+// function panel_transition() {
+//     var main_cont = document.getElementsByClassName('form-group')[0];
+//     var sym_tab = document.getElementsByClassName('choose_buttons_panel')[0];
+//     if (firstClick == 1) {
+//     	firstClick = 0;
+//     	//main_cont.style.transition = "margin-top 1s"
+//     	main_cont.style.marginTop = '-75px';
+//     	sym_tab.style.display = "none";
+//     } else {
+//   		firstClick = 1;
+//         main_cont.style.marginTop = '-45px';
+//         main_cont.style.transition = "margin-top 2s";
+//         sym_tab.style.display = "inline-flex";
+// 	}
+// 	curr_text.focus();
+// 	scrollToElement(curr_text);
+// }
 
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
@@ -802,7 +806,7 @@ function drop_down_control() {
 	}
 }
 
-	// Close the dropdown menu if the user clicks outside of it
+// Close the dropdown menu if the user clicks outside of it
 
 // window.onclick = function(event) {
 //   if (!event.target.matches('.symb-tab-dropbtn')) {
@@ -811,7 +815,7 @@ function drop_down_control() {
 // }
 
 document.getElementById.onclick = function(event) {
-  if (!event.target.matches('.symb-tab-dropbtn')) {
+  if (!event.target.matches('.symb-tab-dropbtn') && !event.target.matches('.symb-tab-dropbtn')) {
     //document.getElementById('myDropdown').style.display='none';
     //closeNav();
   }
@@ -820,7 +824,7 @@ document.getElementById.onclick = function(event) {
 
 
 var current_table = 'LaTeX';
-function show_symbol_tables(new_table){
+function show_symbol_tables(chec_ob, new_table){
 	// current_showed_table = document.getElementById(current_table);
 	// new_table_style = document.getElementById(new_table).style.display;
 	// if(new_table_style =='none' || new_table_style==''){
@@ -839,6 +843,11 @@ function show_symbol_tables(new_table){
 	// 	//marginTopDec(document.getElementById("mainContainer"), 10);
 	// }
 	document.getElementById(new_table).style.display="flex";
+	if(chec_ob.checked){
+		marginTopInc(document.getElementById(idList[0]),35);
+	}
+	else
+		marginTopDec(document.getElementById(idList[0]),35);
 
 }
 
