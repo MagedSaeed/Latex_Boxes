@@ -11,6 +11,7 @@ var curr_pos = 0;
 
 //latex symobls array the key is the name and the value is the latex code 
 var symbols = [];
+
 symbols["1"] = ["\\alpha",6];
 symbols["2"] = ["\\beta",5];
 symbols["3"] = ["\\Gamma",6];
@@ -46,11 +47,15 @@ symbols["32"] = ["\\Psi",4];
 symbols["33"] = ["\\psi",4];
 symbols["34"] = ["\\Omega",6];
 symbols["35"] = ["\\omega",6];
+
+
 symbols["101"] = ["\\sum_{}^{}",6];
 symbols["102"] = ["\\int_{}^{}",6];
 symbols["103"] = ["\\oint_{}^{}",7];
 symbols["104"] = ["\\prod_{}^{}",7];
 symbols["105"] = ["\\coprod_{}^{}",9];
+
+
 symbols["201"] = ["\\infty",6];
 symbols["202"] = ["\\aleph",6];
 symbols["203"] = ["\\jmath",6];
@@ -71,7 +76,9 @@ symbols["217"] = ["\\_",2];
 symbols["218"] = ["\\{",2];
 symbols["219"] = ["\\}",2];
 symbols["220"] = ["\\backslash",10];
-symbols["301"] = ["\\nless",6]; // there was an error while numbering. and that is the easiest solution
+
+
+symbols["301"] = ["\\nless",6]; 
 symbols["302"] = ["\\ngtr",5];
 symbols["303"] = ["\\leq",4];
 symbols["304"] = ["\\geq",4];
@@ -150,6 +157,8 @@ symbols["376"] = ["\\amalg",6];
 symbols["377"] = ["\\oslash",7];
 symbols["378"] = ["\\mid",4];
 symbols["379"] = ["\\nmid",5];
+
+
 symbols["401"] = ["\\uparrow",8];
 symbols["402"] = ["\\Uparrow",8];
 symbols["403"] = ["\\donwarrow",10];
@@ -183,6 +192,69 @@ symbols["430"] = ["\\longleftrightarrow",19];
 symbols["431"] = ["\\Longleftrightarrow",19];
 symbols["432"] = ["\\ ",5];
 symbols["433"] = ["\\ ",5];
+
+
+symbols["901"] = ["\\sum_{}^{}",6];
+symbols["902"] = ["\\int_{}^{}",6];
+symbols["903"] = ["\\oint_{}^{}",7];
+symbols["904"] = ["\\prod_{}^{}",7];
+symbols["905"] = ["\\lim_{}{}",6];
+symbols["906"] = ["\\frac{d}{dx}",12];
+symbols["907"] = ["\\int\\int_{}^{}",10];
+symbols["908"] = ["\\mathrm{d}",10];
+symbols["909"] = ["\\frac{\\partial}{\\partial x}",27];
+symbols["910"] = ["\\infty",6];
+
+
+symbols["501"] = ["\\forall",7];
+symbols["502"] = ["\\exists",7];
+symbols["503"] = ["\\subset",7];
+symbols["504"] = ["\\supset",7];
+symbols["505"] = ["\\cap",4];
+symbols["506"] = ["\\cup",4];
+symbols["507"] = ["\\vee",4];
+symbols["508"] = ["\\wedge",6];
+symbols["509"] = ["\\phi",4];
+symbols["510"] = ["\\in",3];
+
+
+symbols["601"] = ["\\frac{}{}",6];
+symbols["602"] = ["\\sqrt[n]{x}",9];
+symbols["603"] = ["a^{}",2];
+symbols["604"] = ["\\pi",3];
+symbols["605"] = ["\\geq",4];
+symbols["606"] = ["\\leq",4];
+symbols["607"] = ["{}_{}",1];
+symbols["608"] = ["\\|\\,|",5];
+symbols["609"] = ["\\left(\\, \\right)",9];
+symbols["610"] = ["\\{\\, \\}",5];
+
+
+symbols["701"] = ["\\sin ",5];
+symbols["702"] = ["\\cos ",5];
+symbols["703"] = ["\\tan ",5];
+symbols["704"] = ["\\cot ",5];
+symbols["705"] = ["\\sec ",5];
+symbols["706"] = ["\\csc ",5];
+symbols["707"] = ["\\log ",5];
+symbols["708"] = ["\\exp ",5];
+symbols["709"] = ["\\ln ",4];
+symbols["710"] = ["\\mathrm{sign}",13];
+
+symbols["801"] = ["\\alpha ",7];
+symbols["802"] = ["\\delta ",7];
+symbols["803"] = ["\\epsilon ",9];
+symbols["804"] = ["\\zeta ",6];
+symbols["805"] = ["\\theta ",7];
+symbols["806"] = ["\\lambda ",8];
+symbols["807"] = ["\\rho ",5];
+symbols["808"] = ["\\omega ",7];
+symbols["809"] = ["\\beta ",6];
+symbols["810"] = ["\\gamma ",7];
+
+
+
+
 
 
 function compile(id) {
@@ -302,7 +374,7 @@ function insert_txt(symbol){
 		var text_str = curr_text.value;
 	else
 		var text_str ="";
-	curr_text.value = text_str.substring(0, curr_pos)+symbols[symbol][0]+" "+text_str.substring(curr_pos, text_str.length);
+	curr_text.value = text_str.substring(0, curr_pos)+symbols[symbol][0]+""+text_str.substring(curr_pos, text_str.length);
 	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
@@ -842,12 +914,14 @@ function show_symbol_tables(chec_ob, new_table){
 	// 	document.getElementById(new_table).style.display="none";
 	// 	//marginTopDec(document.getElementById("mainContainer"), 10);
 	// }
-	document.getElementById(new_table).style.display="flex";
 	if(chec_ob.checked){
+		document.getElementById(new_table).style.display="flex";
 		marginTopInc(document.getElementById(idList[0]),35);
 	}
-	else
+	else{
+		document.getElementById(new_table).style.display="none";
 		marginTopDec(document.getElementById(idList[0]),35);
+	}
 
 }
 

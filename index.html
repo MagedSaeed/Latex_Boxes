@@ -23,10 +23,16 @@
 		});
 
 	</script>
-
+	<!-- this code is to include the w3schools libriry.
+	it is needed in importing HTML from another file.
+	we may need it in case we put the symbol table in another file
+	and import that file.
+	we may use:
+	<div w3-include-html="thePath/thePage.html"></div> -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
 
 </head>
-<body >
+<body>
 	<div id="mySidenav" class="sidenav sidenav-dropdown">
 		<ul>  
 			<li><a type="button" href="#" class="functions" onclick = "add('')">Add New Box</a></li>
@@ -36,6 +42,7 @@
 				<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
 
 			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
+			<li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li>
 
 			<li><div class="dropdown">
   <a type="button" href="#" class="dropdown-toggle functions"  data-toggle="dropdown">Download
@@ -55,21 +62,20 @@
 	</form>
 	<!-- we may need this useless hidden text area-->
 	<textarea id = "hidden-text-area" style="display: none"></textarea>
-
 	<div id="main">
 		<!-- the main navigator -->
-		<nav class="navbar navbar-light navbar-fixed-top" style="z-index: 1;">
+		<nav class="navbar navbar-light navbar-fixed-top">
 			<div id="icon_bars" onclick="iconBarFunctions('icon_bars')">
 								<div class="bar1"></div>
 								<div class="bar2"></div>
 								<div class="bar3"></div>
 			</div>
 
-			<!-- <div class="container-fluid" >
+			<div class="container-fluid" >
 				<div class="navbar-header" >
 					<a class="navbar-brand" id="reload" onclick="window.location.reload(true);" href="#">LaTeX BOXES</a>
 				</div>
-			</div> -->
+			</div>
 		</nav>
 		
 
@@ -77,32 +83,109 @@
 		<!-- The main container elements -->
 		<!-- can we make a dynamic margin container ?-->
 		<div class="container" id = "mainContainer" onclick="onClickToggle('icon_bars')">
-			<div class="panel panel-body d-inline-block navbar-fixed-top" id="choose_buttons_panel">
-					<label class="choose_buttons"> Latex Symbols:</label>
-				  	<label class="choose_buttons"><input type="checkbox"  href="#" data-toggle="collapse" data-target="#Greek_Letters" onchange="show_symbol_tables(this,'Greek_Letters')">Greek Letters</label>
+			<div class="panel panel-body d-inline-block choose_buttons_panel navbar-fixed-top">
+					<label> Latex Symbols Tables: </label>
+					<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Basic"onchange="show_symbol_tables(this, 'Basic')">Basics</label>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Calculus" onchange="show_symbol_tables(this,'Calculus')">Calculus</label>
+				  	<!-- <label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Big_Symbols" onchange="show_symbol_tables(this,'Big_Symbols')">Big Symbols</label> -->
 
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#calculus" onchange="show_symbol_tables(this,'calculus')">Calculus</label>
-
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Others" onchange="show_symbol_tables(this,'Others')">Others</label>
-
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#set_theory"onchange="show_symbol_tables(this, 'set_theory')">Set Theory</label>
-
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#basic"onchange="show_symbol_tables(this, 'basic')">Basics</label>
-
-				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#function"onchange="show_symbol_tables(this, 'function')">Functions</label>
-
-				  	<div id="icon_bars" onclick="iconBarFunctions('icon_bars')">
-								<div class="bar1"></div>
-								<div class="bar2"></div>
-								<div class="bar3"></div>
-					</div>
+ 					<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Function"onchange="show_symbol_tables(this, 'Function')">Functions</label>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Fet_Theory"onchange="show_symbol_tables(this, 'Set_Theory')">Set Theory</label>
+				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Greek_Letters" onchange="show_symbol_tables(this, 'Greek_Letters')">Greek Letters</label>
+ 				  	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Others" onchange="show_symbol_tables(this,'Others')">Others</label>
+				  <!-- 	<label><input type="checkbox" href="#" data-toggle="collapse" data-target="#Relations" onchange="show_symbol_tables(this, 'Relations')">Relations</label> -->
 			</div>
 
-		<div class="panel-group navbar-fixed-top" style="margin-top:100px; margin-bottom: 5px; overflow:auto;">
+		<div class="panel-group navbar-fixed-top" style="">
 			<div id="LaTeX" class=" panel panel-body symbols-panel" >
 				<button type="button" class="btn btn-default symbols" title = "LaTeX" onclick="insert_txt('0')">$\LaTeX$</button>
 			</div>
-			<div id="jdjf" class="panel panel-body collapse symbols-panel d-inline-block" >
+
+			
+			<!-- Basics
+				 Numbering from 601-->
+			<div id="Basic" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "fraction" onclick="insert_txt('601')">$\frac{x}{y}$</button>
+				<button type="button" class="btn btn-default symbols" title = "root" onclick="insert_txt('602')">$\sqrt[n]{x}$</button>
+				<button type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('603')">$a^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "PI" onclick="insert_txt('604')">$\pi$</button>
+				<button type="button" class="btn btn-default symbols" title = "greater than" onclick="insert_txt('605')">$\geq$</button>
+				<button type="button" class="btn btn-default symbols" title = "less than" onclick="insert_txt('606')">$\leq$</button>
+				<button type="button" class="btn btn-default symbols" title = "super script" onclick="insert_txt('607')">${a}_{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "absolute value" onclick="insert_txt('608')">$|\,|$</button>
+				<button type="button" class="btn btn-default symbols" title = "parenthesis" onclick="insert_txt('609')">$\left( \, \right)$</button>
+				<button type="button" class="btn btn-default symbols" title = "curly brackets" onclick="insert_txt('610')">$\{ \, \}$</button>
+			</div>
+
+			<!-- Calculus panel
+ 				 numbering from 901 -->
+ 
+			<div id="Calculus" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('901')">$\sum$</button>
+				<button type="button" class="btn btn-default symbols" title = "integral" onclick="insert_txt('902')">$\int$</button>
+				<button type="button" class="btn btn-default symbols" title = "contour integral" onclick="insert_txt('903')">$\oint$</button>
+				<button type="button" class="btn btn-default symbols" title = "product" onclick="insert_txt('904')">$\prod$</button>
+				<button type="button" class="btn btn-default symbols" title = "limit" onclick="insert_txt('905')">$\lim$</button>
+				<button type="button" class="btn btn-default symbols" title = "derivative" onclick="insert_txt('906')">$\frac{d}{dx}$</button>
+				<button type="button" class="btn btn-default symbols" title = "double integral" onclick="insert_txt('907')">$\int \int$</button>
+				<button type="button" class="btn btn-default symbols" title = "integration constant" onclick="insert_txt('908')">$\mathrm{d}$</button>
+				<button type="button" class="btn btn-default symbols" title = "partial" onclick="insert_txt('909')">$\frac{\partial}{\partial x}$</button>
+				<button type="button" class="btn btn-default symbols" title = "infinity" onclick="insert_txt('910')">$\infty$</button>
+			</div>
+
+
+			<!-- Functions
+				 Numbering from 701-->
+			<div id="Function" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "sine" onclick="insert_txt('701')">$\sin$</button>
+				<button type="button" class="btn btn-default symbols" title = "cosine" onclick="insert_txt('702')">$\cos$</button>
+				<button type="button" class="btn btn-default symbols" title = "tan" onclick="insert_txt('703')">$\tan$</button>
+				<button type="button" class="btn btn-default symbols" title = "cot" onclick="insert_txt('704')">$\cot$</button>
+				<button type="button" class="btn btn-default symbols" title = "secant" onclick="insert_txt('705')">$\sec$</button>
+				<button type="button" class="btn btn-default symbols" title = "cosecant" onclick="insert_txt('706')">$\csc$</button>
+				<button type="button" class="btn btn-default symbols" title = "logarithm" onclick="insert_txt('707')">$\log$</button>
+				<button type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('708')">$\exp$</button>
+				<button type="button" class="btn btn-default symbols" title = "ln" onclick="insert_txt('709')">$\ln$</button>
+				<button type="button" class="btn btn-default symbols" title = "signum" onclick="insert_txt('710')">$\mathrm{sign}$</button>
+			</div>
+
+			<!-- Set Theory
+				 Numbering from 501-->
+			<div id="Set_Theory" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "for all" onclick="insert_txt('501')">$\forall$</button>
+				<button type="button" class="btn btn-default symbols" title = "there exists" onclick="insert_txt('502')">$\exists$</button>
+				<button type="button" class="btn btn-default symbols" title = "subset" onclick="insert_txt('503')">$\subset$</button>
+				<button type="button" class="btn btn-default symbols" title = "supset" onclick="insert_txt('504')">$\supset$</button>
+				<button type="button" class="btn btn-default symbols" title = "intersection" onclick="insert_txt('505')">$\cap$</button>
+				<button type="button" class="btn btn-default symbols" title = "union" onclick="insert_txt('506')">$\cup$</button>
+				<button type="button" class="btn btn-default symbols" title = "or" onclick="insert_txt('507')">$\vee$</button>
+				<button type="button" class="btn btn-default symbols" title = "and" onclick="insert_txt('508)">$\wedge$</button>
+				<button type="button" class="btn btn-default symbols" title = "emtpy" onclick="insert_txt('509')">$\phi$</button>
+				<button type="button" class="btn btn-default symbols" title = "belongs" onclick="insert_txt('510')">$\in$</button>
+			</div>
+
+			<!-- Greek Letters
+				 Numbering from 801-->
+			<div id="Greek_Letters" class="panel panel-body collapse symbols-panel d-inline-block" >
+				<button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('801')">$\alpha$</button>
+				<button type="button" class="btn btn-default symbols" title = "delta" onclick="insert_txt('802')">$\delta$</button>
+				<button type="button" class="btn btn-default symbols" title = "elpsilon" onclick="insert_txt('803')">$\epsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "zeta" onclick="insert_txt('804')">$\zeta$</button>
+				<button type="button" class="btn btn-default symbols" title = "theta" onclick="insert_txt('805')">$\theta$</button>
+				<button type="button" class="btn btn-default symbols" title = "lambda" onclick="insert_txt('806')">$\lambda$</button>
+				<button type="button" class="btn btn-default symbols" title = "rho" onclick="insert_txt('807')">$\rho$</button>
+				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('808')">$\omega$</button>
+				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('809')">$\beta$</button>
+				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('810')">$\gamma$</button>
+			</div>
+			<!-- <div id="Big_Symbols" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('101')">$\sum_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('102')">$\int_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('103')">$\oint_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('104')">$\prod$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('105')">$\coprod$</button>
+ 			</div> -->
+			<!-- <div id="Greek_Letters" class="panel panel-body collapse symbols-panel d-inline-block" >
 				<button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('1')">$\alpha$</button>
 				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('2')">$\beta$</button>
 				<button type="button" class="btn btn-default symbols" title = "Gamma" onclick="insert_txt('3')">$\Gamma$</button>
@@ -139,83 +222,18 @@
 				<button type="button" class="btn btn-default symbols" title = "Omega" onclick="insert_txt('34')">$\Omega$</button>
 				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('35')">$\omega$</button>
 			</div>
-
+ -->
 			<!-- big symbols panel
 				 numbering from 101 -->
 
-			<div id="calculus" class="panel panel-body collapse symbols-panel">
-				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('101')">$\sum$</button>
-				<button type="button" class="btn btn-default symbols" title = "integral" onclick="insert_txt('102')">$\int$</button>
-				<button type="button" class="btn btn-default symbols" title = "contour integral" onclick="insert_txt('103')">$\oint$</button>
-				<button type="button" class="btn btn-default symbols" title = "product" onclick="insert_txt('104')">$\prod$</button>
-				<button type="button" class="btn btn-default symbols" title = "limit" onclick="insert_txt('105')">$\lim$</button>
-				<button type="button" class="btn btn-default symbols" title = "derivative" onclick="insert_txt('106')">$\frac{d}{dx}$</button>
-				<button type="button" class="btn btn-default symbols" title = "double integral" onclick="insert_txt('107')">$\int \int$</button>
-				<button type="button" class="btn btn-default symbols" title = "integration constant" onclick="insert_txt('108)">$\mathrm{d}$</button>
-				<button type="button" class="btn btn-default symbols" title = "partial" onclick="insert_txt('109')">$\frac{\partial}{\partial x}$</button>
-				<button type="button" class="btn btn-default symbols" title = "infinity" onclick="insert_txt('110')">$\infty$</button>
-			</div>
-
-			<!-- Other symbols
-				 Numbering from 501-->
-			<div id="set_theory" class="panel panel-body collapse symbols-panel">
-				<button type="button" class="btn btn-default symbols" title = "for all" onclick="insert_txt('501')">$\forall$</button>
-				<button type="button" class="btn btn-default symbols" title = "there exists" onclick="insert_txt('502')">$\exists$</button>
-				<button type="button" class="btn btn-default symbols" title = "subset" onclick="insert_txt('503')">$\subset$</button>
-				<button type="button" class="btn btn-default symbols" title = "supset" onclick="insert_txt('504')">$\supset$</button>
-				<button type="button" class="btn btn-default symbols" title = "intersection" onclick="insert_txt('505')">$\cap$</button>
-				<button type="button" class="btn btn-default symbols" title = "union" onclick="insert_txt('506')">$\cup$</button>
-				<button type="button" class="btn btn-default symbols" title = "or" onclick="insert_txt('507')">$\vee$</button>
-				<button type="button" class="btn btn-default symbols" title = "and" onclick="insert_txt('508)">$\wedge$</button>
-				<button type="button" class="btn btn-default symbols" title = "emtpy" onclick="insert_txt('509')">$\phi$</button>
-				<button type="button" class="btn btn-default symbols" title = "belongs" onclick="insert_txt('510')">$\in$</button>
-			</div>
-			
-			<!-- Other symbols
-				 Numbering from 601-->
-			<div id="basic" class="panel panel-body collapse symbols-panel">
-				<button type="button" class="btn btn-default symbols" title = "fraction" onclick="insert_txt('601')">$\frac{x}{y}$</button>
-				<button type="button" class="btn btn-default symbols" title = "root" onclick="insert_txt('602')">$\sqrt[n]{x}$</button>
-				<button type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('603')">$a^{b}$</button>
-				<button type="button" class="btn btn-default symbols" title = "PI" onclick="insert_txt('604')">$\pi$</button>
-				<button type="button" class="btn btn-default symbols" title = "greater than" onclick="insert_txt('605')">$\geq$</button>
-				<button type="button" class="btn btn-default symbols" title = "less than" onclick="insert_txt('606')">$\leq$</button>
-				<button type="button" class="btn btn-default symbols" title = "super script" onclick="insert_txt('607)">${a}_{b}$</button>
-				<button type="button" class="btn btn-default symbols" title = "absolute value" onclick="insert_txt('608')">$|\,|$</button>
-				<button type="button" class="btn btn-default symbols" title = "parenthesis" onclick="insert_txt('609')">$\left( \, \right)$</button>
-				<button type="button" class="btn btn-default symbols" title = "curly brackets" onclick="insert_txt('610')">$\{ \, \}$</button>
-			</div>
-
-			<!-- Other symbols
-				 Numbering from 701-->
-			<div id="function" class="panel panel-body collapse symbols-panel">
-				<button type="button" class="btn btn-default symbols" title = "sine" onclick="insert_txt('701')">$\sin$</button>
-				<button type="button" class="btn btn-default symbols" title = "cosine" onclick="insert_txt('702')">$\cos$</button>
-				<button type="button" class="btn btn-default symbols" title = "tan" onclick="insert_txt('703')">$\tan$</button>
-				<button type="button" class="btn btn-default symbols" title = "cot" onclick="insert_txt('704')">$\cot$</button>
-				<button type="button" class="btn btn-default symbols" title = "secant" onclick="insert_txt('705')">$\sec$</button>
-				<button type="button" class="btn btn-default symbols" title = "cosecant" onclick="insert_txt('706')">$\csc$</button>
-				<button type="button" class="btn btn-default symbols" title = "logarithm" onclick="insert_txt('707)">$\log$</button>
-				<button type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('708')">$\exp$</button>
-				<button type="button" class="btn btn-default symbols" title = "ln" onclick="insert_txt('709')">$\ln$</button>
-				<button type="button" class="btn btn-default symbols" title = "signum" onclick="insert_txt('710')">$\mathrm{sign}$</button>
-			</div>
-
-			<!-- Other symbols
-				 Numbering from 801-->
-			<div id="Greek_Letters" class="panel panel-body collapse symbols-panel d-inline-block" >
-				<button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('801')">$\alpha$</button>
-				<button type="button" class="btn btn-default symbols" title = "delta" onclick="insert_txt('802')">$\delta$</button>
-				<button type="button" class="btn btn-default symbols" title = "elpsilon" onclick="insert_txt('803')">$\epsilon$</button>
-				<button type="button" class="btn btn-default symbols" title = "zeta" onclick="insert_txt('804')">$\zeta$</button>
-				<button type="button" class="btn btn-default symbols" title = "theta" onclick="insert_txt('805')">$\theta$</button>
-				<button type="button" class="btn btn-default symbols" title = "lambda" onclick="insert_txt('806')">$\lambda$</button>
-				<button type="button" class="btn btn-default symbols" title = "rho" onclick="insert_txt('807')">$\rho$</button>
-				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('808')">$\omega$</button>
-				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('808')">$\omega$</button>
-				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('809')">$\beta$</button>
-				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('810')">$\gamma$</button>
-			</div>
+			<!-- <div id="Big_Symbols" class="panel panel-body collapse symbols-panel">
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('101')">$\sum_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('102')">$\int_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('103')">$\oint_{a}^{b}$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('104')">$\prod$</button>
+				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('105')">$\coprod$</button>
+			</div> -->
+					
 			<!-- Other symbols
 				 Numbering from 201-->
 			<div id="Others" class="panel panel-body collapse symbols-panel">
@@ -239,12 +257,10 @@
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('218')">$\{$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('219')">$\}$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('220')">$\backslash$</button>
-			</div>
 
-			<!-- Relation panel
-				 Numbering from 301-->
 
-			<div id="Relations" class="panel panel-body collapse symbols-panel">
+
+				<!-- Relation symbols, start from 301: -->
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('301')">$\nless$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('302')">$\ngtr$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('303')">$\leq$</button>
@@ -323,13 +339,9 @@
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('376')">$\amalg$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('377')">$\oslash$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('378')">$\mid$</button>
-				<!-- we should add padding to the last element so that it would not slide out. I, really, do not know the exact reason for that -->
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('379')">$\nmid$</button>
-			</div>
 
-			<!-- Arrows panel
-				Numbering from 401 -->
-			<div id="Arrows" class="panel panel-body collapse symbols-panel">
+				<!-- Arrows symbols, Statr from 401 -->
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('401')">$\uparrow$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('402')">$\Uparrow$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('403')">$\downarrow$</button>
@@ -361,6 +373,56 @@
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('429')">$\Longrightarrow$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('430')">$\longleftrightarrow$</button>
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('431')">$\Longleftrightarrow$</button>
+
+
+				<!-- Greek Letters, start from 001-->
+				<button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('1')">$\alpha$</button>
+				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('2')">$\beta$</button>
+				<button type="button" class="btn btn-default symbols" title = "Gamma" onclick="insert_txt('3')">$\Gamma$</button>
+				<button type="button" class="btn btn-default symbols" title = "gamma" onclick="insert_txt('4')">$\gamma$</button>
+				<button type="button" class="btn btn-default symbols" title = "Delta" onclick="insert_txt('5')">$\Delta$</button>
+				<button type="button" class="btn btn-default symbols" title = "delta" onclick="insert_txt('6')">$\delta$</button>
+				<button type="button" class="btn btn-default symbols" title = "elpsilon" onclick="insert_txt('7')">$\epsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "zeta" onclick="insert_txt('8')">$\zeta$</button>
+				<button type="button" class="btn btn-default symbols" title = "eta" onclick="insert_txt('9')">$\eta$</button>
+				<button type="button" class="btn btn-default symbols" title = "Theta" onclick="insert_txt('10')">$\Theta$</button>
+				<button type="button" class="btn btn-default symbols" title = "theta" onclick="insert_txt('11')">$\theta$</button>
+				<button type="button" class="btn btn-default symbols" title = "vartheta" onclick="insert_txt('12')">$\vartheta$</button>
+				<button type="button" class="btn btn-default symbols" title = "kappa" onclick="insert_txt('13')">$\kappa$</button>
+				<button type="button" class="btn btn-default symbols" title = "Lambda" onclick="insert_txt('14')">$\Lambda$</button>
+				<button type="button" class="btn btn-default symbols" title = "lambda" onclick="insert_txt('15')">$\lambda$</button>
+				<button type="button" class="btn btn-default symbols" title = "mu" onclick="insert_txt('16')">$\mu$</button>
+				<button type="button" class="btn btn-default symbols" title = "nu" onclick="insert_txt('17')">$\nu$</button>
+				<button type="button" class="btn btn-default symbols" title = "Xi" onclick="insert_txt('18')">$\Xi$</button>
+				<button type="button" class="btn btn-default symbols" title = "xi" onclick="insert_txt('19')">$\xi$</button>
+				<button type="button" class="btn btn-default symbols" title = "omicron" onclick="insert_txt('20')">$\omicron$</button>
+				<button type="button" class="btn btn-default symbols" title = "Pi" onclick="insert_txt('21')">$\Pi$</button>
+				<button type="button" class="btn btn-default symbols" title = "pi" onclick="insert_txt('22')">$\pi$</button>
+				<button type="button" class="btn btn-default symbols" title = "rho" onclick="insert_txt('23')">$\rho$</button>
+				<button type="button" class="btn btn-default symbols" title = "Sigma" onclick="insert_txt('24')">$\Sigma$</button>
+				<button type="button" class="btn btn-default symbols" title = "sigma" onclick="insert_txt('25')">$\sigma$</button>
+				<button type="button" class="btn btn-default symbols" title = "tau" onclick="insert_txt('26')">$\tau$</button>
+				<button type="button" class="btn btn-default symbols" title = "Upsilon" onclick="insert_txt('27')">$\Upsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "upsilon" onclick="insert_txt('28')">$\upsilon$</button>
+				<button type="button" class="btn btn-default symbols" title = "Phi" onclick="insert_txt('29')">$\Phi$</button>
+				<button type="button" class="btn btn-default symbols" title = "phi" onclick="insert_txt('30')">$\phi$</button>
+				<button type="button" class="btn btn-default symbols" title = "chi" onclick="insert_txt('31')">$\chi$</button>
+				<button type="button" class="btn btn-default symbols" title = "Psi" onclick="insert_txt('32')">$\Psi$</button>
+				<button type="button" class="btn btn-default symbols" title = "psi" onclick="insert_txt('33')">$\psi$</button>
+				<button type="button" class="btn btn-default symbols" title = "Omega" onclick="insert_txt('34')">$\Omega$</button>
+				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('35')">$\omega$</button>
+			</div>
+
+			<!-- Relation panel
+				 Numbering from 301-->
+
+			<div id="Relations" class="panel panel-body collapse symbols-panel">
+				
+			</div>
+
+			<!-- Arrows panel
+				Numbering from 401 -->
+			<div id="Arrows" class="panel panel-body collapse symbols-panel">
 			</div>
 		</div>
 
