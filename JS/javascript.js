@@ -324,7 +324,10 @@ function live(object, id){
 			//we have a bug in android devices using chrome 
 			if(isMobile.Android()){
 				div_preview.innerHTML  = text_area.value;
-				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+				//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+				//typejax.updater.init(latex, latex.length, result);
+				typejax.updater.init(text_area.value, text_area.value.length, div_preview);
+
 			}else{
 				//alert(e.keyCode);
 				var keycode = e.keyCode;
@@ -347,7 +350,9 @@ function live(object, id){
 				//var valid = (event.key.length == 1);
 				if (valid){
 					div_preview.innerHTML  = text_area.value;
-					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+					//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+					 typejax.updater.init(text_area.value, text_area.value.length, div_preview);
+
 				}
 			}
 		};
@@ -916,6 +921,9 @@ function show_symbol_tables(chec_ob, new_table){
 	// }
 	if(chec_ob.checked){
 		document.getElementById(new_table).style.display="flex";
+		//typejax.updater.init(text_area.value, text_area.value.length, div_preview);
+		
+		
 		marginTopInc(document.getElementById(idList[0]),35);
 	}
 	else{
@@ -924,6 +932,7 @@ function show_symbol_tables(chec_ob, new_table){
 	}
 
 }
+
 
 function marginTopInc(elem, inc_mar) {
 
