@@ -10,17 +10,18 @@
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<script type="text/javascript" src="JS/javascript.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		MathJax.Hub.Config({
-			extensions: ["tex2jax.js"],
-			jax: ["input/TeX", "output/HTML-CSS"],
-			tex2jax: {
-				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-				displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-				processEscapes: true
-			},
-			"HTML-CSS": { availableFonts: ["TeX"] }
-		});
-
+	<link rel="stylesheet" type="text/css" href="JS/typejax/typejax.css">
+<script type="text/javascript" src="JS/inliner/inliner.js"></script>
+<script type="text/javascript" src="JS/typejax/typejax.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="JS/mathjax/unpacked/MathJax.js?config=TeX-AMS_HTML"></script>
 	<!-- this code is to include the w3schools libriry.
 	it is needed in importing HTML from another file.
 	we may need it in case we put the symbol table in another file
@@ -102,7 +103,6 @@
 			
 			<!-- Basics
 				 Numbering from 601-->
-<<<<<<< HEAD
 			<div id="Basic" class="panel panel-body collapse symbols-panel">
 				<button type="button" class="btn btn-default symbols" title = "fraction" onclick="insert_txt('601')" style="margin: 0px 0px 0px auto">$\frac{x}{y}$</button>
 				<button type="button" class="btn btn-default symbols" title = "root" onclick="insert_txt('602')">$\sqrt[n]{x}$</button>
@@ -114,21 +114,6 @@
 				<button type="button" class="btn btn-default symbols" title = "absolute value" onclick="insert_txt('608')">$|\,|$</button>
 				<button type="button" class="btn btn-default symbols" title = "parenthesis" onclick="insert_txt('609')">$\left( \, \right)$</button>
 				<button type="button" class="btn btn-default symbols" title = "curly brackets" onclick="insert_txt('610')" style="margin: 0px auto 0px 0px">$\{ \, \}$</button>
-=======
-			<div id="Basic" class="panel panel-body collapse symbols-panel" >
-				<button style="padding-bottom:5px" type="button" class="btn btn-default symbols" title = "fraction">$ \frac{x}{y} $</button>
-				<div type="button" class="btn btn-default symbols" title = "root" onclick="insert_txt('602')">$\sqrt[n]{x}$</div>
-				<div type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('603')">$a^{b}$</div>
-				<div type="button" class="btn btn-default symbols" title = "PI" onclick="insert_txt('604')">$\pi$</div>
-				<div type="button" class="btn btn-default symbols" title = "greater than" onclick="insert_txt('605')">$\geq$</div>
-				<div type="button" class="btn btn-default symbols" title = "less than" onclick="insert_txt('606')">$\leq$</div>
-				<div type="button" class="btn btn-default symbols" title = "super script" onclick="insert_txt('607')">${a}_{b}$</div>
-				<div type="button" class="btn btn-default symbols" title = "absolute value" onclick="insert_txt('608')">$|\,|$</div>
-				<div type="button" class="btn btn-default symbols" title = "parenthesis" onclick="insert_txt('609')">$\left( \, \right)$</div>
-				<div type="button" class="btn btn-default symbols" title = "curly brackets" onclick="insert_txt('610')">$\{ \, \}$</div>
-				
-			
->>>>>>> ec221a224426e305e9fb398bafbda66355108a6f
 			</div>
 
 
@@ -191,11 +176,7 @@
 				<button type="button" class="btn btn-default symbols" title = "rho" onclick="insert_txt('807')">$\rho$</button>
 				<button type="button" class="btn btn-default symbols" title = "omega" onclick="insert_txt('808')">$\omega$</button>
 				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('809')">$\beta$</button>
-<<<<<<< HEAD
 				<button type="button" class="btn btn-default symbols" title = "beta" onclick="insert_txt('810')" style="margin: 0px auto 0px 0px;">$\gamma$</button>
-=======
-				<button type="button" id ="test" class="btn btn-default symbols" title = "beta" onclick="insert_txt('810')">$\gamma$</button>
->>>>>>> ec221a224426e305e9fb398bafbda66355108a6f
 			</div>
 			<!-- <div id="Big_Symbols" class="panel panel-body collapse symbols-panel">
 				<button type="button" class="btn btn-default symbols" title = "summation" onclick="insert_txt('101')">$\sum_{a}^{b}$</button>

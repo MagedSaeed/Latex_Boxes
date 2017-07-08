@@ -925,10 +925,15 @@ function show_symbol_tables(chec_ob, new_table){
 		
 		
 		marginTopInc(document.getElementById(idList[0]),35);
+		if(new_table=="Others"){
+			marginTopInc(document.getElementById(idList[0]),50);
+		}
 	}
 	else{
 		document.getElementById(new_table).style.display="none";
 		marginTopDec(document.getElementById(idList[0]),35);
+		if(new_table=="Others")
+			marginTopDec(document.getElementById(idList[0]),50);
 	}
 
 }
