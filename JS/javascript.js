@@ -290,6 +290,7 @@ function erase(id) {
 	}
 
 	textArea.value = "";
+	textArea.focus();
 }
 
 //make a live preview 
