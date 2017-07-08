@@ -107,10 +107,11 @@ body{
 }
 
 #mainContainer> .panel-group{
-	margin-top:110px; 
+	margin-top:90px; 
 	margin-bottom: 1px;
 	overflow-x:auto;
 	width:100%;
+	z-index: 5;
 
 
 }
@@ -131,6 +132,10 @@ body{
 #mainContainer> .panel-group> .symbols-panel> .symbols{
 		
 
+}
+
+#Basic{
+	padding-top:30px !important;
 }
 
 #mainContainer> .choose_buttons_panel{
