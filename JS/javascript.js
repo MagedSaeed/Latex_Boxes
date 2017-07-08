@@ -219,15 +219,15 @@ symbols["510"] = ["\\in",3];
 
 
 symbols["601"] = ["\\frac{}{}",6];
-symbols["602"] = ["\\sqrt[n]{x}",9];
-symbols["603"] = ["a^{}",2];
+symbols["602"] = ["\\sqrt[]{}",9];
+symbols["603"] = ["{}^{}",2];
 symbols["604"] = ["\\pi",3];
 symbols["605"] = ["\\geq",4];
 symbols["606"] = ["\\leq",4];
 symbols["607"] = ["{}_{}",1];
-symbols["608"] = ["\\|\\,|",5];
-symbols["609"] = ["\\left(\\, \\right)",9];
-symbols["610"] = ["\\{\\, \\}",5];
+symbols["608"] = ["| |",2];
+symbols["609"] = ["\\left( \\right)",7];
+symbols["610"] = ["\\{ \\}",2];
 
 
 symbols["701"] = ["\\sin ",5];
@@ -276,6 +276,20 @@ function compile(id) {
 	}
 	div.innerHTML  = textArea.value;
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+}
+
+function erase(id) {
+	var divParent = document.getElementById(id);
+	var children = divParent.children;
+	for (var i = 0; i < children.length; i++) {
+		var child = children[i];
+		if (child.nodeName == "TEXTAREA")
+			var textArea = child;
+		if (child.nodeName == "DIV")
+			div = child 
+	}
+
+	textArea.value = "";
 }
 
 //make a live preview 
@@ -379,7 +393,7 @@ function insert_txt(symbol){
 		var text_str = curr_text.value;
 	else
 		var text_str ="";
-	curr_text.value = text_str.substring(0, curr_pos)+symbols[symbol][0]+""+text_str.substring(curr_pos, text_str.length);
+	curr_text.value = text_str.substring(0, curr_pos)+" "+symbols[symbol][0]+" "+text_str.substring(curr_pos, text_str.length);
 	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
