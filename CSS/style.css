@@ -103,6 +103,13 @@ body{
 	background-color:transparent; 
     color: black;
     font-size: 12px;
+    border: none;
+    outline: none:
+
+}
+
+#mainContainer> .panel-group> .symbols-panel>.symbols:hover{
+	background-color:#dce0e8; 
 
 }
 
@@ -123,15 +130,11 @@ body{
 	padding-bottom:0px;
 	padding-left: 4px;
 	padding-right:5px;
-	margin-top:-3px;
+	margin-top:-5px;
 	margin-bottom: 1px;
 	//margin:auto;
 	width:auto;
 	//text-align:center;
-}
-#mainContainer> .panel-group> .symbols-panel> .symbols{
-		
-
 }
 
 #Basic{
@@ -139,10 +142,11 @@ body{
 }
 
 #mainContainer> .choose_buttons_panel{
-	padding:5px 5px 0px 35px!important;
+	padding-left:35px!important;
+	padding-top: 5px;
 	background-color:  #eceff1;
-	//margin-bottom:50px!important;
-	margin-top: 50px;
+	//margin-bottom:40px!important;
+	margin-top: 52px;
 	//z-index: 4 !important;
 	//box-shadow: 0px 1px 10px 0px #606060;
 	overflow-x:auto;
@@ -234,7 +238,7 @@ body{
 	transition: opacity 0.5s;
 	transition: margin 0.8s;
 	color: black;
-	margin-top:-27px;
+	margin-top:-37px;
 
 }
 
