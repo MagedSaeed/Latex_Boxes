@@ -194,16 +194,16 @@ symbols["432"] = ["\\ ",5];
 symbols["433"] = ["\\ ",5];
 
 
-symbols["901"] = ["\\sum_{}^{}",6];
-symbols["902"] = ["\\int_{}^{}",6];
-symbols["903"] = ["\\oint_{}^{}",7];
-symbols["904"] = ["\\prod_{}^{}",7];
-symbols["905"] = ["\\lim_{}{}",6];
+symbols["901"] = ["\\sum_{}^{}",7];
+symbols["902"] = ["\\int_{}^{}",7];
+symbols["903"] = ["\\oint_{}^{}",8];
+symbols["904"] = ["\\prod_{}^{}",8];
+symbols["905"] = ["\\lim_{}{}",7];
 symbols["906"] = ["\\frac{d}{dx}",12];
 symbols["907"] = ["\\int\\int_{}^{}",10];
 symbols["908"] = ["\\mathrm{d}",10];
 symbols["909"] = ["\\frac{\\partial}{\\partial x}",27];
-symbols["910"] = ["\\infty",6];
+symbols["910"] = ["\\infty",7];
 
 
 symbols["501"] = ["\\forall",7];
@@ -218,13 +218,13 @@ symbols["509"] = ["\\phi",4];
 symbols["510"] = ["\\in",3];
 
 
-symbols["601"] = ["\\frac{}{}",6];
+symbols["601"] = ["\\frac{}{}",7];
 symbols["602"] = ["\\sqrt[]{}",9];
 symbols["603"] = ["{}^{}",2];
 symbols["604"] = ["\\pi",3];
-symbols["605"] = ["\\geq",4];
-symbols["606"] = ["\\leq",4];
-symbols["607"] = ["{}_{}",1];
+symbols["605"] = ["\\geq",5];
+symbols["606"] = ["\\leq",5];
+symbols["607"] = ["{}_{}",2];
 symbols["608"] = ["| |",2];
 symbols["609"] = ["\\left( \\right)",7];
 symbols["610"] = ["\\{ \\}",2];
@@ -318,6 +318,7 @@ function live(object, id){
 //attach listeners on keyup
 	if(object.className =="btn glyphicon glyphicon-eye-close"){
 		object.className = "btn glyphicon glyphicon-eye-open";
+		/*
 		text_area.onkeyup = function (e){
 			var isMobile = {
 				Windows: function() {
@@ -377,6 +378,15 @@ function live(object, id){
 	{
 		object.className = "btn glyphicon glyphicon-eye-close";
 		text_area.onkeyup = null;
+	}*/
+
+		$(text_area).on('input selectionchange propertychange', function() {
+			if(object.className =="btn glyphicon glyphicon-eye-open")
+				typejax.updater.init(text_area.value, text_area.value.length, div_preview);
+		});
+	}else
+	{
+		object.className = "btn glyphicon glyphicon-eye-close";
 	}
 
 
@@ -447,7 +457,7 @@ function add(text){
 	var children = div.children;
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.className == "panel-body")
+		if (child.className == "preview-latex panel-body")
 			child.innerHTML = "";
 	}
 
@@ -468,9 +478,9 @@ function add(text){
 	}
 	mainContainer.appendChild(cln);
 	cln.style.opacity=0;
-	cln.style.transition = "opacity 0.5s";
-	cln.style.marginTop='20px';
-	window.getComputedStyle(cln).opacity;
+	//cln.style.transition = "opacity 0.5s";
+	//cln.style.marginTop='20px';
+	//window.getComputedStyle(cln).opacity;
 	cln.style.opacity=1;
 	tex_area.focus(); // move the caret to the newly latex text area
 	scrollToElement(document.getElementById(newId));
@@ -501,9 +511,9 @@ function remove(id){
 			if(index>-1)
 				idList.splice(index,1);
 		//this code is to add transition effect to the removed elemnet.
-		window.getComputedStyle(currentElement).opacity;
-		currentElement.style.opacity=0;
-		setTimeout(function(){document.getElementById(id).remove();}, 600);
+		//window.getComputedStyle(currentElement).opacity;
+		//currentElement.style.opacity=0;
+		document.getElementById(id).remove();
 		idcnt = idcnt -1 ;
 	}	
 }
@@ -728,10 +738,6 @@ function download_xml() {
 			if (child.nodeName == "TEXTAREA"){
 				all_text = all_text.concat("\n<box>");
 				all_text = all_text.concat(child.value);
-				var match = /\r|\n/.exec(child.value);
-				if (match) {
-				    alert('found new line');
-				}
 				all_text = all_text.concat("</box>\n");
 				break;
 			}
@@ -769,11 +775,12 @@ function upload(object){
 				var fr = new FileReader();
 				fr.onload = function(e) {
 					txt = e.target.result;
+					try
+					{
 					if(txt)
 					{
 						parser = new DOMParser();
-						try
-						{
+						
 							xmlDoc = parser.parseFromString(txt,"text/xml");
 
 							//copy the current list of containers to remove them after upload is done
@@ -786,10 +793,12 @@ function upload(object){
 							//should we remove the current boxes ?!
 							//for(i=0 ; i< rmList.length ; i++)
 							//	remove(rmList[i]);
-						}catch(e)
-						{
-							alert('This format is not allowed !');
-						}
+						
+					}
+					}
+					catch(e)
+					{
+						alert('This format is not allowed !');
 					}
 				};
 				fr.readAsText(file);
