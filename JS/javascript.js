@@ -979,4 +979,23 @@ elem.style.marginTop = marginTop + 'px';
 
 }
 
+// code to add keyboard shortcuts:
+// define a handler
+// function kyb_shortcuts(e) {
+
+//     // this would test for whichever key is 40 and the ctrl key at the same time
+//     if (e.ctrlKey && e.keyCode == 66) {
+//         // call your function to do the thing
+//         add('');
+//     }
+
+//      else if (e.ctrlKey && e.keyCode == 16 && e.keyCode == 67) {
+//         // call your function to do the thing
+//         copyToClipboard();
+//     }
+// }
+// // register the handler 
+// document.addEventListener('keyup', kyb_shortcuts, false);
+
+
 
