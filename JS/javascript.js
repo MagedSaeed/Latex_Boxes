@@ -256,7 +256,22 @@ symbols["810"] = ["\\gamma ",7];
 
 
 
+function get_unique_symbols()
+{
+	var set = new Set();
 
+	symbols.forEach( function (symbol)
+	{
+	    if(symbol)
+	    {
+	    	if (symbol[0].charAt(0) == '\\')
+	    		set.add(symbol[0].substring(1))
+		}
+	});
+	list = [];
+	set.forEach(v => list.push(v));
+	return list
+}
 function compile(id) {
 	var divParent = document.getElementById(id);
 	var children = divParent.children;
@@ -485,6 +500,27 @@ function add(text){
 	tex_area.focus(); // move the caret to the newly latex text area
 	scrollToElement(document.getElementById(newId));
 
+}
+
+function trigger_autocomplete()
+{
+	//alert(get_unique_symbols());
+	$('textarea').textcomplete([
+    { // tech companies
+        words: get_unique_symbols(),
+        match: /\B\\(\w*)$/,
+        search: function (term, callback) {
+            callback($.map(this.words, function (word) {
+                return word.indexOf(term) === 0 ? word : null;
+            }));
+        },
+        index: 1,
+        replace: function (word) {
+            return '\\'+word + ' ';
+        }
+    }
+]);
+	
 }
 
 // function to scroll down to the newly created form group
