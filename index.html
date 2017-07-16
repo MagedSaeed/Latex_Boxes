@@ -9,6 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<script type="text/javascript" src="JS/javascript.js"></script>
+	<script type="text/javascript" src="JS/shortcut.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="JS/typejax/typejax.css">
 <script type="text/javascript" src="JS/inliner/inliner.js"></script>
@@ -34,21 +35,21 @@
 <body>
 	<div id="mySidenav" class="sidenav sidenav-dropdown">
 		<ul>  
-			<li><a type="button" href="#" class="functions" onclick = "add('')">Add New Box</a></li>
-			<li><a type="button" class=" functions" href ="#" onclick = "preview_all()">Preview All</a></li>
-			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
+			<li><a type="button" href="#" class="functions" id="add" onclick = "add('')">Add New Box</a></li>
+			<li><a type="button" class=" functions" href ="#" id = "preview_all" onclick = "preview_all()">Preview All</a></li>
+			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" id = "copy_all" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
 				<!-- non-display input file clicked by the upload button -->
 				<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
 
-			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" onclick = "document.getElementById('myFile').click();">Upload</a></li>
+			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" id = "upload" onclick = "document.getElementById('myFile').click();">Upload</a></li>
 			<!-- <li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li> -->
 
 			<li><div class="dropdown">
   <a type="button" href="#" class="dropdown-toggle functions"  data-toggle="dropdown">Download
   <span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a id="submenu-items" type="button" href="#" onclick = "download_text()">Text file</a></li>
-	<li><a type="button" id="submenu-items" href="#" onclick ="download_xml()">Xml file</a></li>
+    <li><a id="submenu-items" type="button" href="#" onclick = "download_text()" id = "download_txt">Text file</a></li>
+	<li><a type="button" id="submenu-items" href="#" onclick ="download_xml()" id = "download_xml">Xml file</a></li>
   </ul>
 </div></li>
 	      </ul>
@@ -442,12 +443,12 @@
 			<div class="form-group" id = "id0" style="z-index: 0 !important;" >
 				<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);" autofocus></textarea>
 				<div class="btn-group pull-right">
-					<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
-					<button type="button" class="btn glyphicon glyphicon-arrow-down" title ="Move Down" onclick = "moveDown(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
-					<button type="button" class="btn glyphicon glyphicon glyphicon-erase" title ="Erase content" onclick = "erase(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
-					<button type="button" class="btn glyphicon glyphicon-play text-primary" title ="Preview" onclick="compile(this.parentElement.parentElement.id)"    style="background-color:transparent;"></button>
-					<button type="button" class="btn glyphicon glyphicon-eye-close" title ="Live Preview" onclick="live(this,this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
-					<button type="button" class="btn glyphicon glyphicon-trash text-danger" onclick="remove(this.parentElement.parentElement.id)" title ="Remove" style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" id = "moveUp" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon-arrow-down" title ="Move Down" id = "moveDown" onclick = "moveDown(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon glyphicon-erase" title ="Erase content" id = "erase" onclick = "erase(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon-play text-primary" id = "compile" title ="Preview" onclick="compile(this.parentElement.parentElement.id)"    style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon-eye-close" title ="Live Preview" id = "live_preview" onclick="live(this,this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
+					<button type="button" class="btn glyphicon glyphicon-trash text-danger" id = "remove" onclick="remove(this.parentElement.parentElement.id)" title ="Remove" style="background-color:transparent;"></button>
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading" style="min-height:35px"></div>
