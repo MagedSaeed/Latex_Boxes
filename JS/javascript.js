@@ -265,7 +265,7 @@ function get_unique_symbols()
 	    if(symbol)
 	    {
 	    	if (symbol[0].charAt(0) == '\\')
-	    		set.add(symbol[0].substring(1))
+	    		set.add(symbol[0].substring(1).trim())
 		}
 	});
 	list = [];
