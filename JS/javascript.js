@@ -424,6 +424,20 @@ function insert_txt(symbol){
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
+function find_caret_pos(symbol)
+{
+	var pos = 0;
+	symbols.forEach( function (s)
+	{
+	    if(s[0].trim() == symbol.trim())
+	    {
+	    	pos = s[1];
+		}
+	});
+
+	return pos
+}
+
 function setCaretPosition(elem, caretPos) {
 
     if(elem != null) {

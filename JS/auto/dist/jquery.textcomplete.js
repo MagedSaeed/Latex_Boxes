@@ -1091,6 +1091,7 @@ if (typeof jQuery === 'undefined') {
         pre = pre.replace(regExp, newSubstr);
         this.$el.val(pre + post);
         this.el.selectionStart = this.el.selectionEnd = pre.length;
+        setCaretPosition(this.el, (pre.length-newSubstr.length +find_caret_pos(newSubstr)-1)); 
       }
     },
 
