@@ -519,7 +519,7 @@ function trigger_autocomplete()
             return '\\'+word + ' ';
         }
     }
-]);
+])
 	
 }
 
