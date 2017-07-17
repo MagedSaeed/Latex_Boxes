@@ -37,21 +37,21 @@
 <body onload="trigger_autocomplete();">
 	<div id="mySidenav" class="sidenav sidenav-dropdown">
 		<ul>  
-			<li><a type="button" href="#" class="functions" id="add" onclick = "add('')">Add New Box</a></li>
-			<li><a type="button" class=" functions" href ="#" id = "preview_all" onclick = "preview_all()">Preview All</a></li>
-			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" id = "copy_all" onclick = "copyToClipboard()">Copy To Clipboard</a></li>
+			<li><a type="button" href="#" class="functions" id="add" onclick = "add('')" title="shortcut: alt+n">Add New Box</a></li>
+			<li><a type="button" class=" functions" href ="#" id = "preview_all" onclick = "preview_all()" title="shortcut: alt+p">Preview All</a></li>
+			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" id = "copy_all" onclick = "copyToClipboard()" title="shortcut: alt+c">Copy To Clipboard</a></li>
 				<!-- non-display input file clicked by the upload button -->
 				<input type="file" id="myFile" style="display:none" multiple size="50" onchange="upload(this)">
 
-			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" id = "upload" onclick = "document.getElementById('myFile').click();">Upload</a></li>
+			<li><a type="button"  class="functions" href ="#" data-clipboard-target ="#hidden-text-area" id = "upload" onclick = "document.getElementById('myFile').click();" title="shortcut: alt+u">Upload</a></li>
 			<!-- <li><a class="functions" data-toggle="collapse" data-target="#symbols_table" onclick ="panel_transition()">Latex Symbols</a></li> -->
 
 			<li><div class="dropdown">
   <a type="button" href="#" class="dropdown-toggle functions"  data-toggle="dropdown">Download
   <span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a id="submenu-items" type="button" href="#" onclick = "download_text()" id = "download_txt">Text file</a></li>
-	<li><a type="button" id="submenu-items" href="#" onclick ="download_xml()" id = "download_xml">Xml file</a></li>
+    <li><a id="submenu-items" type="button" href="#" onclick = "download_text()" id = "download_txt" title="shortcut: alt+t">Text file</a></li>
+	<li><a type="button" id="submenu-items" href="#" onclick ="download_xml()" id = "download_xml" title="shortcut: alt+x">Xml file</a></li>
   </ul>
 </div></li>
 	      </ul>
