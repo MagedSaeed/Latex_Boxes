@@ -1091,6 +1091,8 @@ if (typeof jQuery === 'undefined') {
         pre = pre.replace(regExp, newSubstr);
         this.$el.val(pre + post);
         this.el.selectionStart = this.el.selectionEnd = pre.length;
+
+        //make sure we update the position of the caret after we add the text
         setCaretPosition(this.el, (pre.length-newSubstr.length +find_caret_pos(newSubstr)-1)); 
       }
     },
