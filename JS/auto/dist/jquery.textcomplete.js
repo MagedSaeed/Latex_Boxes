@@ -1093,7 +1093,11 @@ if (typeof jQuery === 'undefined') {
         this.el.selectionStart = this.el.selectionEnd = pre.length;
 
         //make sure we update the position of the caret after we add the text
-        setCaretPosition(this.el, (pre.length-newSubstr.length +find_caret_pos(newSubstr)-1)); 
+        setCaretPosition(this.el, (pre.length-newSubstr.length +find_caret_pos(newSubstr)-1));
+        //make sure we update after insert
+        var id = this.el.parentElement.id;
+        if(is_live_on(id))
+          compile(id);
       }
     },
 

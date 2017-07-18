@@ -407,6 +407,32 @@ function live(object, id){
 
 }
 
+//check if th live preview is on 
+
+function is_live_on(id)
+{
+	var divParent = document.getElementById(id);
+	var children = divParent.children;
+	var text_area = null;
+
+	for (var i = 0; i < children.length; i++) {
+		var child = children[i];
+		if (child.nodeName == "TEXTAREA")
+			text_area = child;
+		if (child.className == "btn-group pull-right")
+			var div = child 
+	}
+
+	var children = div.children;
+	var div_preview = null;
+	for (var i = 0; i < children.length; i++) {
+		var child = children[i];
+		if (child.id == "live_preview")
+			if(child.className =="btn glyphicon glyphicon-eye-open")
+				return true
+	}
+	return false 
+}
 //once losing focus get the blinking caret position (|) and object selected 
 function on_focus_out(object){
 	curr_text = object;
@@ -421,7 +447,12 @@ function insert_txt(symbol){
 		var text_str ="";
 	curr_text.value = text_str.substring(0, curr_pos)+" "+symbols[symbol][0]+" "+text_str.substring(curr_pos, text_str.length);
 	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
-	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+	var id = curr_text.parentElement.id;
+	if(is_live_on(id))
+	{
+		compile(id);
+	}
+	//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
 function find_caret_pos(symbol)
@@ -540,7 +571,8 @@ function trigger_autocomplete()
             return '\\'+word + ' ';
         }
     }
-]);
+]
+);
 
 	$(document).delegate('textarea', 'keydown', function(e) {
   var keyCode = e.keyCode || e.which;
