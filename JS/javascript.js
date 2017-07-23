@@ -574,19 +574,32 @@ function trigger_autocomplete()
 ]
 );
 
-	$(document).delegate('textarea', 'keydown', function(e) {
-  var keyCode = e.keyCode || e.which;
+	$(document).delegate('textarea', 'keydown', function(e) 
+	{
+	  var keyCode = e.keyCode || e.which;
 
-  if (keyCode == 9) {
-    e.preventDefault();
-    var start = $(this).get(0).selectionStart;
-    var end = $(this).get(0).selectionEnd;
+	  if (keyCode == 9) {
+	    e.preventDefault();
+	    var start = $(this).get(0).selectionStart;
+	    var end = $(this).get(0).selectionEnd;
 
-    // put caret at right position again
-    $(this).get(0).selectionStart =
-    $(this).get(0).selectionEnd = start + defaultTab;
-  }
-});
+	    // put caret at right position again
+	    $(this).get(0).selectionStart =
+	    $(this).get(0).selectionEnd = start + defaultTab;
+  	}
+
+	});
+
+	$('textarea').on('keyup', function (event) {
+        if (event.keyCode == 52 && event.shiftKey) {
+        	var text = $(this).get(0).value;
+            var caret_pos = $(this).get(0).selectionStart;
+            //alert(text.length);
+            $(this).get(0).value = text.substring(0,caret_pos-1)+"$$"+text.substring(caret_pos,text.length);
+            $(this).get(0).selectionStart =
+	        $(this).get(0).selectionEnd = caret_pos;
+        }
+    });
 	
 }
 
