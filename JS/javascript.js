@@ -719,6 +719,35 @@ function post(path, params, method) {
 	form.submit();
 }
 
+//toggle the panel 
+function toggle(ele,id)
+{
+	var divParent = document.getElementById(id);
+	var children = divParent.children;
+	for (var i = 0; i < children.length; i++) {
+		var child = children[i];
+		if (child.nodeName == "TEXTAREA")
+			var textArea = child;
+		if (child.nodeName == "DIV")
+			div = child 
+	}
+
+	var children = div.children;
+	for (var i = 0; i < children.length; i++) {
+		var child = children[i];
+		if (child.className == "preview-latex panel-body")
+			div = child;
+	}
+	$(div).slideToggle();
+	if(ele.className == "btn glyphicon glyphicon-chevron-up")
+	{
+		ele.className = "btn glyphicon glyphicon-chevron-down";
+	}else
+	{
+		ele.className = "btn glyphicon glyphicon-chevron-up";
+	}
+}
+
 function copyToClipboard() {
 
 	/*
