@@ -11,246 +11,237 @@ var curr_pos = 0;
 
 //latex symobls array the key is the name and the value is the latex code 
 var symbols = [];
-
-symbols["1"] = ["\\alpha",6,2];
-symbols["2"] = ["\\beta",5,2];
-symbols["3"] = ["\\Gamma",6,2];
-symbols["4"] = ["\\gamma",6,2];
-symbols["5"] = ["\\Delta",6,2];
-symbols["6"] = ["\\delta",6,2];
-symbols["7"] = ["\\epsilon",8,2];
-symbols["8"] = ["\\zeta",5,2];
-symbols["9"] = ["\\eta",4,2];
-symbols["10"] = ["\\Theta",6,2];
-symbols["11"] = ["\\theta",6,2];
-symbols["12"] = ["\\vartheta",9,2];
-symbols["13"] = ["\\kappa",6,2];
-symbols["14"] = ["\\Lambda",7,2];
-symbols["15"] = ["\\lambda",7,2];
-symbols["16"] = ["\\mu",3,2];
-symbols["17"] = ["\\nu",3,2];
-symbols["18"] = ["\\Xi",3,2];
-symbols["19"] = ["\\xi",3,2];
-symbols["20"] = ["\\omicron",8,2];
-symbols["21"] = ["\\Pi",3,2];
-symbols["22"] = ["\\pi",3,2];
-symbols["23"] = ["\\rho",4,2];
-symbols["24"] = ["\\Sigma",6,2];
-symbols["25"] = ["\\sigma",6,2];
-symbols["26"] = ["\\tau",4,2];
-symbols["27"] = ["\\Upsilon",8,2];
-symbols["28"] = ["\\upsilon",8,2];
-symbols["29"] = ["\\Phi",4,2];
-symbols["30"] = ["\\phi",4,2];
-symbols["31"] = ["\\chi",4,2];
-symbols["32"] = ["\\Psi",4,2];
-symbols["33"] = ["\\psi",4,2];
-symbols["34"] = ["\\Omega",6,2];
-symbols["35"] = ["\\omega",6,2];
-
-
-symbols["101"] = ["\\sum_{}^{}",6,3];
-symbols["102"] = ["\\int_{}^{}",6,3];
-symbols["103"] = ["\\oint_{}^{}",7,3];
-symbols["104"] = ["\\prod_{}^{}",7,3];
-symbols["105"] = ["\\coprod_{}^{}",9,3];
-
-
-symbols["201"] = ["\\infty",6,2];
-symbols["202"] = ["\\aleph",6,2];
-symbols["203"] = ["\\jmath",6,2];
-symbols["204"] = ["\\imath",6,2];
-symbols["205"] = ["\\Re",3,2];
-symbols["206"] = ["\\prime",6,2];
-symbols["207"] = ["\\surd",5,2];
-symbols["208"] = ["\\S",2,2];
-symbols["209"] = ["\\hbar",5,2];
-symbols["210"] = ["\\ell",4,2];
-symbols["211"] = ["\\partial",8,2];
-symbols["212"] = ["\\angle",6,2];
-symbols["213"] = ["\\$",2,2];
-symbols["214"] = ["\\&",2,2];
-symbols["215"] = ["\\%",2,2];
-symbols["216"] = ["\\#",2,2];
-symbols["217"] = ["\\_",2,2];
-symbols["218"] = ["\\{",2,2];
-symbols["219"] = ["\\}",2,2];
-symbols["220"] = ["\\backslash",10,2];
+syntax = [];
+symbols["1"] = ["\\alpha"];
+symbols["2"] = ["\\beta"];
+symbols["3"] = ["\\Gamma"];
+symbols["4"] = ["\\gamma"];
+symbols["5"] = ["\\Delta"];
+symbols["6"] = ["\\delta",];
+symbols["7"] = ["\\epsilon"];
+symbols["8"] = ["\\zeta"];
+symbols["9"] = ["\\eta"];
+symbols["10"] = ["\\Theta"];
+symbols["11"] = ["\\theta"];
+symbols["12"] = ["\\vartheta"];
+symbols["13"] = ["\\kappa"];
+symbols["14"] = ["\\Lambda"];
+symbols["15"] = ["\\lambda"];
+symbols["16"] = ["\\mu"];
+symbols["17"] = ["\\nu"];
+symbols["18"] = ["\\Xi"];
+symbols["19"] = ["\\xi"];
+symbols["20"] = ["\\omicron"];
+symbols["21"] = ["\\Pi"];
+symbols["22"] = ["\\pi"];
+symbols["23"] = ["\\rho"];
+symbols["24"] = ["\\Sigma"];
+symbols["25"] = ["\\sigma"];
+symbols["26"] = ["\\tau"];
+symbols["27"] = ["\\Upsilon"];
+symbols["28"] = ["\\upsilon"];
+symbols["29"] = ["\\Phi"];
+symbols["30"] = ["\\phi"];
+symbols["31"] = ["\\chi"];
+symbols["32"] = ["\\Psi"];
+symbols["33"] = ["\\psi"];
+symbols["34"] = ["\\Omega"];
+symbols["35"] = ["\\omega"];
+symbols["201"] = ["\\infty"];
+symbols["202"] = ["\\aleph"];
+symbols["203"] = ["\\jmath"];
+symbols["204"] = ["\\imath"];
+symbols["205"] = ["\\Re"];
+symbols["206"] = ["\\prime"];
+symbols["207"] = ["\\surd"];
+symbols["208"] = ["\\S"];
+symbols["209"] = ["\\hbar"];
+symbols["210"] = ["\\ell"];
+symbols["211"] = ["\\partial"];
+symbols["212"] = ["\\angle"];
+symbols["213"] = ["\\$"];
+symbols["214"] = ["\\&"];
+symbols["215"] = ["\\%"];
+symbols["216"] = ["\\#"];
+symbols["217"] = ["\\_"];
+symbols["218"] = ["\\{"];
+symbols["219"] = ["\\}"];
+symbols["220"] = ["\\backslash"];
 
 
-symbols["301"] = ["\\nless",6,2]; 
-symbols["302"] = ["\\ngtr",5,2];
-symbols["303"] = ["\\leq",4,2];
-symbols["304"] = ["\\geq",4,2];
-symbols["305"] = ["\\leqslant",9,2];
-symbols["306"] = ["\\geqslant",9,2];
-symbols["307"] = ["\\nleq",5,2];
-symbols["308"] = ["\\ngeq",5,2];
-symbols["309"] = ["\\nleqslant",10,2];
-symbols["310"] = ["\\ngeqslant",10,2];
-symbols["311"] = ["\\lneq",5,2];
-symbols["312"] = ["\\gneq",5,2];
-symbols["313"] = ["\\lneqq",6,2];
-symbols["314"] = ["\\gneqq",6,2];
-symbols["315"] = ["\\prec",5,2];
-symbols["316"] = ["\\succ",5,2];
-symbols["317"] = ["\\nprec",6,2];
-symbols["318"] = ["\\nsucc",6,2];
-symbols["319"] = ["\\preceq",7,2];
-symbols["320"] = ["\\succeq",7,2];
-symbols["321"] = ["\\npreceq",8,2];
-symbols["322"] = ["\\nsucceq",8,2];
-symbols["323"] = ["\\ll",3,2];
-symbols["324"] = ["\\gg",3,2];
-symbols["325"] = ["\\lll",4,2];
-symbols["326"] = ["\\ggg",4,2];
-symbols["327"] = ["\\emptyset",9,2];
-symbols["328"] = ["\\subset",7,2];
-symbols["329"] = ["\\supset",7,2];
-symbols["330"] = ["\\not\\subset",11,2];
-symbols["331"] = ["\\not\\supset",11,2];
-symbols["332"] = ["\\nsubseteq",10,2];
-symbols["333"] = ["\\nsupseteq",10,2];
-symbols["334"] = ["\\sqsubset",9,2];
-symbols["335"] = ["\\sqsupset",9,2];
-symbols["336"] = ["\\sqsubseteq",11,2];
-symbols["337"] = ["\\sqsupseteq",11,2];
-symbols["338"] = ["\\cap",4,2];
-symbols["339"] = ["\\cup",4,2];
-symbols["340"] = ["\\uplus",6,2];
-symbols["341"] = ["\\vee",4,2];
-symbols["342"] = ["\\wedge",6,2];
-symbols["343"] = ["\\equiv",6,2];
-symbols["344"] = ["\\not\\equiv",10,2];
-symbols["345"] = ["\\doteq",6,2];
-symbols["346"] = ["\\approx",7,2];
-symbols["347"] = ["\\not\\approx",11,2];
-symbols["348"] = ["\\cong",5,2];
-symbols["349"] = ["\\not\\cong",9,2];
-symbols["350"] = ["\\simeq",6,2];
-symbols["351"] = ["\\bumpeq",7,2];
-symbols["352"] = ["\\sim",4,2];
-symbols["353"] = ["\\nsim",5,2];
-symbols["354"] = ["\\not\\sim",8,2];
-symbols["355"] = ["\\lnsim",6,2];
-symbols["356"] = ["\\propto",7,2];
-symbols["357"] = ["\\bowtie",7,2];
-symbols["358"] = ["\\neq",4,2];
-symbols["359"] = ["\\perp",5,2];
-symbols["360"] = ["\\not\\perp",9,2];
-symbols["361"] = ["\\parallel",9,2];
-symbols["362"] = ["\\nparallel",10,2];
-symbols["363"] = ["\\models",7,2];
-symbols["364"] = ["\\dashv",6,2];
-symbols["365"] = ["\\vdash",6,2];
-symbols["366"] = ["\\rhd",4,2];
-symbols["367"] = ["\\lhd",4,2];
-symbols["368"] = ["\\unlhd",6,2];
-symbols["369"] = ["\\unrhd",6,2];
-symbols["370"] = ["\\asymp",6,2];
-symbols["371"] = ["\\in",3,2];
-symbols["372"] = ["\\forall",7,2];
-symbols["373"] = ["\\exists",7,2];
-symbols["374"] = ["\\smile",6,2];
-symbols["375"] = ["\\frown",6,2];
-symbols["376"] = ["\\amalg",6,2];
-symbols["377"] = ["\\oslash",7,2];
-symbols["378"] = ["\\mid",4,2];
-symbols["379"] = ["\\nmid",5,2];
+symbols["301"] = ["\\nless"]; 
+symbols["302"] = ["\\ngtr"];
+symbols["303"] = ["\\leq"];
+symbols["304"] = ["\\geq"];
+symbols["305"] = ["\\leqslant"];
+symbols["306"] = ["\\geqslant"];
+symbols["307"] = ["\\nleq"];
+symbols["308"] = ["\\ngeq"];
+symbols["309"] = ["\\nleqslant"];
+symbols["310"] = ["\\ngeqslant"];
+symbols["311"] = ["\\lneq"];
+symbols["312"] = ["\\gneq"];
+symbols["313"] = ["\\lneqq"];
+symbols["314"] = ["\\gneqq"];
+symbols["315"] = ["\\prec"];
+symbols["316"] = ["\\succ"];
+symbols["317"] = ["\\nprec"];
+symbols["318"] = ["\\nsucc"];
+symbols["319"] = ["\\preceq"];
+symbols["320"] = ["\\succeq"];
+symbols["321"] = ["\\npreceq"];
+symbols["322"] = ["\\nsucceq"];
+symbols["323"] = ["\\ll"];
+symbols["324"] = ["\\gg"];
+symbols["325"] = ["\\lll"];
+symbols["326"] = ["\\ggg"];
+symbols["327"] = ["\\emptyset"];
+symbols["328"] = ["\\subset"];
+symbols["329"] = ["\\supset"];
+symbols["330"] = ["\\not\\subset"];
+symbols["331"] = ["\\not\\supset"];
+symbols["332"] = ["\\nsubseteq"];
+symbols["333"] = ["\\nsupseteq"];
+symbols["334"] = ["\\sqsubset"];
+symbols["335"] = ["\\sqsupset"];
+symbols["336"] = ["\\sqsubseteq"];
+symbols["337"] = ["\\sqsupseteq"];
+symbols["338"] = ["\\cap"];
+symbols["339"] = ["\\cup"];
+symbols["340"] = ["\\uplus"];
+symbols["341"] = ["\\vee"];
+symbols["342"] = ["\\wedge"];
+symbols["343"] = ["\\equiv"];
+symbols["344"] = ["\\not\\equiv"];
+symbols["345"] = ["\\doteq"];
+symbols["346"] = ["\\approx"];
+symbols["347"] = ["\\not\\approx"];
+symbols["348"] = ["\\cong"];
+symbols["349"] = ["\\not\\cong"];
+symbols["350"] = ["\\simeq"];
+symbols["351"] = ["\\bumpeq"];
+symbols["352"] = ["\\sim"];
+symbols["353"] = ["\\nsim"];
+symbols["354"] = ["\\not\\sim"];
+symbols["355"] = ["\\lnsim"];
+symbols["356"] = ["\\propto"];
+symbols["357"] = ["\\bowtie"];
+symbols["358"] = ["\\neq"];
+symbols["359"] = ["\\perp"];
+symbols["360"] = ["\\not\\perp"];
+symbols["361"] = ["\\parallel"];
+symbols["362"] = ["\\nparallel"];
+symbols["363"] = ["\\models"];
+symbols["364"] = ["\\dashv"];
+symbols["365"] = ["\\vdash"];
+symbols["366"] = ["\\rhd"];
+symbols["367"] = ["\\lhd"];
+symbols["368"] = ["\\unlhd"];
+symbols["369"] = ["\\unrhd"];
+symbols["370"] = ["\\asymp"];
+symbols["371"] = ["\\in"];
+symbols["372"] = ["\\forall"];
+symbols["373"] = ["\\exists"];
+symbols["374"] = ["\\smile"];
+symbols["375"] = ["\\frown"];
+symbols["376"] = ["\\amalg"];
+symbols["377"] = ["\\oslash"];
+symbols["378"] = ["\\mid"];
+symbols["379"] = ["\\nmid"];
 
 
-symbols["401"] = ["\\uparrow",8,2];
-symbols["402"] = ["\\Uparrow",8,2];
-symbols["403"] = ["\\downarrow",10,2];
-symbols["404"] = ["\\Downarrow",10,2];
-symbols["405"] = ["\\updownarrow",12,2];
-symbols["406"] = ["\\Updownarrow",12,2];
-symbols["407"] = ["\\nearrow",8,2];
-symbols["408"] = ["\\searrow",8,2];
-symbols["409"] = ["\\swarrow",8,2];
-symbols["410"] = ["\\nwarrow",8,2];
-symbols["411"] = ["\\leftarrow",10,2];
-symbols["412"] = ["\\Leftarrow",10,2];
-symbols["413"] = ["\\rightarrow",11,2];
-symbols["414"] = ["\\Rightarrow",11,2];
-symbols["415"] = ["\\leftrightarrow",15,2];
-symbols["416"] = ["\\Leftrightarrow",15,2];
-symbols["417"] = ["\\mapsto",7,2];
-symbols["418"] = ["\\hookleftarrow",14,2];
-symbols["419"] = ["\\hookrightarrow",15,2];
-symbols["420"] = ["\\leftharpoonup",14,2];
-symbols["421"] = ["\\leftharpoondown",16,2];
-symbols["422"] = ["\\rightleftharpoons",18,2];
-symbols["423"] = ["\\rightharpoonup",15,2];
-symbols["424"] = ["\\rightharpoondown",17,2];
-symbols["425"] = ["\\leadsto",8,2];
-symbols["426"] = ["\\longrightarrow",15,2];
-symbols["427"] = ["\\longleftarrow",14,2];
-symbols["428"] = ["\\Longleftarrow",14,2];
-symbols["429"] = ["\\Longrightarrow",15,2];
-symbols["430"] = ["\\longleftrightarrow",19,2];
-symbols["431"] = ["\\Longleftrightarrow",19,2];
-symbols["432"] = ["\\ ",5];
-symbols["433"] = ["\\ ",5];
+symbols["401"] = ["\\uparrow"];
+symbols["402"] = ["\\Uparrow"];
+symbols["403"] = ["\\downarrow"];
+symbols["404"] = ["\\Downarrow"];
+symbols["405"] = ["\\updownarrow"];
+symbols["406"] = ["\\Updownarrow"];
+symbols["407"] = ["\\nearrow"];
+symbols["408"] = ["\\searrow"];
+symbols["409"] = ["\\swarrow"];
+symbols["410"] = ["\\nwarrow"];
+symbols["411"] = ["\\leftarrow"];
+symbols["412"] = ["\\Leftarrow"];
+symbols["413"] = ["\\rightarrow"];
+symbols["414"] = ["\\Rightarrow"];
+symbols["415"] = ["\\leftrightarrow"];
+symbols["416"] = ["\\Leftrightarrow"];
+symbols["417"] = ["\\mapsto"];
+symbols["418"] = ["\\hookleftarrow"];
+symbols["419"] = ["\\hookrightarrow"];
+symbols["420"] = ["\\leftharpoonup"];
+symbols["421"] = ["\\leftharpoondown"];
+symbols["422"] = ["\\rightleftharpoons"];
+symbols["423"] = ["\\rightharpoonup"];
+symbols["424"] = ["\\rightharpoondown"];
+symbols["425"] = ["\\leadsto"];
+symbols["426"] = ["\\longrightarrow"];
+symbols["427"] = ["\\longleftarrow"];
+symbols["428"] = ["\\Longleftarrow"];
+symbols["429"] = ["\\Longrightarrow"];
+symbols["430"] = ["\\longleftrightarrow"];
+symbols["431"] = ["\\Longleftrightarrow"];
+symbols["432"] = ["\\ "];
+symbols["433"] = ["\\ "];
 
 
-symbols["901"] = ["\\sum_{}^{}",7,3];
-symbols["902"] = ["\\int_{}^{}",7,3];
-symbols["903"] = ["\\oint_{}^{}",8,3];
-symbols["904"] = ["\\prod_{}^{}",8,3];
-symbols["905"] = ["\\lim_{}{}",7,2];
-symbols["906"] = ["\\frac{d}{dx}",12,2];
-symbols["907"] = ["\\int\\int_{}^{}",10,3];
-symbols["908"] = ["\\mathrm{d}",10,2];
-symbols["909"] = ["\\frac{\\partial}{\\partial x}",27,2];
-symbols["910"] = ["\\infty",7,2];
+symbols["901"] = ["\\sum_{${1}}^{${2}}"];
+symbols["902"] = ["\\int_{${1}}^{${2}}"];
+symbols["903"] = ["\\oint_{${1}}^{${2}}"];
+symbols["904"] = ["\\prod_{${1}}^{${2}}"];
+symbols["905"] = ["\\lim_{${1}}{${2}}"];
+symbols["906"] = ["\\frac{d}{dx}"];
+symbols["907"] = ["\\int\\int_{}^{}"];
+symbols["908"] = ["\\mathrm{d}"];
+symbols["909"] = ["\\frac{\\partial}{\\partial x}"];
+symbols["910"] = ["\\infty"];
 
 
-symbols["501"] = ["\\forall",7,2];
-symbols["502"] = ["\\exists",7,2];
-symbols["503"] = ["\\subset",7,2];
-symbols["504"] = ["\\supset",7,2];
-symbols["505"] = ["\\cap",4,2];
-symbols["506"] = ["\\cup",4,2];
-symbols["507"] = ["\\vee",4,2];
-symbols["508"] = ["\\wedge",6,2],2;
-symbols["509"] = ["\\phi",4,2];
-symbols["510"] = ["\\in",3,2];
+symbols["501"] = ["\\forall"];
+symbols["502"] = ["\\exists"];
+symbols["503"] = ["\\subset"];
+symbols["504"] = ["\\supset"];
+symbols["505"] = ["\\cap"];
+symbols["506"] = ["\\cup"];
+symbols["507"] = ["\\vee"];
+symbols["508"] = ["\\wedge"];
+symbols["509"] = ["\\phi"];
+symbols["510"] = ["\\in"];
 
 
-symbols["601"] = ["\\frac{}{}",7,2];
-symbols["602"] = ["\\sqrt[]{}",9,2];
-symbols["603"] = ["{}^{}",2,3];
-symbols["604"] = ["\\pi",3,2];
-symbols["605"] = ["\\geq",5,2];
-symbols["606"] = ["\\leq",5,2];
-symbols["607"] = ["{}_{}",2,3];
-symbols["608"] = ["| |",2,2];
-symbols["609"] = ["\\left( \\right)",7,2];
-symbols["610"] = ["\\{ \\}",2,2];
+symbols["601"] = ["\\frac{${1}}{${2}}"];
+symbols["602"] = ["\\sqrt[${1}]{${2}}"];
+symbols["603"] = ["{}^{}"];
+symbols["604"] = ["\\pi"];
+symbols["605"] = ["\\geq"];
+symbols["606"] = ["\\leq"];
+symbols["607"] = ["{}_{}"];
+symbols["608"] = ["| |"];
+symbols["609"] = ["\\left( ${1}\\right)"];
+symbols["610"] = ["\\{ ${1}\\}"];
 
 
-symbols["701"] = ["\\sin ",5,2];
-symbols["702"] = ["\\cos ",5,2];
-symbols["703"] = ["\\tan ",5,2];
-symbols["704"] = ["\\cot ",5,2];
-symbols["705"] = ["\\sec ",5,2];
-symbols["706"] = ["\\csc ",5,2];
-symbols["707"] = ["\\log ",5,2];
-symbols["708"] = ["\\exp ",5,2];
-symbols["709"] = ["\\ln ",4,2];
-symbols["710"] = ["\\mathrm{sign}",13,2];
+symbols["701"] = ["\\sin"];
+symbols["702"] = ["\\cos"];
+symbols["703"] = ["\\tan"];
+symbols["704"] = ["\\cot"];
+symbols["705"] = ["\\sec"];
+symbols["706"] = ["\\csc"];
+symbols["707"] = ["\\log"];
+symbols["708"] = ["\\exp"];
+symbols["709"] = ["\\ln"];
+symbols["710"] = ["\\mathrm{${1}}"];
 
-symbols["801"] = ["\\alpha ",7,2];
-symbols["802"] = ["\\delta ",7,2];
-symbols["803"] = ["\\epsilon ",9,2];
-symbols["804"] = ["\\zeta ",6,2];
-symbols["805"] = ["\\theta ",7,2];
-symbols["806"] = ["\\lambda ",8,2];
-symbols["807"] = ["\\rho ",5,2];
-symbols["808"] = ["\\omega ",7,2];
-symbols["809"] = ["\\beta ",6,2];
-symbols["810"] = ["\\gamma ",7,2];
+symbols["801"] = ["\\alpha"];
+symbols["802"] = ["\\delta"];
+symbols["803"] = ["\\epsilon"];
+symbols["804"] = ["\\zeta"];
+symbols["805"] = ["\\theta"];
+symbols["806"] = ["\\lambda"];
+symbols["807"] = ["\\rho"];
+symbols["808"] = ["\\omega"];
+symbols["809"] = ["\\beta"];
+symbols["810"] = ["\\gamma"];
 
 defaultTab = 2;
 
@@ -264,8 +255,8 @@ function get_unique_symbols()
 	{
 	    if(symbol)
 	    {
-	    	if (symbol[0].charAt(0) == '\\')
-	    		set.add(symbol[0].substring(1).trim())
+	    	//if (symbol[0].charAt(0) == '\\')
+	    	set.add(symbol[0].trim());
 		}
 	});
 	list = [];
@@ -277,7 +268,7 @@ function compile(id) {
 	var children = divParent.children;
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.nodeName == "TEXTAREA")
+		if (child.nodeName == "PRE")
 			var textArea = child;
 		if (child.nodeName == "DIV")
 			div = child 
@@ -289,7 +280,8 @@ function compile(id) {
 		if (child.className == "preview-latex panel-body")
 			div = child;
 	}
-	div.innerHTML  = textArea.value;
+	editor = ace.edit(textArea);
+	div.innerHTML  = editor.getValue();
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
@@ -298,13 +290,13 @@ function erase(id) {
 	var children = divParent.children;
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.nodeName == "TEXTAREA")
+		if (child.nodeName == "PRE")
 			var textArea = child;
 		if (child.nodeName == "DIV")
 			div = child 
 	}
-
-	textArea.value = "";
+	editor = ace.edit(textArea);
+	editor.setValue("");
 	textArea.focus();
 }
 
@@ -316,7 +308,7 @@ function live(object, id){
 
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.nodeName == "TEXTAREA")
+		if (child.nodeName == "PRE")
 			text_area = child;
 		if (child.className == "panel panel-default")
 			var div = child 
@@ -397,7 +389,9 @@ function live(object, id){
 
 		$(text_area).on('input selectionchange propertychange', function() {
 			if(object.className =="btn glyphicon glyphicon-eye-open")
-				typejax.updater.init(text_area.value, text_area.value.length, div_preview);
+				var editor = ace.edit(text_area);
+				var value = editor.getValue();
+				typejax.updater.init(value, value.length, div_preview);
 		});
 	}else
 	{
@@ -417,7 +411,7 @@ function is_live_on(id)
 
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.nodeName == "TEXTAREA")
+		if (child.nodeName == "PRE")
 			text_area = child;
 		if (child.className == "btn-group pull-right")
 			var div = child 
@@ -436,22 +430,30 @@ function is_live_on(id)
 //once losing focus get the blinking caret position (|) and object selected 
 function on_focus_out(object){
 	curr_text = object;
-	curr_pos = object.selectionStart;
+	var editor = ace.edit(object);
+	//var curr_pos = editor.getCursorPosition()
+	//alert(curr_pos.column);
 }
+
 
 //insert the current symbol to last focused text area
 function insert_txt(symbol){
-	if(curr_text.value)
-		var text_str = curr_text.value;
+	editor = ace.edit(curr_text);
+	if(editor.getValue())
+		var text_str = editor.getValue();
 	else
 		var text_str ="";
-	curr_text.value = text_str.substring(0, curr_pos)+" "+symbols[symbol][0]+" "+text_str.substring(curr_pos, text_str.length);
-	setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
+	editor.focus();
+	var snippetManager = ace.require("ace/snippets").snippetManager;
+	snippetManager.insertSnippet(editor, symbols[symbol][0]);
+	//setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
+
 	var id = curr_text.parentElement.id;
 	if(is_live_on(id))
 	{
 		compile(id);
 	}
+	
 	//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
@@ -513,8 +515,9 @@ function add(text){
 
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.nodeName == "TEXTAREA"){
-			child.value = text;
+		if (child.nodeName == "PRE"){
+			var editor = ace.edit(child);
+			editor.setValue(text);
 			var tex_area = child
 		}
 		if (child.className == "panel panel-default")
@@ -551,55 +554,49 @@ function add(text){
 	cln.style.opacity=1;
 	tex_area.focus(); // move the caret to the newly latex text area
 	scrollToElement(document.getElementById(newId));
+	trigger_autocomplete(editor);
 
 }
 
-function trigger_autocomplete()
+//insert snippet of code 
+function insert_snippet(editor , snippet)
 {
-	//alert(get_unique_symbols());
-	$('textarea').textcomplete([
-    { // tech companies
-        words: get_unique_symbols(),
-        match: /\B\\(\w*)$/,
-        search: function (term, callback) {
-            callback($.map(this.words, function (word) {
-                return word.indexOf(term) === 0 ? word : null;
-            }));
-        },
-        index: 1,
-        replace: function (word) {
-            return '\\'+word + ' ';
-        }
-    }
-]
-);
+	var snippetManager = ace.require("ace/snippets").snippetManager;
+	snippetManager.insertSnippet(editor, snippet);
+}
 
-	$(document).delegate('textarea', 'keydown', function(e) 
-	{
-	  var keyCode = e.keyCode || e.which;
+function trigger_autocomplete(editor)
+{
+	 // trigger extension
+    ace.require("ace/ext/language_tools");
+    editor.session.setMode("ace/mode/latex");
+    editor.setTheme("ace/theme/textmate");
 
-	  if (keyCode == 9) {
-	    e.preventDefault();
-	    var start = $(this).get(0).selectionStart;
-	    var end = $(this).get(0).selectionEnd;
-
-	    // put caret at right position again
-	    $(this).get(0).selectionStart =
-	    $(this).get(0).selectionEnd = start + defaultTab;
-  	}
-
-	});
-
-	$('textarea').on('keyup', function (event) {
-        if (event.keyCode == 52 && event.shiftKey) {
-        	var text = $(this).get(0).value;
-            var caret_pos = $(this).get(0).selectionStart;
-            //alert(text.length);
-            $(this).get(0).value = text.substring(0,caret_pos-1)+"$$"+text.substring(caret_pos,text.length);
-            $(this).get(0).selectionStart =
-	        $(this).get(0).selectionEnd = caret_pos;
-        }
+    //remove vertical line
+    editor.setShowPrintMargin(false);
+    //remove active line marker
+    editor.setOption("highlightActiveLine", false);
+    // enable autocompletion and snippets
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
     });
+    var staticWordCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+        var wordList = get_unique_symbols();
+        callback(null, wordList.map(function(word) {
+            return {
+                caption: word,
+                value: word,
+                meta: "static"
+            };
+        }));
+
+    }
+}
+
+editor.completers = [staticWordCompleter]
 	
 }
 
@@ -666,8 +663,9 @@ function get_all_text(){
 	do{
 		for(var i = 0; i<divNode.children.length; i++){
 			child = divNode.children[i];
-			if (child.nodeName == "TEXTAREA"){
-				all_text = all_text.concat(child.value);
+			if (child.nodeName == "PRE"){
+				var editor = ace.edit(child);
+				all_text = all_text.concat(editor.getValue());
 				all_text = all_text.concat("\n");
 				break;
 			}
@@ -726,7 +724,7 @@ function toggle(ele,id)
 	var children = divParent.children;
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-		if (child.nodeName == "TEXTAREA")
+		if (child.nodeName == "PRE")
 			var textArea = child;
 		if (child.nodeName == "DIV")
 			div = child 
@@ -747,6 +745,26 @@ function toggle(ele,id)
 		ele.className = "btn glyphicon glyphicon-chevron-up";
 	}
 }
+
+//read a text file
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
 
 function copyToClipboard() {
 
@@ -880,9 +898,10 @@ function download_xml() {
 	do{
 		for(var i = 0; i<divNode.children.length; i++){
 			child = divNode.children[i];
-			if (child.nodeName == "TEXTAREA"){
+			if (child.nodeName == "PRE"){
+				var editor = ace.edit(child);
 				all_text = all_text.concat("\n<box>");
-				all_text = all_text.concat(child.value);
+				all_text = all_text.concat(editor.getValue());
 				all_text = all_text.concat("</box>\n");
 				break;
 			}

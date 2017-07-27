@@ -24,6 +24,8 @@
     }
   });
 </script>
+
+
 <script type="text/javascript" src="JS/mathjax/unpacked/MathJax.js?config=TeX-AMS_HTML"></script>
 	<!-- this code is to include the w3schools libriry.
 	it is needed in importing HTML from another file.
@@ -34,7 +36,7 @@
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
 
 </head>
-<body onload="trigger_autocomplete();">
+<body>
 	<div id="mySidenav" class="sidenav sidenav-dropdown">
 		<ul>  
 			<li><a type="button" href="#" class="functions" id="add" onclick = "add('')" title="shortcut: alt+n">Add New Box</a></li>
@@ -443,7 +445,7 @@
 			</div>
 		</div>
 			<div class="form-group" id = "id0" style="z-index: 0 !important;" >
-				<textarea class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);" autofocus></textarea>
+				<pre id = "editor" class="form-control" placeholder="Write your LaTeX here.." rows="5" onfocusout="on_focus_out(this);" autofocus></pre>
 				<div class="btn-group pull-right">
 					<button type="button" class="btn glyphicon glyphicon-arrow-up" title ="Move Up" id = "moveUp" onclick = "moveUp(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
 					<button type="button" class="btn glyphicon glyphicon-arrow-down" title ="Move Down" id = "moveDown" onclick = "moveDown(this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
@@ -460,10 +462,19 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- load ace -->
+<script src="JS/ace-master/src-noconflict/ace.js?v=2"></script>
+<!-- load ace language tools -->
+<script src="JS/ace-master/src-noconflict/ext-language_tools.js?v=1"></script>
+<script>
+    // trigger extension
+    var editor = ace.edit("editor");
+    trigger_autocomplete(editor);
+    editor.focus();
+
+</script>
+
 </body>
 </html>
 
-<!-- Hi this is a test!-->
-<!-- Hi this is an other test!-->
-
-<!-- Hi this is a test with another github gui :)!-->

@@ -40,6 +40,10 @@ body{
 	transition: .3s
 }
 
+#editor
+{
+	min-height: 100px;
+}
 /*previous work */
 
 /*.navbar-light .navbar-nav > li > a:visited{
