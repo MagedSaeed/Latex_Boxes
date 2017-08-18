@@ -1,0 +1,12 @@
+<html>
+<div id="text" contenteditable>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at arcu ac dui eleifend suscipit a ut est. Ut iaculis ut massa non accumsan. Quisque hendrerit nisl at egestas cursus.
+</div>
+
+<script>
+var editable = document.getElementById('text');
+editable.addEventListener('input', function() {
+    console.log('Hey, somebody changed something in my text!');
+});
+</script>
+</html>

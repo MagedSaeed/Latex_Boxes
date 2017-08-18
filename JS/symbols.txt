@@ -32,11 +32,11 @@
 \psi
 \Omega
 \omega
-\sum_{${1}}^{${2}}
-\int_{${1}}^{${2}}
-\oint_{${1}}^{${2}}
-\prod_{${1}}^{${2}}
-\coprod_{${1}}^{${2}}
+\sum
+\int
+\oint
+\prod
+\coprod
 \infty
 \aleph
 \jmath
@@ -150,19 +150,18 @@
 \Longrightarrow
 \longleftrightarrow
 \Longleftrightarrow
-\frac{${1}}{${2}}
-\sqrt[${1}]{${2}}
+\frac
+\sqrt
 \pi
 \geq
 \leq
-\left(${1}\right)
-\{${1}\}
-\sin ${1}
-\cos ${1}
-\tan ${1}
-\cot ${1}
-\sec ${1}
-\csc ${1}
-\log ${1}
-\exp ${1}
-\ln ${1}
+\left
+\sin
+\cos
+\tan
+\cot
+\sec
+\csc
+\log
+\exp
+\ln

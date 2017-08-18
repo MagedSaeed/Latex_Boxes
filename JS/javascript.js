@@ -59,11 +59,7 @@ symbols["209"] = ["\\hbar"];
 symbols["210"] = ["\\ell"];
 symbols["211"] = ["\\partial"];
 symbols["212"] = ["\\angle"];
-symbols["213"] = ["\\$"];
-symbols["214"] = ["\\&"];
-symbols["215"] = ["\\%"];
-symbols["216"] = ["\\#"];
-symbols["217"] = ["\\_"];
+symbols["213"] = ["$$ ${1} $$"];
 symbols["218"] = ["\\{"];
 symbols["219"] = ["\\}"];
 symbols["220"] = ["\\backslash"];
@@ -191,8 +187,6 @@ symbols["903"] = ["\\oint_{${1}}^{${2}}"];
 symbols["904"] = ["\\prod_{${1}}^{${2}}"];
 symbols["905"] = ["\\lim_{${1}}{${2}}"];
 symbols["906"] = ["\\frac{d}{dx}"];
-symbols["907"] = ["\\int\\int_{}^{}"];
-symbols["908"] = ["\\mathrm{d}"];
 symbols["909"] = ["\\frac{\\partial}{\\partial x}"];
 symbols["910"] = ["\\infty"];
 
@@ -211,12 +205,12 @@ symbols["510"] = ["\\in"];
 
 symbols["601"] = ["\\frac{${1}}{${2}}"];
 symbols["602"] = ["\\sqrt[${1}]{${2}}"];
-symbols["603"] = ["{}^{}"];
+symbols["603"] = ["{${1}}^{${2}}"];
 symbols["604"] = ["\\pi"];
 symbols["605"] = ["\\geq"];
 symbols["606"] = ["\\leq"];
-symbols["607"] = ["{}_{}"];
-symbols["608"] = ["| |"];
+symbols["607"] = ["{${1}}_{${2}}"];
+symbols["608"] = ["|${1}|"];
 symbols["609"] = ["\\left( ${1}\\right)"];
 symbols["610"] = ["\\{ ${1}\\}"];
 
@@ -242,6 +236,7 @@ symbols["807"] = ["\\rho"];
 symbols["808"] = ["\\omega"];
 symbols["809"] = ["\\beta"];
 symbols["810"] = ["\\gamma"];
+symbols["811"] = ["\\begin{document}${1}\\end{document}"];
 
 defaultTab = 2;
 
@@ -325,6 +320,7 @@ function live(object, id){
 //attach listeners on keyup
 	if(object.className =="btn glyphicon glyphicon-eye-close"){
 		object.className = "btn glyphicon glyphicon-eye-open";
+	
 		/*
 		text_area.onkeyup = function (e){
 			var isMobile = {
@@ -387,12 +383,13 @@ function live(object, id){
 		text_area.onkeyup = null;
 	}*/
 
-		$(text_area).on('input selectionchange propertychange', function() {
+		$(text_area).on('keyup selectionchange propertychange', function() {
 			if(object.className =="btn glyphicon glyphicon-eye-open")
 				var editor = ace.edit(text_area);
 				var value = editor.getValue();
 				typejax.updater.init(value, value.length, div_preview);
 		});
+
 	}else
 	{
 		object.className = "btn glyphicon glyphicon-eye-close";
@@ -401,11 +398,12 @@ function live(object, id){
 
 }
 
+
+
 //check if th live preview is on 
 
-function is_live_on(id)
+function is_live_on(divParent)
 {
-	var divParent = document.getElementById(id);
 	var children = divParent.children;
 	var text_area = null;
 
@@ -448,8 +446,7 @@ function insert_txt(symbol){
 	snippetManager.insertSnippet(editor, symbols[symbol][0]);
 	//setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
 
-	var id = curr_text.parentElement.id;
-	if(is_live_on(id))
+	if(is_live_on(curr_text.parentElement))
 	{
 		compile(id);
 	}
@@ -582,21 +579,6 @@ function trigger_autocomplete(editor)
         enableSnippets: true,
         enableLiveAutocompletion: true
     });
-    var staticWordCompleter = {
-    getCompletions: function(editor, session, pos, prefix, callback) {
-        var wordList = get_unique_symbols();
-        callback(null, wordList.map(function(word) {
-            return {
-                caption: word,
-                value: word,
-                meta: "static"
-            };
-        }));
-
-    }
-}
-
-editor.completers = [staticWordCompleter]
 	
 }
 

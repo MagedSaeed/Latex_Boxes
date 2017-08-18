@@ -470,6 +470,9 @@
 <script>
     // trigger extension
     var editor = ace.edit("editor");
+    $("editor").on("resize", function() { editor.resize() }); 
+
+
     trigger_autocomplete(editor);
     editor.focus();
 

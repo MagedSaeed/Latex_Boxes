@@ -1445,8 +1445,8 @@ var Autocomplete = function() {
                     this.editor.session.remove(range);
                 }
             }
-            if (true)
-                snippetManager.insertSnippet(this.editor, data.value);
+            if (data.snippet)
+                snippetManager.insertSnippet(this.editor, data.snippet);
             else
                 this.editor.execCommand("insertstring", data.value || data);
         }

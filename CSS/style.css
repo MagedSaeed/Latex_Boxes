@@ -42,8 +42,9 @@ body{
 
 #editor
 {
-	min-height: 100px;
+	min-height: 150px;
 }
+
 /*previous work */
 
 /*.navbar-light .navbar-nav > li > a:visited{
