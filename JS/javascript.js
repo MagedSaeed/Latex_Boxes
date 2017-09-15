@@ -242,22 +242,6 @@ defaultTab = 2;
 
 
 
-function get_unique_symbols()
-{
-	var set = new Set();
-
-	symbols.forEach( function (symbol)
-	{
-	    if(symbol)
-	    {
-	    	//if (symbol[0].charAt(0) == '\\')
-	    	set.add(symbol[0].trim());
-		}
-	});
-	list = [];
-	set.forEach(v => list.push(v));
-	return list
-}
 function compile(id) {
 	var divParent = document.getElementById(id);
 	var children = divParent.children;
@@ -443,7 +427,7 @@ function insert_txt(symbol){
 		var text_str ="";
 	editor.focus();
 	var snippetManager = ace.require("ace/snippets").snippetManager;
-	snippetManager.insertSnippet(editor, symbols[symbol][0]);
+	snippetManager.insertSnippet(editor, symbol);
 	//setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
 
 	if(is_live_on(curr_text.parentElement))

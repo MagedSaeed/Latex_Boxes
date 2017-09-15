@@ -73,7 +73,7 @@ snippet \\omega\n\
 snippet \\sum\n\
 	\\sum{${1:n=0}}{${2:\\infty}}\n\
 snippet \\int\n\
-	\\int{${1}}{${2}}\n\
+	\\int_{${1}}^{${2}}\n\
 snippet \\oint\n\
 	\\oint_{${1}}\n\
 snippet \\prod\n\

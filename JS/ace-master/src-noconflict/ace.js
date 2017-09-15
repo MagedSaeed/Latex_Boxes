@@ -6251,6 +6251,51 @@ var CstyleBehaviour = function(options) {
         }
     });
 
+    this.add("parens", "insertion", function(state, action, editor, session, text) {
+        if (text == '$') {
+            initContext(editor);
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "" && editor.getWrapBehavioursEnabled()) {
+                return getWrapped(selection, selected, '$', '$');
+            } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
+                CstyleBehaviour.recordAutoInsert(editor, session, "$");
+                return {
+                    text: '$$',
+                    selection: [1, 1]
+                };
+            }
+        } else if (text == '$') {
+            initContext(editor);
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '$') {
+                var matching = session.$findOpeningBracket('$', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null && CstyleBehaviour.isAutoInsertedClosing(cursor, line, text)) {
+                    CstyleBehaviour.popAutoInsertedClosing();
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    };
+                }
+            }
+        }
+    });
+
+    this.add("parens", "deletion", function(state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '$') {
+            initContext(editor);
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == '$') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
     this.add("brackets", "insertion", function(state, action, editor, session, text) {
         if (text == '[') {
             initContext(editor);
