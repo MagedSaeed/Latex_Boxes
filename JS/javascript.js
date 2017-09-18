@@ -9,236 +9,6 @@ var idcnt = 1
 var curr_text = document.getElementById(idList[0]);
 var curr_pos = 0;
 
-//latex symobls array the key is the name and the value is the latex code 
-var symbols = [];
-syntax = [];
-symbols["1"] = ["\\alpha"];
-symbols["2"] = ["\\beta"];
-symbols["3"] = ["\\Gamma"];
-symbols["4"] = ["\\gamma"];
-symbols["5"] = ["\\Delta"];
-symbols["6"] = ["\\delta",];
-symbols["7"] = ["\\epsilon"];
-symbols["8"] = ["\\zeta"];
-symbols["9"] = ["\\eta"];
-symbols["10"] = ["\\Theta"];
-symbols["11"] = ["\\theta"];
-symbols["12"] = ["\\vartheta"];
-symbols["13"] = ["\\kappa"];
-symbols["14"] = ["\\Lambda"];
-symbols["15"] = ["\\lambda"];
-symbols["16"] = ["\\mu"];
-symbols["17"] = ["\\nu"];
-symbols["18"] = ["\\Xi"];
-symbols["19"] = ["\\xi"];
-symbols["20"] = ["\\omicron"];
-symbols["21"] = ["\\Pi"];
-symbols["22"] = ["\\pi"];
-symbols["23"] = ["\\rho"];
-symbols["24"] = ["\\Sigma"];
-symbols["25"] = ["\\sigma"];
-symbols["26"] = ["\\tau"];
-symbols["27"] = ["\\Upsilon"];
-symbols["28"] = ["\\upsilon"];
-symbols["29"] = ["\\Phi"];
-symbols["30"] = ["\\phi"];
-symbols["31"] = ["\\chi"];
-symbols["32"] = ["\\Psi"];
-symbols["33"] = ["\\psi"];
-symbols["34"] = ["\\Omega"];
-symbols["35"] = ["\\omega"];
-symbols["201"] = ["\\infty"];
-symbols["202"] = ["\\aleph"];
-symbols["203"] = ["\\jmath"];
-symbols["204"] = ["\\imath"];
-symbols["205"] = ["\\Re"];
-symbols["206"] = ["\\prime"];
-symbols["207"] = ["\\surd"];
-symbols["208"] = ["\\S"];
-symbols["209"] = ["\\hbar"];
-symbols["210"] = ["\\ell"];
-symbols["211"] = ["\\partial"];
-symbols["212"] = ["\\angle"];
-symbols["213"] = ["$$ ${1} $$"];
-symbols["218"] = ["\\{"];
-symbols["219"] = ["\\}"];
-symbols["220"] = ["\\backslash"];
-
-
-symbols["301"] = ["\\nless"]; 
-symbols["302"] = ["\\ngtr"];
-symbols["303"] = ["\\leq"];
-symbols["304"] = ["\\geq"];
-symbols["305"] = ["\\leqslant"];
-symbols["306"] = ["\\geqslant"];
-symbols["307"] = ["\\nleq"];
-symbols["308"] = ["\\ngeq"];
-symbols["309"] = ["\\nleqslant"];
-symbols["310"] = ["\\ngeqslant"];
-symbols["311"] = ["\\lneq"];
-symbols["312"] = ["\\gneq"];
-symbols["313"] = ["\\lneqq"];
-symbols["314"] = ["\\gneqq"];
-symbols["315"] = ["\\prec"];
-symbols["316"] = ["\\succ"];
-symbols["317"] = ["\\nprec"];
-symbols["318"] = ["\\nsucc"];
-symbols["319"] = ["\\preceq"];
-symbols["320"] = ["\\succeq"];
-symbols["321"] = ["\\npreceq"];
-symbols["322"] = ["\\nsucceq"];
-symbols["323"] = ["\\ll"];
-symbols["324"] = ["\\gg"];
-symbols["325"] = ["\\lll"];
-symbols["326"] = ["\\ggg"];
-symbols["327"] = ["\\emptyset"];
-symbols["328"] = ["\\subset"];
-symbols["329"] = ["\\supset"];
-symbols["330"] = ["\\not\\subset"];
-symbols["331"] = ["\\not\\supset"];
-symbols["332"] = ["\\nsubseteq"];
-symbols["333"] = ["\\nsupseteq"];
-symbols["334"] = ["\\sqsubset"];
-symbols["335"] = ["\\sqsupset"];
-symbols["336"] = ["\\sqsubseteq"];
-symbols["337"] = ["\\sqsupseteq"];
-symbols["338"] = ["\\cap"];
-symbols["339"] = ["\\cup"];
-symbols["340"] = ["\\uplus"];
-symbols["341"] = ["\\vee"];
-symbols["342"] = ["\\wedge"];
-symbols["343"] = ["\\equiv"];
-symbols["344"] = ["\\not\\equiv"];
-symbols["345"] = ["\\doteq"];
-symbols["346"] = ["\\approx"];
-symbols["347"] = ["\\not\\approx"];
-symbols["348"] = ["\\cong"];
-symbols["349"] = ["\\not\\cong"];
-symbols["350"] = ["\\simeq"];
-symbols["351"] = ["\\bumpeq"];
-symbols["352"] = ["\\sim"];
-symbols["353"] = ["\\nsim"];
-symbols["354"] = ["\\not\\sim"];
-symbols["355"] = ["\\lnsim"];
-symbols["356"] = ["\\propto"];
-symbols["357"] = ["\\bowtie"];
-symbols["358"] = ["\\neq"];
-symbols["359"] = ["\\perp"];
-symbols["360"] = ["\\not\\perp"];
-symbols["361"] = ["\\parallel"];
-symbols["362"] = ["\\nparallel"];
-symbols["363"] = ["\\models"];
-symbols["364"] = ["\\dashv"];
-symbols["365"] = ["\\vdash"];
-symbols["366"] = ["\\rhd"];
-symbols["367"] = ["\\lhd"];
-symbols["368"] = ["\\unlhd"];
-symbols["369"] = ["\\unrhd"];
-symbols["370"] = ["\\asymp"];
-symbols["371"] = ["\\in"];
-symbols["372"] = ["\\forall"];
-symbols["373"] = ["\\exists"];
-symbols["374"] = ["\\smile"];
-symbols["375"] = ["\\frown"];
-symbols["376"] = ["\\amalg"];
-symbols["377"] = ["\\oslash"];
-symbols["378"] = ["\\mid"];
-symbols["379"] = ["\\nmid"];
-
-
-symbols["401"] = ["\\uparrow"];
-symbols["402"] = ["\\Uparrow"];
-symbols["403"] = ["\\downarrow"];
-symbols["404"] = ["\\Downarrow"];
-symbols["405"] = ["\\updownarrow"];
-symbols["406"] = ["\\Updownarrow"];
-symbols["407"] = ["\\nearrow"];
-symbols["408"] = ["\\searrow"];
-symbols["409"] = ["\\swarrow"];
-symbols["410"] = ["\\nwarrow"];
-symbols["411"] = ["\\leftarrow"];
-symbols["412"] = ["\\Leftarrow"];
-symbols["413"] = ["\\rightarrow"];
-symbols["414"] = ["\\Rightarrow"];
-symbols["415"] = ["\\leftrightarrow"];
-symbols["416"] = ["\\Leftrightarrow"];
-symbols["417"] = ["\\mapsto"];
-symbols["418"] = ["\\hookleftarrow"];
-symbols["419"] = ["\\hookrightarrow"];
-symbols["420"] = ["\\leftharpoonup"];
-symbols["421"] = ["\\leftharpoondown"];
-symbols["422"] = ["\\rightleftharpoons"];
-symbols["423"] = ["\\rightharpoonup"];
-symbols["424"] = ["\\rightharpoondown"];
-symbols["425"] = ["\\leadsto"];
-symbols["426"] = ["\\longrightarrow"];
-symbols["427"] = ["\\longleftarrow"];
-symbols["428"] = ["\\Longleftarrow"];
-symbols["429"] = ["\\Longrightarrow"];
-symbols["430"] = ["\\longleftrightarrow"];
-symbols["431"] = ["\\Longleftrightarrow"];
-symbols["432"] = ["\\ "];
-symbols["433"] = ["\\ "];
-
-
-symbols["901"] = ["\\sum_{${1}}^{${2}}"];
-symbols["902"] = ["\\int_{${1}}^{${2}}"];
-symbols["903"] = ["\\oint_{${1}}^{${2}}"];
-symbols["904"] = ["\\prod_{${1}}^{${2}}"];
-symbols["905"] = ["\\lim_{${1}}{${2}}"];
-symbols["906"] = ["\\frac{d}{dx}"];
-symbols["909"] = ["\\frac{\\partial}{\\partial x}"];
-symbols["910"] = ["\\infty"];
-
-
-symbols["501"] = ["\\forall"];
-symbols["502"] = ["\\exists"];
-symbols["503"] = ["\\subset"];
-symbols["504"] = ["\\supset"];
-symbols["505"] = ["\\cap"];
-symbols["506"] = ["\\cup"];
-symbols["507"] = ["\\vee"];
-symbols["508"] = ["\\wedge"];
-symbols["509"] = ["\\phi"];
-symbols["510"] = ["\\in"];
-
-
-symbols["601"] = ["\\frac{${1}}{${2}}"];
-symbols["602"] = ["\\sqrt[${1}]{${2}}"];
-symbols["603"] = ["{${1}}^{${2}}"];
-symbols["604"] = ["\\pi"];
-symbols["605"] = ["\\geq"];
-symbols["606"] = ["\\leq"];
-symbols["607"] = ["{${1}}_{${2}}"];
-symbols["608"] = ["|${1}|"];
-symbols["609"] = ["\\left( ${1}\\right)"];
-symbols["610"] = ["\\{ ${1}\\}"];
-
-
-symbols["701"] = ["\\sin"];
-symbols["702"] = ["\\cos"];
-symbols["703"] = ["\\tan"];
-symbols["704"] = ["\\cot"];
-symbols["705"] = ["\\sec"];
-symbols["706"] = ["\\csc"];
-symbols["707"] = ["\\log"];
-symbols["708"] = ["\\exp"];
-symbols["709"] = ["\\ln"];
-symbols["710"] = ["\\mathrm{${1}}"];
-
-symbols["801"] = ["\\alpha"];
-symbols["802"] = ["\\delta"];
-symbols["803"] = ["\\epsilon"];
-symbols["804"] = ["\\zeta"];
-symbols["805"] = ["\\theta"];
-symbols["806"] = ["\\lambda"];
-symbols["807"] = ["\\rho"];
-symbols["808"] = ["\\omega"];
-symbols["809"] = ["\\beta"];
-symbols["810"] = ["\\gamma"];
-symbols["811"] = ["\\begin{document}${1}\\end{document}"];
-
-defaultTab = 2;
 
 
 
@@ -304,68 +74,6 @@ function live(object, id){
 //attach listeners on keyup
 	if(object.className =="btn glyphicon glyphicon-eye-close"){
 		object.className = "btn glyphicon glyphicon-eye-open";
-	
-		/*
-		text_area.onkeyup = function (e){
-			var isMobile = {
-				Windows: function() {
-					return /IEMobile/i.test(navigator.userAgent);
-				},
-				Android: function() {
-					return /Android/i.test(navigator.userAgent);
-				},
-				BlackBerry: function() {
-					return /BlackBerry/i.test(navigator.userAgent);
-				},
-				iOS: function() {
-					return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-				},
-				any: function() {
-					return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
-				}
-			};
-			//we have a bug in android devices using chrome 
-			if(isMobile.Android()){
-				div_preview.innerHTML  = text_area.value;
-				//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-				//typejax.updater.init(latex, latex.length, result);
-				typejax.updater.init(text_area.value, text_area.value.length, div_preview);
-
-			}else{
-				//alert(e.keyCode);
-				var keycode = e.keyCode;
-				var getKeyCode = function (str) {
-					return str.charCodeAt(str.length - 1);
-			}
-
-			if (keycode == 0 || keycode == 229) { //for android chrome keycode fix
-				keycode = getKeyCode(this.value);
-				}
-				var valid = 
-					(keycode > 47 && keycode < 58)   || // number keys
-					(keycode > 64 && keycode < 91)   || // letter keys
-					(keycode > 95 && keycode < 112)  || // numpad keys
-					(keycode > 185 && keycode < 193) || // ;=,-./` (in order)
-					(keycode > 218 && keycode < 223) ||  // [\]' (in order)
-					(keycode == 8 ) ||//backspace
-					(keycode == 46) ||//delete
-					(keycode == 13) //enter
-				//var valid = (event.key.length == 1);
-				if (valid){
-					div_preview.innerHTML  = text_area.value;
-					//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-					 typejax.updater.init(text_area.value, text_area.value.length, div_preview);
-
-				}
-			}
-		};
-
-	}
-	else
-	{
-		object.className = "btn glyphicon glyphicon-eye-close";
-		text_area.onkeyup = null;
-	}*/
 
 		$(text_area).on('keyup selectionchange propertychange', function() {
 			if(object.className =="btn glyphicon glyphicon-eye-open")
@@ -428,7 +136,6 @@ function insert_txt(symbol){
 	editor.focus();
 	var snippetManager = ace.require("ace/snippets").snippetManager;
 	snippetManager.insertSnippet(editor, symbol);
-	//setCaretPosition(curr_text,curr_pos+symbols[symbol][1]);
 
 	if(is_live_on(curr_text.parentElement))
 	{
@@ -438,46 +145,6 @@ function insert_txt(symbol){
 	//MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
-function find_caret_pos(symbol)
-{
-	var pos = 0;
-	symbols.forEach( function (s)
-	{
-	    if(s[0].trim() == symbol.trim())
-	    {
-	    	pos = s[1];
-	    	if(s[2] == 3)
-	    	{
-	    		defaultTab = 3;
-	    	}else
-	    	{
-	    		defaultTab = 2;
-	    	}
-		}
-	});
-
-	return pos
-}
-
-function setCaretPosition(elem, caretPos) {
-
-    if(elem != null) {
-        if(elem.createTextRange) {
-        	console.log('yes')
-            var range = elem.createTextRange();
-            range.move('character', caretPos);
-            range.select();
-        }
-        else {
-            if(elem.selectionStart) {
-                elem.focus();
-                elem.setSelectionRange(caretPos, caretPos);
-            }
-            else
-                elem.focus();
-        }
-    }
-}
 
 
 function add(text){
@@ -581,20 +248,23 @@ function scrollToElement(element) {
 }
 
 function remove(id){
-	if(idList.length != 1){
-		currentElement = document.getElementById(id);
-		var index;
-		for(var i = 0; i<idList.length; i++)
-			if(idList[i] == currentElement.id)
-				index = i;
-			if(index>-1)
-				idList.splice(index,1);
-		//this code is to add transition effect to the removed elemnet.
-		//window.getComputedStyle(currentElement).opacity;
-		//currentElement.style.opacity=0;
-		document.getElementById(id).remove();
-		idcnt = idcnt -1 ;
-	}	
+	
+	if (idList.length != 1) {
+		var r = confirm("Do you want to remove this box ?");
+		if(r)
+		{
+			currentElement = document.getElementById(id);
+			var index;
+			for(var i = 0; i<idList.length; i++)
+				if(idList[i] == currentElement.id)
+					index = i;
+				if(index>-1)
+					idList.splice(index,1);
+			document.getElementById(id).remove();
+			idcnt = idcnt -1 ;
+		}
+		
+	}
 }
 
 function moveUp(id){
@@ -753,84 +423,6 @@ function copyToClipboard() {
 		alret("Fatal error happend."+ err.message);
 	}
 	document.body.removeChild(tempInput);
-
-	//part #2 could work only when textareas and inputs are visible!!
-
-	// var hidden_text_area = document.getElementById("hidden-text-area");
-	// hidden_text_area.value = all_text;
-	// var range = document.createRange();
-	// range.selectNode(hidden_text_area);
-	// window.getSelection().addRange(range);
-	// document.execCommand('copy');
-
-	/*
-	This part "part #2 " works fine. However, it is a little bit inefficient because it create a new div and immediately delete it. the reason for this creation is to make the selection for the window object possible!!
-	*/
-
-
-
-	/*
-	This part "part #3 " this is a simple solution. but it is not gurenteed to work on all platforms! it is getting supported by the new versions of browsers. I am not sure by the way ::))) ^_^
-	*/
-
-	//part #3 
-
-	// var hidden_text_area = document.getElementById('ctc');
-	// hidden_text_area.value = text;
-	// console.log(hidden_text_area.value);
-	// document.execCommand('copy');
-
-	/*
-	for this part "part #4" I think it is as the first part "part #1" but simpler.
-		*/
-
-	//part #4
-
-	// var ref = document.getElementById("ctc");
-	// ref.addEventListener("click",function(){
-	// 	var hidden_text_area = document.getElementById("hidden-text-area");
-	// 	hidden_text_area.value = text;
-	// 	hidden_text_area.select();
-	// 	document.execCommand('copy');
-
-
-	/*
-	for this part "part #5" It is the first solution I come up with. and we chatted on it.
-	do not get angry please, it is just the last part ::::)))) ^_^ ^^
-*/
-
-	//part #5	
-	// 		// this code below is the first method we discussed
-	// 	  // window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-
-	// 	  try {
-	// 	    var successful = document.execCommand('copy');
-	// 	    var msg = successful ? 'successful' : 'unsuccessful';
-	// 	    console.log('Copying text command was ' + msg);
-	// 	  } catch (err) {
-	// 	    console.log('Oops, unable to copy');
-	// 	  }
-	// });
-
-	/*This scrept was imported from online. Tt is aliged to be cross-browsers. I rely on that claim. you see, it just very SIMPLE !!*/
-
-	// 	var all_text = get_all_text();
-	// 	var clipboard = new Clipboard('.ctc', {
-	//         text: function() {
-	//       		alert("Copied to Clipboard !");
-
-	//             return get_all_text();
-	//         }
-	//     });
-
-	// 	//called too many times !!	
-	//     clipboard.on('success', function(e) {
-	//         //alert("Copied to Clipboard !");
-	// 	});
-
-	//     clipboard.on('error', function(e) {
-	//         console.log(e);
-	//     });    
 
 
 }

@@ -84,12 +84,12 @@
 	               <button type="button" class="btn btn-default symbols" title = "infinity" onclick="insert_txt('\\infty')" >$\infty$</button>
 	               <button type="button" class="btn btn-default symbols" title = "greater than" onclick="insert_txt('\\geq')">$\geq$</button>
 	               <button type="button" class="btn btn-default symbols" title = "less than" onclick="insert_txt('\\leq')">$\leq$</button>
-	               <button type="button" class="btn btn-default symbols" title = "sine" onclick="insert_txt('\\sin')" >$\sin$</button>
-	               <button type="button" class="btn btn-default symbols" title = "cosine" onclick="insert_txt('\\cos')">$\cos$</button>
-	               <button type="button" class="btn btn-default symbols" title = "tan" onclick="insert_txt('\\tan')">$\tan$</button>
-	               <button type="button" class="btn btn-default symbols" title = "logarithm" onclick="insert_txt('\\log')">$\log$</button>
-	               <button type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('\\exp')">$\exp$</button>
-	               <button type="button" class="btn btn-default symbols" title = "ln" onclick="insert_txt('\\ln')">$\ln$</button>
+	               <button type="button" class="btn btn-default symbols" title = "sine" onclick="insert_txt('\\sin\\left(${1}\\right)')" >$\sin$</button>
+	               <button type="button" class="btn btn-default symbols" title = "cosine" onclick="insert_txt('\\cos\\left(${1}\\right)')">$\cos$</button>
+	               <button type="button" class="btn btn-default symbols" title = "tan" onclick="insert_txt('\\tan\\left(${1}\\right)')">$\tan$</button>
+	               <button type="button" class="btn btn-default symbols" title = "logarithm" onclick="insert_txt('\\log\\left(${1}\\right)')">$\log$</button>
+	               <button type="button" class="btn btn-default symbols" title = "exponent" onclick="insert_txt('\\exp\\left(${1}\\right)')">$\exp$</button>
+	               <button type="button" class="btn btn-default symbols" title = "ln" onclick="insert_txt('\\ln\\left(${1}\\right)')">$\ln$</button>
 	               <button type="button" class="btn btn-default symbols" title = "alpha" onclick="insert_txt('\\alpha')" >$\alpha$</button>
 	               <button type="button" class="btn btn-default symbols" title = "delta" onclick="insert_txt('\\delta')">$\delta$</button>
 	               <button type="button" class="btn btn-default symbols" title = "elpsilon" onclick="insert_txt('\\epsilon')">$\epsilon$</button>
@@ -109,7 +109,7 @@
                <button type="button" class="btn glyphicon glyphicon-chevron-up" id = "toggle" onclick="toggle(this,this.parentElement.parentElement.id)" title ="toggle" style="background-color:transparent;"></button>
             </div>
             <div class="panel panel-default" style="margin-top: -11px;">
-               <div class="panel-heading" style="min-height:35px; background-color: #d6d4e5;"></div>
+               <div class="panel-heading"></div>
                <div class="preview-latex panel-body" style="overflow:auto" id ="temptextarea"></div>
             </div>
          </div>

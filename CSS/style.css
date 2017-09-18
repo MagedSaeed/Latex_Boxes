@@ -1,6 +1,6 @@
 
 body{
-	background-color: #d6d4e0;
+	background-color: #F7F9F7;
 	transition: .3s
 }
 
@@ -24,12 +24,13 @@ body{
 
 #reload {
 	color:white !important;
-	font-family: Georgia;
-	background-color: #cc0000 !important;
-	border-color: white;
+	font-family: Century Gothic;
+	background-color: #DB2555 !important;
+	font-size: 21px;
+	//border-color: white;
 	//margin-left: 0px !important;
 	float:left;
-	box-shadow: 0.5px 0.5px 4px 3px #f72727 inset;
+	//box-shadow: 0.5px 0.5px 4px 3px #f72727 inset;
 	float: left;
 }
 
@@ -51,7 +52,7 @@ body{
 }
 
 .symbols-panel{
-	background-color:#b8a9c9!important;
+	background-color:#B2DBBF!important;
 	padding-top:2px;
 	padding-bottom:1px;
 	padding-right:5px;
@@ -63,7 +64,7 @@ body{
 }
 
 #custom-navbar{
-	background-color: #622569;
+	background-color: #247BA0;
 }
 
 
@@ -77,13 +78,23 @@ body{
 
 .functions{
 	color:white !important;
+	font-family: Verdana;
+	font-size: 14px;
 }
 
 .functions:hover{
-	color:#674d3c !important;
+	background-color:#1A5B77 !important;
 }
 
-
+.panel-heading
+{
+	min-height:35px; 
+	//background-color: #70C1B3 !important;
+}
+#editor
+{
+	//background-color: #B2DBBF !important;
+}
 
 
 
