@@ -107,6 +107,7 @@
                <button type="button" class="btn glyphicon glyphicon-eye-close" title ="Live Preview" id = "live_preview" onclick="live(this,this.parentElement.parentElement.id)" style="background-color:transparent;"></button>
                <button type="button" class="btn glyphicon glyphicon-trash text-danger" id = "remove" onclick="remove(this.parentElement.parentElement.id)" title ="Remove" style="background-color:transparent;"></button>
                <button type="button" class="btn glyphicon glyphicon-chevron-up" id = "toggle" onclick="toggle(this,this.parentElement.parentElement.id)" title ="toggle" style="background-color:transparent;"></button>
+               <button type="button" class="btn glyphicon glyphicon-pause gly-rotate-90" id = "split" onclick="split(this.parentElement.parentElement.id)" title="split on current text caret" ></button>
             </div>
             <div class="panel panel-default" style="margin-top: -11px;">
                <div class="panel-heading"></div>
@@ -124,8 +125,7 @@
          // trigger extension
          var editor = ace.edit("editor");
          $("editor").on("resize", function() { editor.resize() }); 
-         
-         
+
          trigger_autocomplete(editor);
          editor.focus();
          editor.setBehavioursEnabled(true)
